@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/Battery.png-fab9c6fc08c67bc6d0434badd40db51d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Interactable Objects/Battery.png"
+dest_files=[ "res://.import/Battery.png-fab9c6fc08c67bc6d0434badd40db51d.stex" ]
 
 [params]
 

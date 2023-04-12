@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/Deadbody with grappling hook.png-f634977d086529b285f00f3e9e855669.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Story Piece/Deadbody with grappling hook.png"
+dest_files=[ "res://.import/Deadbody with grappling hook.png-f634977d086529b285f00f3e9e855669.stex" ]
 
 [params]
 

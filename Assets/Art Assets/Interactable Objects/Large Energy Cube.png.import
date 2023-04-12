@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/Large Energy Cube.png-5a8fc7d4c394f0548e9d84d1949f9b9e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Interactable Objects/Large Energy Cube.png"
+dest_files=[ "res://.import/Large Energy Cube.png-5a8fc7d4c394f0548e9d84d1949f9b9e.stex" ]
 
 [params]
 

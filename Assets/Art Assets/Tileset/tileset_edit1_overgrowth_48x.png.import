@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/tileset_edit1_overgrowth_48x.png-f5bc6af152ab38da8c4ddf9369342de0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Tileset/tileset_edit1_overgrowth_48x.png"
+dest_files=[ "res://.import/tileset_edit1_overgrowth_48x.png-f5bc6af152ab38da8c4ddf9369342de0.stex" ]
 
 [params]
 

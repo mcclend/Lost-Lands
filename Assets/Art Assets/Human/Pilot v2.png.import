@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/Pilot v2.png-6297218ddc46ec1c1097aa760a8cf606.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Human/Pilot v2.png"
+dest_files=[ "res://.import/Pilot v2.png-6297218ddc46ec1c1097aa760a8cf606.stex" ]
 
 [params]
 

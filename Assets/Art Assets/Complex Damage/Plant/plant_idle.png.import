@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex"
+path="res://.import/plant_idle.png-923f4f30b7482cac1331e84915e508e1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Mech/Mech and pilot v3.png"
-dest_files=[ "res://.import/Mech and pilot v3.png-12d8408a72265a7e9d406f51618c16d6.stex" ]
+source_file="res://Assets/Art Assets/Complex Damage/Plant/plant_idle.png"
+dest_files=[ "res://.import/plant_idle.png-923f4f30b7482cac1331e84915e508e1.stex" ]
 
 [params]
 
