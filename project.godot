@@ -1,0 +1,222 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "ActivateArea",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/ActivateArea.gd"
+}, {
+"base": "Entity",
+"class": "ActivationArea",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/ActivationArea.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Actor.gd"
+}, {
+"base": "Area2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/EntityArea.gd"
+}, {
+"base": "RayCast2D",
+"class": "Grapple",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/Grapple.gd"
+}, {
+"base": "Entity",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/Hitbox.gd"
+}, {
+"base": "Actor",
+"class": "Human",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/HumanController.gd"
+}, {
+"base": "HumanState",
+"class": "HumanGrappling",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/States/PlayerGrappling.gd"
+}, {
+"base": "HumanState",
+"class": "HumanIdle",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/States/PlayerIdle.gd"
+}, {
+"base": "HumanState",
+"class": "HumanJump",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/States/PlayerJump.gd"
+}, {
+"base": "State",
+"class": "HumanState",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/HumanState.gd"
+}, {
+"base": "StateMachine",
+"class": "HumanStateMachine",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/HumanStateMachine.gd"
+}, {
+"base": "HumanState",
+"class": "HumanWalk",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Human/States/PlayerWalk.gd"
+}, {
+"base": "Actor",
+"class": "Mech",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Mech/Mech.gd"
+}, {
+"base": "MechState",
+"class": "MechHovering",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Mech/States/MechHovering.gd"
+}, {
+"base": "MechState",
+"class": "MechNotActive",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Mech/States/MechNotActive.gd"
+}, {
+"base": "State",
+"class": "MechState",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Mech/MechState.gd"
+}, {
+"base": "StateMachine",
+"class": "MechStateMachine",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Player/Mech/MechStateMachine.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MovableObject",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/MovableObject.gd"
+}, {
+"base": "MovableObject",
+"class": "PullablePlatform",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Interactables/PullablePlatform.gd"
+}, {
+"base": "MovableObject",
+"class": "SmallMovableBlock",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Interactables/SmallMovableBlock.gd"
+}, {
+"base": "Reference",
+"class": "State",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/State Machine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/State Machine/StateMachine.gd"
+} ]
+_global_script_class_icons={
+"ActivateArea": "",
+"ActivationArea": "",
+"Actor": "",
+"Entity": "",
+"Grapple": "",
+"Hitbox": "",
+"Human": "",
+"HumanGrappling": "",
+"HumanIdle": "",
+"HumanJump": "",
+"HumanState": "",
+"HumanStateMachine": "",
+"HumanWalk": "",
+"Mech": "",
+"MechHovering": "",
+"MechNotActive": "",
+"MechState": "",
+"MechStateMachine": "",
+"MovableObject": "",
+"PullablePlatform": "",
+"SmallMovableBlock": "",
+"State": "",
+"StateMachine": ""
+}
+
+[application]
+
+config/name="Lost Lands"
+run/main_scene="res://Assets/Scenes/Levels/test.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Assets/Scripts/Utility/Global.gd"
+
+[global]
+
+collision=false
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+left_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+right_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+middle_mouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+run={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

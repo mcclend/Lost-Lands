@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CharacterHit.mp3-a78fc10803d309883dc3eb5133ae9618.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Player/Human/CharacterHit.mp3"
+dest_files=[ "res://.import/CharacterHit.mp3-a78fc10803d309883dc3eb5133ae9618.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

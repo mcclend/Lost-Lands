@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CharacterDeath.mp3-30486c6fa77c1f2bc617b50c505febeb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Player/Human/CharacterDeath.mp3"
+dest_files=[ "res://.import/CharacterDeath.mp3-30486c6fa77c1f2bc617b50c505febeb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

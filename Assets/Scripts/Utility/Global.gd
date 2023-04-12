@@ -1,0 +1,78 @@
+extends Node
+
+const SAVE_PATH = "user://save_data.json"
+const GRAVITY = 4.8 * 60
+
+signal update_health(current_health)
+signal update_max_health(max_health)
+signal update_charge(current_charge)
+signal update_max_harge(current_charge)
+signal player_died()
+signal load_save()
+
+
+onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
+var human_prefab = preload("res://Assets/Prefab/Human.tscn")
+var max_health := 100.0
+var current_health := 100.0
+var max_charge := 100.0
+var current_charge := 100.0
+var charge_depletion_rate := 0.5
+var main_scene = null
+var has_grapple := false
+var can_load := false
+var current_scene = null
+var root = null
+var file = File.new()
+
+func _ready():
+	get_tree().paused = true
+	root = get_tree().root
+	current_scene = root.get_child(root.get_child_count() - 1)
+	if file.file_exists(SAVE_PATH):
+		can_load = true
+	file.close()
+	get_tree().paused = false
+	 
+func _physics_process(delta):
+	update_values()
+
+func update_values():
+	current_health = min(current_health, max_health)
+	current_charge = min(current_charge, max_charge)
+	emit_signal("update_max_health", max_health)
+	emit_signal("update_max_charge", max_charge)
+	emit_signal("update_current_health", current_health)
+	emit_signal("update_current_charge", current_charge)
+
+func saveData(path : String):
+	var currentData = {
+		"max_health" : max_health,
+		"current_health" : current_health,
+		"max_charge" : max_charge,
+		"current_charge" : current_charge,
+		"hasGrapple" : has_grapple,
+		"currentScene" : current_scene,
+		"charge_depletion_rate" : charge_depletion_rate
+	}
+	var file
+	file = File.new()
+	file.open(path, File.WRITE)
+	file.store_line(to_json(currentData))
+	file.close()
+
+func loadData(path : String):
+	var file = File.new()
+	file.open(path, File.READ)
+	var jsonData = parse_json(file.get_as_text())
+	file.close()
+	max_health = jsonData.max_health
+	current_health = jsonData.current_health
+	max_charge = jsonData.max_charge
+	current_charge = jsonData.current_charge
+	has_grapple = jsonData.has_grapple
+	current_scene = jsonData.current_scene
+	charge_depletion_rate = jsonData.charge_depletion_rate
+	emit_signal("load_save")
+	
+	

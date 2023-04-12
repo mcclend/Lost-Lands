@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HumanHeal.mp3-8d697f9c36aa33c07b9a357f210a6375.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Player/Human/HumanHeal.mp3"
+dest_files=[ "res://.import/HumanHeal.mp3-8d697f9c36aa33c07b9a357f210a6375.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
