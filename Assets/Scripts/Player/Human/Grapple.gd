@@ -60,20 +60,20 @@ func _physics_process(_delta):
 		line.points[1] = link_point #update line
 		activate_area.position = link_point
 		cast_to = _cast_point
-	_pull_direction = line.points[0]-line.points[1]
+	_pull_direction = line.points[1]-line.points[0]
 	_pull_velocity = _pull_direction.normalized() * _PULL_STRENGTH
 	
-	if _parent.is_linked:
+	if _parent.is_linked:	
 		if _parent.is_pulling:
 			if (attached_object is MovableObject) and attached_object.can_move(_pull_direction):
 				print("can pull object")
-				attached_object.pull_velocity = _pull_velocity
+				attached_object.pull_velocity = -_pull_velocity
 				attached_object.pull = true
 			elif (attached_object is MovableObject):
 				print("can't pull object")
 				release()
 			else:
-				_parent.pull_velocity = -_pull_velocity
+				_parent.pull_velocity += _pull_velocity*_delta
 		else:
 			_parent.pull_velocity = Vector2.ZERO
 			if(attached_object is MovableObject):
@@ -88,5 +88,9 @@ func _collision_check():
 				_anchor = Node2D.new()
 				attached_object.add_child(_anchor)
 				_anchor.global_position = get_collision_point()
+				if (rad2deg((_anchor.global_position-_parent.global_position).angle()) > 75) and (rad2deg((_anchor.global_position-_parent.global_position).angle()) < 105):
+					_parent.launch_grapple_up = true
+				else:
+					_parent.launch_grapple_side = true
 				link_point = to_local(_anchor.global_position)
 				_parent.is_linked = true	

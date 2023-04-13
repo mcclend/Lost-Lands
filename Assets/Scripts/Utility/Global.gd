@@ -1,18 +1,19 @@
 extends Node
 
 const SAVE_PATH = "user://save_data.json"
-const GRAVITY = 4.8 * 60
+const GRAVITY = 300
 
 signal update_health(current_health)
 signal update_max_health(max_health)
 signal update_charge(current_charge)
 signal update_max_harge(current_charge)
+signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
 signal load_save()
 
-
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
-var human_prefab = preload("res://Assets/Prefab/Human.tscn")
+onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
+
 var max_health := 100.0
 var current_health := 100.0
 var max_charge := 100.0
@@ -39,12 +40,14 @@ func _physics_process(delta):
 	update_values()
 
 func update_values():
-	current_health = min(current_health, max_health)
-	current_charge = min(current_charge, max_charge)
+	current_health = clamp(current_health,0.0, max_health)
+	current_health = clamp(current_charge,0.0, max_charge)
+	charge_depletion_rate = clamp(charge_depletion_rate, 0.0, 100.0)
 	emit_signal("update_max_health", max_health)
 	emit_signal("update_max_charge", max_charge)
 	emit_signal("update_current_health", current_health)
 	emit_signal("update_current_charge", current_charge)
+	emit_signal("update_charge_depletion_rate", charge_depletion_rate)
 
 func saveData(path : String):
 	var currentData = {

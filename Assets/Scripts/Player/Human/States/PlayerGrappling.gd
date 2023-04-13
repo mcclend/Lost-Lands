@@ -17,6 +17,9 @@ func _init(_sm).(_sm)->void:
 	name = "Grappling"
 
 func enter(_msg:Dictionary = {})->void:
+	var sprite = player.animation_sprites.find_node("GrappleFlySideways")
+	set_sprite(sprite)
+	player.anim.play("GrapplyFlySideways")
 	_grapple = player.grapple
 	_link_point = _grapple.link_point
 	_launch_position = player.launch_point.position
@@ -45,22 +48,18 @@ func physics_process(delta:float)->void:
 	_move = player.move_and_slide(_move, Vector2.UP	)
 	_move.x *= _damping
 	state_check()
+	player.ground_update_logic()
 
 func process(delta:float)->void:
 	player.visual_process(delta)
 	state_check()
 
 func state_check()->void:
-	if player.is_grounded:
-		sm.transition_to("Idle")
-
-func _process_velocity(delta)->Vector2:
-	_angular_acceleration = ((-player.gravity*delta) / _arm_length) *sin(_angle)	#Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-	_angular_velocity += _angular_acceleration *60 * delta				#Increment velocity
-	_angular_velocity *= _damping *60 * delta								#Arbitrary damping
-	_angle += _angular_velocity *60 * delta								#Increment angle
-	
-	_new_launch_position = _link_point + Vector2(_arm_length*sin(_angle), _arm_length*cos(_angle))
-	return _new_launch_position - _launch_position
+	if !player.is_pulling:
+		if player.is_grounded:
+			if abs(player.direction.x) > 0.01:		#players movement is above treshold
+				sm.transition_to("Walk")
+		else:
+			sm.transition_to("Jump")
 
 

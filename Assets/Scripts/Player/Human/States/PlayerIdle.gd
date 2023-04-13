@@ -1,16 +1,18 @@
 extends HumanState
 class_name HumanIdle
 
+var sprite
+
 
 func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) from inherited scripts
 	name = "Idle"
 
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
+	sprite = player.animation_sprites.find_node("Idle")
+	set_sprite(sprite)
 	player.anim.play("Idle")					#call AnimationPlayer to play Idle animation
-	player.idle_sprite.visible = true
 
 func exit()->void:
-	player.idle_sprite.visible = false
 	pass
 
 func unhandled_input(event:InputEvent)->void:
@@ -18,6 +20,8 @@ func unhandled_input(event:InputEvent)->void:
 
 func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
+	if player.is_push_pull_state:
+		player.interact_object.global_position = player.push_pull_position.global_position
 
 func process(delta:float)->void:
 	player.visual_process(delta)				#Handle player turning + stretch and squash
@@ -26,6 +30,8 @@ func process(delta:float)->void:
 func state_check()->void:
 	if player.is_linked && player.is_pulling:
 		sm.transition_to("Grappling")
+	elif player.launch_grapple_up || player.launch_grapple_side:
+		sm.transition_to("LaunchGrapple")
 	elif player.is_grounded:						#player has bool variable for reading if it is on ground
 		if abs(player.direction.x) > 0.01:		#players movement is above treshold
 			sm.transition_to("Walk")			#call StateMachine to change states

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LoseScreen.mp3-8184e54d530b27ae1da7ba28b6a8e436.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Misc/LoseScreen.mp3"
+dest_files=[ "res://.import/LoseScreen.mp3-8184e54d530b27ae1da7ba28b6a8e436.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

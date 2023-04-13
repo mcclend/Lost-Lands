@@ -11,5 +11,5 @@ dest_files=[ "res://.import/CharacterLand.mp3-a46eef4da021bf69c473ceaffa9bf78f.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

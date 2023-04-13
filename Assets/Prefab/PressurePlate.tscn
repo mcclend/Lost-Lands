@@ -41,6 +41,7 @@ tracks/0/keys = {
 extents = Vector2( 30, 4 )
 
 [node name="PressurePlateSmall" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="ActivationArea" type="Area2D" parent="."]

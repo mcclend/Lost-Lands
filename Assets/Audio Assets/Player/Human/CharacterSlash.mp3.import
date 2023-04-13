@@ -11,5 +11,5 @@ dest_files=[ "res://.import/CharacterSlash.mp3-e209eff7d88d8a6a1555e02d7d3f74c2.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

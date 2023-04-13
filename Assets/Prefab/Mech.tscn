@@ -95,7 +95,7 @@ shader_param/scroll1 = Vector2( -0.5, 0.205 )
 shader_param/scroll2 = Vector2( 0.2, 0.2 )
 shader_param/color1 = Color( 1, 0, 0, 1 )
 shader_param/color2 = Color( 3, 2.67188, 0, 1 )
-shader_param/colorMixFactor = 1.86615
+shader_param/colorMixFactor = 1.78743
 shader_param/glowFactor = 1.485
 shader_param/speed = 0.844
 shader_param/xStretch = 2.858
@@ -351,7 +351,7 @@ air_acceleration = 1000.0
 [node name="Body" type="Node2D" parent="."]
 
 [node name="ActivationSprite" type="Sprite" parent="Body"]
-position = Vector2( 0, 280 )
+visible = false
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 3
@@ -359,7 +359,6 @@ vframes = 4
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="HoverSprite" type="Sprite" parent="Body"]
-visible = false
 z_index = 1
 texture = ExtResource( 2 )
 hframes = 2
@@ -379,17 +378,14 @@ polygon = PoolVector2Array( 53, -33, 67, -23, 79, -15, 84, 0, 85, 26, 77, 36, 47
 
 [node name="FloorRaycast" type="RayCast2D" parent="Body/Raycasts"]
 enabled = true
-cast_to = Vector2( 0, 478.723 )
+cast_to = Vector2( 10, 600 )
 
 [node name="HoverFlames" type="Line2D" parent="Body"]
-visible = false
-modulate = Color( 1, 1, 1, 0.290197 )
 show_behind_parent = true
 material = SubResource( 18 )
-position = Vector2( 0, 300 )
 scale = Vector2( 8, 8 )
 z_index = 1
-points = PoolVector2Array( 88, 30.1025, 59.4415, 44.1489, -0.398936, 42.8192, -75.7979, -0.265957 )
+points = PoolVector2Array( 88, 30.1025, 63, 50.8629, 7, 62.281, -70, -1.03802 )
 width = 70.0
 width_curve = SubResource( 19 )
 default_color = Color( 1, 1, 1, 0 )
@@ -422,11 +418,20 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivationArea"]
 position = Vector2( 271.277, -10.6382 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 22 )
 
 [node name="PlayerSpawnPosition" type="Position2D" parent="Body"]
 position = Vector2( 42.5532, 95.7446 )
+
+[node name="bounds" type="Node2D" parent="Body"]
+
+[node name="PositionTop" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionBottom" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionLeft" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionRight" type="Position2D" parent="Body/bounds"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -457,9 +462,6 @@ one_shot = true
 [node name="RunCooldown" type="Timer" parent="Timers"]
 wait_time = 2.0
 one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timers/RunTimer" to="." method="_on_RunTimer_timeout"]

@@ -1,19 +1,21 @@
 extends HumanState
 class_name HumanJump
 
+var is_jumping := false
+var is_falling := false
+var sprite
+
 
 
 func _init(_sm).(_sm)->void:
 	name = "Jump"
 
 func enter(_msg:Dictionary = {})->void:
-	player.anim.play("Jump")
-	player.audio.stream = preload("res://Assets/Audio Assets/Player/Human/CharacterJump.mp3")
-	player.audio.volume_db = -18.0
-	player.audio.play()
+	sprite = player.animation_sprites.find_node("Jump")
+	set_sprite(sprite)
+	pass
 
 func exit()->void:
-	player.audio.stop()
 	pass
 
 func unhandled_input(event:InputEvent)->void:
@@ -21,17 +23,35 @@ func unhandled_input(event:InputEvent)->void:
 
 func physics_process(delta:float)->void:
 	player.air_physics_process(delta)
+		
 
 func process(delta:float)->void:
 	player.visual_process(delta)
 	state_check()
 
 func state_check()->void:
+	if player.velocity.y < 0 && !is_jumping:
+		_do_jump()
+	elif player.velocity.y >= 0 && !is_falling:
+		is_falling = true
+		is_jumping = false
+		player.anim.play("fall")
 	if player.is_linked && player.is_pulling:
 		sm.transition_to("Grappling")
 	elif player.is_grounded:
+		_land()	
 		if abs(player.direction.x) > 0.01:
 			sm.transition_to("Walk")
 		else:
 			sm.transition_to("Idle")
+			
+func _do_jump():
+	player.anim.play("Jump")
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterJump.mp3"), true)
+	is_jumping = true
+	is_falling = false
+	
+func _land():
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterLand.mp3"), true, -24)
+
 

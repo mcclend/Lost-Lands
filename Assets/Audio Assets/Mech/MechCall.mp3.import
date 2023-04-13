@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MechCall.mp3-4c0e4b3fb57e5198e945fa7b25ef9748.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/MechCall.mp3"
+dest_files=[ "res://.import/MechCall.mp3-4c0e4b3fb57e5198e945fa7b25ef9748.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

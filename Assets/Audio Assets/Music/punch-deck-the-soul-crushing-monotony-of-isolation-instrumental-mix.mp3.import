@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/punch-deck-the-soul-crushing-monotony-of-isolation-instrumental-mix.mp3-08b9bd1d40a509e2c6ae0c42847e9398.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Music/punch-deck-the-soul-crushing-monotony-of-isolation-instrumental-mix.mp3"
+dest_files=[ "res://.import/punch-deck-the-soul-crushing-monotony-of-isolation-instrumental-mix.mp3-08b9bd1d40a509e2c6ae0c42847e9398.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

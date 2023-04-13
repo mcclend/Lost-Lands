@@ -4,8 +4,7 @@ class_name Human
 onready var anim:AnimationPlayer = $AnimationPlayer
 onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var sm: = $StateMachine
-onready var walk_sprite = $Body/AnimationSprites/Walk
-onready var idle_sprite = $Body/AnimationSprites/Idle
+onready var animation_sprites = $Body/AnimationSprites
 onready var launch_point = $Body/launchPoint
 onready var push_pull_position = $Body/PushPullPosition
 onready var grapple = $Grapple
@@ -13,6 +12,8 @@ var landed := false
 var velocity_previous: = Vector2.ZERO
 var is_pulling = false
 var is_linked = false
+var launch_grapple_up := false
+var launch_grapple_side := false
 var pull_velocity := Vector2.ZERO
 var can_activate_mech = false
 var can_activate_small_block = false
@@ -23,7 +24,7 @@ var mech = null
 var debugging = true
 var can_jump = true
 
-func _ready():
+func _ready():	
 	jump_buffer = $JumpBuffer
 	floor_raycast = $Body/Raycasts/FloorRaycast
 func unhandled_input(event):
@@ -50,7 +51,8 @@ func unhandled_input(event):
 			print("not_pulling")
 	elif event.is_action_pressed("interact"):
 		if can_activate_mech:
-			mech.active = true
+			mech.activate = true
+			can_activate_mech = false
 			#remove human from scene
 			queue_free()
 		elif is_push_pull_state:

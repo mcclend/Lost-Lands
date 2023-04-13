@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MechWalking.mp3-2e25d83a27c55cd3cf4cd7c121f597f6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/MechWalking.mp3"
+dest_files=[ "res://.import/MechWalking.mp3-2e25d83a27c55cd3cf4cd7c121f597f6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
