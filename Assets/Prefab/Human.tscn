@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_walk.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Scripts/Player/Human/States/PlayerGrappling.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Scripts/Utility/Hitbox.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Scripts/Player/Human/HumanActivateArea.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Scripts/Utility/Camera2D.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.5, 20 )
@@ -81,6 +82,7 @@ extents = Vector2( 2.5, 10 )
 
 [node name="Human" type="KinematicBody2D"]
 collision_layer = 2
+collision_mask = 513
 script = ExtResource( 3 )
 speed = 100.0
 
@@ -141,6 +143,23 @@ script = ExtResource( 11 )
 position = Vector2( 9.5, 0 )
 shape = SubResource( 5 )
 
+[node name="PushPullPosition" type="Position2D" parent="Body"]
+position = Vector2( 14, 9 )
+
+[node name="bounds" type="Node2D" parent="Body"]
+
+[node name="PositionTop" type="Position2D" parent="Body/bounds"]
+position = Vector2( 0, -20 )
+
+[node name="PositionBottom" type="Position2D" parent="Body/bounds"]
+position = Vector2( 0, 20 )
+
+[node name="PositionLeft" type="Position2D" parent="Body/bounds"]
+position = Vector2( -10, 0 )
+
+[node name="PositionRight" type="Position2D" parent="Body/bounds"]
+position = Vector2( 7, 0 )
+
 [node name="JumpBuffer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
@@ -149,5 +168,13 @@ one_shot = true
 
 [node name="Grapple" parent="." instance=ExtResource( 8 )]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.75, 0.75 )
+script = ExtResource( 12 )
+targetPath = NodePath("..")
+
 [connection signal="area_entered" from="Body/InteractArea" to="Body/InteractArea" method="area_entered"]
 [connection signal="area_exited" from="Body/InteractArea" to="Body/InteractArea" method="area_exited"]
+[connection signal="body_entered" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_entered"]
+[connection signal="body_exited" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_exited"]

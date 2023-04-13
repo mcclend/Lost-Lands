@@ -4,6 +4,7 @@ class_name Grapple
 signal hookedToObject(object)
 
 onready var line = $Line2D
+onready var activate_area = $ActivateArea
 
 var _pull_direction := Vector2.ZERO
 var _pull_velocity := Vector2.ZERO
@@ -42,6 +43,7 @@ func release()->void:
 	
 func _process(_delta):
 	self.enabled = _is_launching || _parent.is_linked
+	activate_area.monitoring = _is_launching || _parent.is_linked
 	line.visible = self.enabled
 	if not self.enabled: 
 		return
@@ -56,6 +58,7 @@ func _physics_process(_delta):
 		link_point = to_local(_anchor.global_position) #update link point
 		_cast_point = link_point
 		line.points[1] = link_point #update line
+		activate_area.position = link_point
 		cast_to = _cast_point
 	_pull_direction = line.points[0]-line.points[1]
 	_pull_velocity = _pull_direction.normalized() * _PULL_STRENGTH
@@ -81,8 +84,9 @@ func _collision_check():
 		if _is_launching and !_parent.is_linked:
 			_is_launching = false
 			attached_object = get_collider()
-			_anchor = Node2D.new()
-			attached_object.add_child(_anchor)
-			_anchor.global_position = get_collision_point()
-			link_point = to_local(_anchor.global_position)
-			_parent.is_linked = true	
+			if attached_object.is_in_group("CanBeGrappled"):
+				_anchor = Node2D.new()
+				attached_object.add_child(_anchor)
+				_anchor.global_position = get_collision_point()
+				link_point = to_local(_anchor.global_position)
+				_parent.is_linked = true	

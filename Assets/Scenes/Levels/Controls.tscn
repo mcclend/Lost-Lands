@@ -1,0 +1,320 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Controls.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="MainMenu" type="Button" parent="."]
+margin_left = 133.0
+margin_top = 154.0
+margin_right = 216.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Main Menu"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 82.0
+margin_top = 9.0
+margin_right = 693.0
+margin_bottom = 269.0
+rect_scale = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 0
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer"]
+margin_left = 80.0
+margin_right = 130.0
+margin_bottom = 20.0
+size_flags_horizontal = 8
+text = "Pause"
+flat = true
+
+[node name="Middle" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_right = 151.0
+margin_bottom = 20.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button3" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_right = 211.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+text = "Escape"
+flat = true
+
+[node name="Button4" type="Button" parent="GridContainer"]
+margin_left = 49.0
+margin_top = 24.0
+margin_right = 130.0
+margin_bottom = 44.0
+size_flags_horizontal = 8
+text = "Movement"
+flat = true
+
+[node name="Middle2" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 24.0
+margin_right = 151.0
+margin_bottom = 44.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button6" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 24.0
+margin_right = 304.0
+margin_bottom = 44.0
+size_flags_horizontal = 0
+text = "'WASD' or Arrow Keys"
+flat = true
+
+[node name="Button7" type="Button" parent="GridContainer"]
+margin_left = 86.0
+margin_top = 48.0
+margin_right = 130.0
+margin_bottom = 68.0
+size_flags_horizontal = 8
+text = "Jump"
+flat = true
+
+[node name="Middle3" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 48.0
+margin_right = 151.0
+margin_bottom = 68.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button9" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 48.0
+margin_right = 342.0
+margin_bottom = 68.0
+size_flags_horizontal = 0
+text = "Space, Up Arrow Key, or 'W'"
+flat = true
+
+[node name="Button2" type="Button" parent="GridContainer"]
+margin_left = 80.0
+margin_top = 72.0
+margin_right = 130.0
+margin_bottom = 92.0
+size_flags_horizontal = 8
+text = "Hover"
+flat = true
+
+[node name="Middle4" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 72.0
+margin_right = 151.0
+margin_bottom = 92.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button5" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 72.0
+margin_right = 366.0
+margin_bottom = 92.0
+size_flags_horizontal = 0
+text = "(while in air) Press + Hold Jump"
+flat = true
+
+[node name="Button8" type="Button" parent="GridContainer"]
+margin_top = 96.0
+margin_right = 130.0
+margin_bottom = 116.0
+size_flags_horizontal = 8
+text = "Run (while human)"
+flat = true
+
+[node name="Middle5" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 96.0
+margin_right = 151.0
+margin_bottom = 116.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button10" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 96.0
+margin_right = 195.0
+margin_bottom = 116.0
+size_flags_horizontal = 0
+text = "Shift"
+flat = true
+
+[node name="Button11" type="Button" parent="GridContainer"]
+margin_left = 17.0
+margin_top = 120.0
+margin_right = 130.0
+margin_bottom = 140.0
+size_flags_horizontal = 8
+text = "Toggle Between"
+flat = true
+
+[node name="Middle6" type="Button" parent="GridContainer"]
+margin_left = 139.0
+margin_top = 120.0
+margin_right = 151.0
+margin_bottom = 140.0
+size_flags_horizontal = 8
+flat = true
+
+[node name="Button12" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 120.0
+margin_right = 167.0
+margin_bottom = 140.0
+size_flags_horizontal = 0
+flat = true
+
+[node name="Button21" type="Button" parent="GridContainer"]
+margin_left = 6.0
+margin_top = 144.0
+margin_right = 130.0
+margin_bottom = 164.0
+size_flags_horizontal = 8
+text = "Human and Mech"
+flat = true
+
+[node name="Middle11" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 144.0
+margin_right = 151.0
+margin_bottom = 164.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button22" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 144.0
+margin_right = 181.0
+margin_bottom = 164.0
+size_flags_horizontal = 0
+text = "'X'"
+flat = true
+
+[node name="Button13" type="Button" parent="GridContainer"]
+margin_left = 78.0
+margin_top = 168.0
+margin_right = 130.0
+margin_bottom = 188.0
+size_flags_horizontal = 8
+text = "Attack"
+flat = true
+
+[node name="Middle7" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 168.0
+margin_right = 151.0
+margin_bottom = 188.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button14" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 168.0
+margin_right = 181.0
+margin_bottom = 188.0
+size_flags_horizontal = 0
+text = "'Z'"
+flat = true
+
+[node name="Button15" type="Button" parent="GridContainer"]
+margin_left = 31.0
+margin_top = 192.0
+margin_right = 130.0
+margin_bottom = 212.0
+size_flags_horizontal = 8
+text = "Grapple Hook"
+flat = true
+
+[node name="Middle8" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 192.0
+margin_right = 151.0
+margin_bottom = 212.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button16" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 192.0
+margin_right = 285.0
+margin_bottom = 212.0
+size_flags_horizontal = 0
+text = "Left Mouse Button"
+flat = true
+
+[node name="Button17" type="Button" parent="GridContainer"]
+margin_left = 31.0
+margin_top = 216.0
+margin_right = 130.0
+margin_bottom = 236.0
+size_flags_horizontal = 8
+text = "Move Camera"
+flat = true
+
+[node name="Middle9" type="Button" parent="GridContainer"]
+margin_left = 134.0
+margin_top = 216.0
+margin_right = 151.0
+margin_bottom = 236.0
+size_flags_horizontal = 8
+text = "-"
+flat = true
+
+[node name="Button18" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 216.0
+margin_right = 348.0
+margin_bottom = 236.0
+size_flags_horizontal = 0
+button_mask = 0
+text = "Middle Mouse Button + drag"
+flat = true
+align = 0
+
+[node name="Button19" type="Button" parent="GridContainer"]
+margin_left = 118.0
+margin_top = 240.0
+margin_right = 130.0
+margin_bottom = 260.0
+size_flags_horizontal = 8
+flat = true
+
+[node name="Middle10" type="Button" parent="GridContainer"]
+margin_left = 139.0
+margin_top = 240.0
+margin_right = 151.0
+margin_bottom = 260.0
+size_flags_horizontal = 8
+flat = true
+
+[node name="Button20" type="Button" parent="GridContainer"]
+margin_left = 155.0
+margin_top = 240.0
+margin_right = 340.0
+margin_bottom = 260.0
+size_flags_horizontal = 0
+button_mask = 0
+text = "or Alt + Movement buttons"
+flat = true
+align = 0
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]

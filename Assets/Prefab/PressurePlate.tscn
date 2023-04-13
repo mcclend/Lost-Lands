@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Art Assets/Interactable Objects/Pressure Plate.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scripts/Utility/ActivationArea.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Scripts/Interactables/PressurePlate.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Press"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 4 )
+
+[node name="PressurePlateSmall" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="ActivationArea" type="Area2D" parent="."]
+visible = false
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
+position = Vector2( 0, 46 )
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.063, 0.125 )
+texture = ExtResource( 1 )
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Press = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 60 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
+[connection signal="area_exited" from="ActivationArea" to="." method="_on_ActivationArea_area_exited"]
+[connection signal="body_entered" from="ActivationArea" to="." method="_on_ActivationArea_body_entered"]
+[connection signal="body_exited" from="ActivationArea" to="." method="_on_ActivationArea_body_exited"]

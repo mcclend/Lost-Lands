@@ -13,6 +13,7 @@ const _PULL_SPEED := 20
 
 
 func _ready():
+	add_to_group("CanBeGrappled")
 	_can_move_left = false
 	_can_move_right = false
 	_velocity = Vector2.ZERO

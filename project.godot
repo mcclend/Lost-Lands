@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Assets/Scripts/Player/Actor.gd"
 }, {
+"base": "Camera2D",
+"class": "Camera2d",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/Camera2D.gd"
+}, {
+"base": "Resource",
+"class": "ClassResource",
+"language": "GDScript",
+"path": "res://ClassResource.gd"
+}, {
 "base": "Area2D",
 "class": "Entity",
 "language": "GDScript",
@@ -104,6 +114,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Assets/Scripts/Utility/MovableObject.gd"
 }, {
+"base": "Trigger",
+"class": "PressurePlate",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Interactables/PressurePlate.gd"
+}, {
 "base": "MovableObject",
 "class": "PullablePlatform",
 "language": "GDScript",
@@ -123,11 +138,28 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://Assets/Scripts/Utility/State Machine/StateMachine.gd"
+}, {
+"base": "Node",
+"class": "StaticCanGrapple",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/StaticCanGrapple.gd"
+}, {
+"base": "Trigger",
+"class": "ToggleSwitch",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Interactables/ToggleSwitch.gd"
+}, {
+"base": "Node",
+"class": "Trigger",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Utility/Trigger.gd"
 } ]
 _global_script_class_icons={
 "ActivateArea": "",
 "ActivationArea": "",
 "Actor": "",
+"Camera2d": "",
+"ClassResource": "",
 "Entity": "",
 "Grapple": "",
 "Hitbox": "",
@@ -144,10 +176,14 @@ _global_script_class_icons={
 "MechState": "",
 "MechStateMachine": "",
 "MovableObject": "",
+"PressurePlate": "",
 "PullablePlatform": "",
 "SmallMovableBlock": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"StaticCanGrapple": "",
+"ToggleSwitch": "",
+"Trigger": ""
 }
 
 [application]
