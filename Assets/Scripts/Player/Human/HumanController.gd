@@ -27,6 +27,7 @@ var can_jump = true
 func _ready():	
 	jump_buffer = $JumpBuffer
 	floor_raycast = $Body/Raycasts/FloorRaycast
+	
 func unhandled_input(event):
 	if event.is_action("move_right"):
 		move_right = Input.get_action_strength("move_right")

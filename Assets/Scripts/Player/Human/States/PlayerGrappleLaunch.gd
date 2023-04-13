@@ -24,15 +24,15 @@ func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
 
 func physics_process(delta:float)->void:
-	state_check()
 	player.ground_update_logic()
+	state_check()
+	
 
 func process(delta:float)->void:
 	player.visual_process(delta)
-	state_check()
+
 
 func state_check()->void:
-	sm.transition_to("Grappling")
 	if player.anim.is_playing():
 		yield(player.anim, "animation_finished")
 	sm.transition_to("Grappling")

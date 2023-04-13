@@ -36,19 +36,14 @@ func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
 
 func physics_process(delta:float)->void:
-	_pull_velocity = player.pull_velocity
-	_launch_position = player.launch_point.global_position #update launch position
-	#_new_launch_position = _launch_position - (_pull_velocity*delta)
-	_move += _pull_velocity
-	_move.y += player.gravity * delta
-	_move.y = max(_move.y, player.jump_impulse)
-		
-	#_arm_length = Vector2.ZERO.distance_to(_new_launch_position -_link_point)
-	#_move += _process_velocity(delta)
-	_move = player.move_and_slide(_move, Vector2.UP	)
-	_move.x *= _damping
-	state_check()
 	player.ground_update_logic()
+	state_check()
+	_pull_velocity = player.pull_velocity
+	player.velocity += _pull_velocity*delta
+	player.air_physics_process(delta)
+	player.velocity.x *= _damping
+	
+	
 
 func process(delta:float)->void:
 	player.visual_process(delta)
@@ -59,7 +54,7 @@ func state_check()->void:
 		if player.is_grounded:
 			if abs(player.direction.x) > 0.01:		#players movement is above treshold
 				sm.transition_to("Walk")
-		else:
-			sm.transition_to("Jump")
+			else:
+				sm.transition_to("Idle")
 
 

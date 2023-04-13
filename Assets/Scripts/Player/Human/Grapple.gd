@@ -21,7 +21,7 @@ var _cast_point := cast_to
 var link_point = null
 var _anchor
 
-const _PULL_STRENGTH = 75
+const _PULL_STRENGTH = 2000
 
 
 func launch(target)->void:
@@ -73,7 +73,7 @@ func _physics_process(_delta):
 				print("can't pull object")
 				release()
 			else:
-				_parent.pull_velocity += _pull_velocity*_delta
+				_parent.pull_velocity = _pull_velocity
 		else:
 			_parent.pull_velocity = Vector2.ZERO
 			if(attached_object is MovableObject):

@@ -524,11 +524,10 @@ position = Vector2( 6, -21 )
 [node name="Raycasts" type="Node2D" parent="Body"]
 
 [node name="FloorRaycast" type="RayCast2D" parent="Body/Raycasts"]
-position = Vector2( 0, 22.17 )
-scale = Vector2( 1, 2 )
+position = Vector2( 0, 8 )
+scale = Vector2( 3.377, 1 )
 enabled = true
-cast_to = Vector2( 0, 10 )
-collide_with_areas = true
+cast_to = Vector2( 0, 18 )
 
 [node name="InteractArea" type="Area2D" parent="Body"]
 visible = false

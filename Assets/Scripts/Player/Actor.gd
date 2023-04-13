@@ -90,7 +90,7 @@ func collision_logic()->void:
 
 func ground_update_logic()->void:
 	floor_raycast.force_raycast_update()
-	var temp_grounded:bool = floor_raycast.is_colliding() || is_on_floor()
+	var temp_grounded:bool = floor_raycast.is_colliding()
 	if is_grounded && !temp_grounded:					#just lost ground
 		snap = Vector2.ZERO
 		if !jump:
