@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PickUpItem.mp3-cc20eee5e3b90e7b4af5b2292ea07632.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/PickUpItem.mp3"
+dest_files=[ "res://.import/PickUpItem.mp3-cc20eee5e3b90e7b4af5b2292ea07632.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

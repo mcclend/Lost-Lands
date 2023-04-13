@@ -7,6 +7,7 @@ var move_return := false
 
 onready var tween = $MoveTween
 
+
 const _MAX_PULL_DIST := 200.0
 const _RETURN_SPEED := -10.0
 const _PULL_SPEED := 20
@@ -36,6 +37,8 @@ func _physics_process(delta):
 		if collision and collision.collider is Actor:
 			collision.collider.set("velocity", collision.collider.get("velocity")+_velocity)
 		global_position.x = start_position.x
+		$Vines/RightVine.region_rect.size.y = abs(Vector2.ZERO.distance_to(global_position - start_position)+58)
+		$Vines/LeftVine.region_rect.size.y = abs(Vector2.ZERO.distance_to(global_position - start_position)+58)
 		if abs(Vector2.ZERO.distance_to(global_position - start_position)) < 1.0:
 			move_return = false
 		else: move_return = true

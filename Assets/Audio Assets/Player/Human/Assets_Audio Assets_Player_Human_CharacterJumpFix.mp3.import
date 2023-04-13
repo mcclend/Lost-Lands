@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3-d8080e926572b83821c15a7af82f2aa3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3"
+dest_files=[ "res://.import/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3-d8080e926572b83821c15a7af82f2aa3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

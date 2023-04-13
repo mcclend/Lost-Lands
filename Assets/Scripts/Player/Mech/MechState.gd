@@ -19,4 +19,14 @@ func set_sprite(sprite):
 	for i in player.animation_sprites.get_children():
 		if i == sprite:i.visible = true
 		else:i.visible = false
+<<<<<<< Updated upstream
 
+=======
+		
+func play_audio(audio:AudioStream, immediate:bool = false, volume:float = -18):
+	player.audio.volume_db = volume
+	if player.audio.playing and !immediate:
+		yield(player.audio, "finished")
+	player.audio.stream = audio
+	player.audio.play()
+>>>>>>> Stashed changes

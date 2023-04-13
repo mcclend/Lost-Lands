@@ -502,7 +502,6 @@ shape = SubResource( 22 )
 
 [node name="PlayerSpawnPosition" type="Position2D" parent="Body/Positions"]
 position = Vector2( 42.5532, 95.7446 )
-scale = Vector2( 1, 1 )
 
 [node name="InteractObjectPosition_1" type="Position2D" parent="Body/Positions"]
 position = Vector2( 829.787, -63.8298 )
@@ -517,7 +516,6 @@ position = Vector2( 553.192, 53.1915 )
 scale = Vector2( 10.638, 10.638 )
 
 [node name="bounds" type="Node2D" parent="Body/Positions"]
-scale = Vector2( 1, 1 )
 
 [node name="PositionTop" type="Position2D" parent="Body/Positions/bounds"]
 
@@ -527,10 +525,13 @@ scale = Vector2( 1, 1 )
 
 [node name="PositionRight" type="Position2D" parent="Body/Positions/bounds"]
 
+[node name="PlaceObjectPosition" type="Position2D" parent="Body/Positions"]
+position = Vector2( 1478.72, 85.1064 )
+
 [node name="Animations" type="Node2D" parent="Body"]
 
 [node name="ActivationSprite" type="Sprite" parent="Body/Animations"]
-scale = Vector2( 1, 1 )
+visible = false
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 3
@@ -538,19 +539,18 @@ vframes = 4
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="MoveObjectSprite" type="Sprite" parent="Body/Animations"]
-visible = false
 position = Vector2( 30, -60 )
 scale = Vector2( 32, 32 )
 z_index = 1
 texture = ExtResource( 10 )
 hframes = 2
 vframes = 3
+frame = 5
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="HoverSprite" type="Sprite" parent="Body/Animations"]
 visible = false
 position = Vector2( 0, -63.8298 )
-scale = Vector2( 1, 1 )
 z_index = 1
 texture = ExtResource( 2 )
 hframes = 2
@@ -562,7 +562,6 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivateArea"]
 position = Vector2( 409.894, 42.5531 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 25 )
 
 [node name="RunFlames" type="Line2D" parent="Body"]
@@ -603,6 +602,8 @@ script = ExtResource( 9 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 scale = Vector2( 7.121, 7.678 )
@@ -627,6 +628,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 drag_margin_v_enabled = true
+smoothing_enabled = true
 drag_margin_left = 0.45
 drag_margin_top = 0.45
 drag_margin_right = 0.45

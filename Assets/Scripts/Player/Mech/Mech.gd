@@ -3,6 +3,7 @@ class_name Mech
 
 onready var anim:AnimationPlayer = $AnimationPlayer
 onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
+onready var audio2:AudioStreamPlayer2D = $AudioStreamPlayer2D2
 onready var sm: = $StateMachine
 onready var animation_sprites = $Body/Animations
 onready var activation_sprite = $Body/Animations/ActivationSprite
@@ -15,6 +16,7 @@ onready var player_spawn_position = $Body/Positions/PlayerSpawnPosition
 onready var interact_object_position_1 = $Body/Positions/InteractObjectPosition_1
 onready var interact_object_position_2 = $Body/Positions/InteractObjectPosition_2
 onready var interact_object_position_3 = $Body/Positions/InteractObjectPosition_3
+onready var place_object_position = $Body/Positions/PlaceObjectPosition
 onready var camera = $Camera2D
 
 
@@ -62,19 +64,26 @@ func unhandled_input(event):
 			_on_RunTimer_timeout()
 	elif event.is_action_pressed("interact"):
 		if can_activate_small_block_1:
+			Global.play_audio(preload("res://Assets/Audio Assets/Mech/PickUpItem.mp3"), audio2, true)
 			move_object_1 = true
 			can_activate_small_block_1 = false
 		elif can_activate_small_block_2:
+			Global.play_audio(preload("res://Assets/Audio Assets/Mech/PickUpItem.mp3"), audio2, true)
 			move_object_2 = true
 			can_activate_small_block_2 = false
 		elif can_activate_large_block:
+			Global.play_audio(preload("res://Assets/Audio Assets/Mech/PickUpItem.mp3"), audio2, true)
 			move_object_1 = true
 			can_activate_large_block = false
 		elif move_object_2: #drop object 2
+			#interact_object_2.global_position = place_object_position.global_position
+			interact_object_2.remove_collision_exception_with(self)
 			move_object_2 = false
 			interact_object_2 = null
 		elif move_object_1: #drop object 1
 			move_object_1 = false
+			#interact_object_1.global_position = place_object_position.global_position
+			interact_object_1.remove_collision_exception_with(self)
 			interact_object_1 = null
 			
 	elif event.is_action_released("w_interact"):

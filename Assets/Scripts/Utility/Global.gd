@@ -79,5 +79,12 @@ func loadData(path : String):
 	current_scene = jsonData.current_scene
 	charge_depletion_rate = jsonData.charge_depletion_rate
 	emit_signal("load_save")
+
+func play_audio(audio:AudioStream, audio_player:AudioStreamPlayer2D, immediate:bool = false, volume:float = -18):
+	audio_player.volume_db = volume
+	if audio_player.playing and !immediate:
+		yield(audio_player, "finished")
+	audio_player.stream = audio
+	audio_player.play()
 	
 	
