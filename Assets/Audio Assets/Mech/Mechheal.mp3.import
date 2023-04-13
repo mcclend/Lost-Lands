@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mechheal.mp3-507b630118a3f00f6f66ce2a12bf9ee9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/Mechheal.mp3"
+dest_files=[ "res://.import/Mechheal.mp3-507b630118a3f00f6f66ce2a12bf9ee9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlantHit.mp3-cbb81526e7fd0ccb81226aa5eeab585f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Plant Sounds/PlantHit.mp3"
+dest_files=[ "res://.import/PlantHit.mp3-cbb81526e7fd0ccb81226aa5eeab585f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

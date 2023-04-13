@@ -17,6 +17,9 @@ func _init(_sm).(_sm)->void:
 	name = "Grappling"
 
 func enter(_msg:Dictionary = {})->void:
+	var sprite = player.animation_sprites.find_node("GrappleFlySideways")
+	set_sprite(sprite)
+	player.anim.play("GrapplyFlySideways")
 	_grapple = player.grapple
 	_link_point = _grapple.link_point
 	_launch_position = player.launch_point.position
@@ -33,34 +36,25 @@ func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
 
 func physics_process(delta:float)->void:
-	_pull_velocity = player.pull_velocity
-	_launch_position = player.launch_point.global_position #update launch position
-	#_new_launch_position = _launch_position - (_pull_velocity*delta)
-	_move += _pull_velocity
-	_move.y += player.gravity * delta
-	_move.y = max(_move.y, player.jump_impulse)
-		
-	#_arm_length = Vector2.ZERO.distance_to(_new_launch_position -_link_point)
-	#_move += _process_velocity(delta)
-	_move = player.move_and_slide(_move, Vector2.UP	)
-	_move.x *= _damping
+	player.ground_update_logic()
 	state_check()
+	_pull_velocity = player.pull_velocity
+	player.velocity += _pull_velocity*delta
+	player.air_physics_process(delta)
+	player.velocity.x *= _damping
+	
+	
 
 func process(delta:float)->void:
 	player.visual_process(delta)
 	state_check()
 
 func state_check()->void:
-	if player.is_grounded:
-		sm.transition_to("Idle")
-
-func _process_velocity(delta)->Vector2:
-	_angular_acceleration = ((-player.gravity*delta) / _arm_length) *sin(_angle)	#Calculate acceleration (see: http://www.myphysicslab.com/pendulum1.html)
-	_angular_velocity += _angular_acceleration *60 * delta				#Increment velocity
-	_angular_velocity *= _damping *60 * delta								#Arbitrary damping
-	_angle += _angular_velocity *60 * delta								#Increment angle
-	
-	_new_launch_position = _link_point + Vector2(_arm_length*sin(_angle), _arm_length*cos(_angle))
-	return _new_launch_position - _launch_position
+	if !player.is_pulling:
+		if player.is_grounded:
+			if abs(player.direction.x) > 0.01:		#players movement is above treshold
+				sm.transition_to("Walk")
+			else:
+				sm.transition_to("Idle")
 
 

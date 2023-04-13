@@ -1,12 +1,16 @@
 extends MechState
 class_name MechHovering
 
+var local_velocity = Vector2.ZERO
+const SPEED = 100
+
 
 func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) from inherited scripts
+	player.gravity = 0
 	name = "MechHovering"
 
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
-	#player.anim.play("MechHover")					#call AnimationPlayer to play Idle animation
+	player.activate = false
 	pass
 	
 
@@ -24,5 +28,5 @@ func process(delta:float)->void:
 	state_check()								#call check method if state need to be changed
 
 func state_check()->void:
-	if player.active == false:
+	if player.deactivate == true:
 		sm.transition_to("MechNotActive")

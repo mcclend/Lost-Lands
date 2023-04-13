@@ -1,19 +1,21 @@
 extends HumanState
 class_name HumanWalk
 
+var sprite
+
 
 func _init(_sm).(_sm)->void:
 	name = "Walk"
 
 func enter(_msg:Dictionary = {})->void:
+	sprite = player.animation_sprites.find_node("Walk")
+	set_sprite(sprite)
 	player.anim.play("Walk")
-	player.audio.stream = preload("res://Assets/Audio Assets/Player/Human/walking.mp3")
-	player.audio.volume_db = -18.0
-	player.audio.play()
-	player.walk_sprite.visible = true
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/walking.mp3"), true)
+	
+	
 
 func exit()->void:
-	player.walk_sprite.visible = false
 	player.audio.stop()
 	pass
 
@@ -22,6 +24,9 @@ func unhandled_input(event:InputEvent)->void:
 
 func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
+	if player.is_push_pull_state:
+		player.interact_object.add_collision_exception_with(player)
+		player.interact_object.global_position = player.push_pull_position.global_position
 
 func process(delta:float)->void:
 	player.visual_process(delta)
@@ -35,3 +40,4 @@ func state_check()->void:
 			sm.transition_to("Idle")
 	else:
 		sm.transition_to("Jump")
+

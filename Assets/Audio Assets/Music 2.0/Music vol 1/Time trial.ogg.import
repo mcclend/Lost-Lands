@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Time trial.ogg-9c78a45e976f3d3e6524efe6565c70ed.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Music 2.0/Music vol 1/Time trial.ogg"
+dest_files=[ "res://.import/Time trial.ogg-9c78a45e976f3d3e6524efe6565c70ed.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

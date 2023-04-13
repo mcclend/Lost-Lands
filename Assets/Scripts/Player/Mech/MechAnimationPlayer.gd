@@ -1,6 +1,7 @@
 extends AnimationPlayer
 
 var play_next := false
+onready var mech = $".."
 
 func activate():
 	play("MechActivate")
@@ -12,4 +13,6 @@ func deactivate():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "MechActivate":
 		if play_next:
+			mech.active = true
 			play("MechHover")
+

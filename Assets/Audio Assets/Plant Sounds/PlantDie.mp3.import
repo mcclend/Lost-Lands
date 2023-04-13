@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlantDie.mp3-e8ba3359234476bee424275305f053df.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Plant Sounds/PlantDie.mp3"
+dest_files=[ "res://.import/PlantDie.mp3-e8ba3359234476bee424275305f053df.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

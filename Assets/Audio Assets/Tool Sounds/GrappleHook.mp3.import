@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GrappleHook.mp3-dcd776175d4f51cf301ba904017ca1ca.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Tool Sounds/GrappleHook.mp3"
+dest_files=[ "res://.import/GrappleHook.mp3-dcd776175d4f51cf301ba904017ca1ca.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -23,6 +23,9 @@ export (Array, NodePath) var bottom_rays:Array
 const FRICTION = 0.9
 const MOVE_THRESHOLD = 10
 
+func _ready():
+	add_to_group("CanBeGrappled")
+
 
 	
 func _physics_process(_delta):

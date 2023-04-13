@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Scripts/Player/Human/Grapple.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scripts/Player/Human/GrappleActivateArea.gd" type="Script" id=2]
 
 [sub_resource type="Shader" id=7]
 code = "shader_type canvas_item;
@@ -99,6 +100,9 @@ glow_hdr_threshold = 1.91
 glow_hdr_luminance_cap = 55.89
 glow_hdr_scale = 1.6
 
+[sub_resource type="CircleShape2D" id=18]
+radius = 7.0
+
 [node name="Grapple" type="RayCast2D"]
 script = ExtResource( 1 )
 
@@ -112,3 +116,11 @@ end_cap_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 17 )
+
+[node name="ActivateArea" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateArea"]
+shape = SubResource( 18 )
+
+[connection signal="area_entered" from="ActivateArea" to="ActivateArea" method="_on_ActivateArea_area_entered"]

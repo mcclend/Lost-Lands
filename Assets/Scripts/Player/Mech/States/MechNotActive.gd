@@ -9,11 +9,14 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 	activation_sprite = player.activation_sprite
 	hover_sprite = player.hover_sprite
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
+	player.velocity.x = 0
 	player.anim.deactivate()
 	var spawn_player = Global.human_prefab.instance()
 	spawn_player.global_position = player.player_spawn_position.global_position
 	print("SPAWN POSITION", spawn_player.position)
 	Global.current_scene.add_child(spawn_player)
+	player.deactivate = false
+	player.active = false
 	
 	
 
@@ -33,5 +36,5 @@ func process(delta:float)->void:
 	state_check()								#call check method if state need to be changed
 
 func state_check()->void:
-	if player.active == true:
+	if player.activate == true:
 		sm.transition_to("MechHovering")

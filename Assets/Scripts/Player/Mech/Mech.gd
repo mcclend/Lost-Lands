@@ -11,7 +11,11 @@ onready var run_cooldown = $Timers/RunCooldown
 onready var run_flames = $Body/RunFlames
 onready var player_spawn_position = $Body/PlayerSpawnPosition
 
+
+
 var active := false
+var activate := false
+var deactivate := false
 var ready := false
 var velocity_previous: = Vector2.ZERO
 var can_run := true
@@ -25,8 +29,9 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	jump_buffer = $Timers/RunTimer
 	floor_raycast = $Body/Raycasts/FloorRaycast
+	
 func unhandled_input(event):
-	if !active:
+	if active == false:
 		return
 	if event.is_action("move_right"):
 		move_right = Input.get_action_strength("move_right")
@@ -46,7 +51,7 @@ func unhandled_input(event):
 			
 	elif event.is_action_released("ui_accept"):
 		#deactivate
-		active = false
+		deactivate = true
 	
 
 func visual_process(delta):
@@ -54,9 +59,6 @@ func visual_process(delta):
 		body.scale.x = sign(direction.x) * abs(body.scale.x)
 	velocity_previous = velocity
 	
-func activate():
-	pass
-
 
 func _on_RunTimer_timeout():
 	if running:
@@ -66,7 +68,6 @@ func _on_RunTimer_timeout():
 		can_run = false
 		running = false
 		run_cooldown.start()
-
 
 func _on_RunCooldown_timeout():
 	can_run = true

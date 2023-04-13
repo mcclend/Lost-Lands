@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mechDeath.mp3-698a20aa3996eec420d62fc8f621d9c9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/mechDeath.mp3"
+dest_files=[ "res://.import/mechDeath.mp3-698a20aa3996eec420d62fc8f621d9c9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
