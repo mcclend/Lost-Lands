@@ -11,6 +11,7 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
 	player.activate = false
+	play_audio(preload("res://Assets/Audio Assets/Mech/Hover.mp3"), true, -24)
 	pass
 	
 

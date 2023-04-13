@@ -54,7 +54,7 @@ func damage()->void:
 	anim.play("Idle")
 	visible = false
 	audio.volume_db = 0.0
-	audio.stream = preload("res://assets/Die.wav")
+	audio.stream = preload("res://Assets/Audio Assets/Player/Human/CharacterDeath.mp3")
 	audio.play()
 	yield(audio, "finished")
 	#Event.emit_signal("reset")

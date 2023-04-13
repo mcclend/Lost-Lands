@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MechOff.mp3-7bd80a02d5aff2ad565dedbfec630d9f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Mech/MechOff.mp3"
+dest_files=[ "res://.import/MechOff.mp3-7bd80a02d5aff2ad565dedbfec630d9f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

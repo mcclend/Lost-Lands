@@ -47,11 +47,11 @@ func state_check()->void:
 			
 func _do_jump():
 	player.anim.play("Jump")
-	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterJump.mp3"), true)
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterJumpFix.mp3"), true)
 	is_jumping = true
 	is_falling = false
 	
 func _land():
-	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterLand.mp3"), true, -24)
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterLandFix.mp3"), true)
 
 
