@@ -26,6 +26,7 @@ var can_load := false
 var current_scene = null
 var root = null
 var file = File.new()
+var current_camera = null
 
 func _ready():
 	get_tree().paused = true

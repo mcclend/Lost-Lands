@@ -9,6 +9,8 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 	activation_sprite = player.activation_sprite
 	hover_sprite = player.hover_sprite
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
+	var sprite = player.animation_sprites.find_node("ActivationSprite")
+	set_sprite(sprite)
 	player.velocity.x = 0
 	player.anim.deactivate()
 	var spawn_player = Global.human_prefab.instance()
@@ -22,6 +24,7 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 
 func exit()->void:
 	player.anim.activate()
+	player.camera.current = true
 
 
 func unhandled_input(event:InputEvent)->void:
