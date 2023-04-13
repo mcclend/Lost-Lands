@@ -42,3 +42,4 @@ position = Vector2( 1284, 129 )
 
 [node name="PullablePlatform" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1769, 48 )
+mass = 500.0

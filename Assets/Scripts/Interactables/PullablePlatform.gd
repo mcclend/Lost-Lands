@@ -1,16 +1,14 @@
 extends MovableObject
 class_name PullablePlatform
 
-export var start_position : Vector2
+export (float) var max_pull_dist = 200
+export (float) var return_speed = -10
 var _end_position : Vector2
 var move_return := false
+var start_position = null
 
 onready var tween = $MoveTween
 
-
-const _MAX_PULL_DIST := 200.0
-const _RETURN_SPEED := -10.0
-const _PULL_SPEED := 20
 
 
 func _ready():
@@ -19,8 +17,7 @@ func _ready():
 	_can_move_right = false
 	_velocity = Vector2.ZERO
 	start_position = position
-	_end_position = start_position + Vector2(0, _MAX_PULL_DIST)
-	mass = 120.0
+	_end_position = start_position + Vector2(0, max_pull_dist)
 	use_gravity = false
 
 func _physics_process(delta):
@@ -29,7 +26,7 @@ func _physics_process(delta):
 		if mass == 0: mass = 1.0
 		var move_to = lerp(global_position,start_position,delta)
 		if !pull:
-			_velocity -= (move_to-global_position).normalized() * _RETURN_SPEED	
+			_velocity -= (move_to-global_position).normalized() * return_speed	
 		else:
 			_velocity += pull_velocity / mass
 		_velocity.x = 0
@@ -46,16 +43,6 @@ func _physics_process(delta):
 	else:
 		_velocity = Vector2.ZERO
 		global_position = start_position
-	"""
-	if pull:
-		print("here")
-		#global_transform.origin.y += _PULL_SPEED
-		_init_tween(_PULL_SPEED, _end_position)
-	elif abs(Vector2.ZERO.distance_to(global_position - start_position)) > 10:
-		#global_transform.origin.y += _RETURN_SPEED
-		_init_tween(_RETURN_SPEED, start_position)
-	position.x = start_position.x
-	"""
 	
 
 			
@@ -68,7 +55,7 @@ func _init_tween(force, _end_position):
 #override
 func can_move(dir : Vector2)->bool:
 	var _pulled_dist = abs(Vector2.ZERO.distance_to(global_position - start_position))
-	if(_pulled_dist > _MAX_PULL_DIST):
+	if(_pulled_dist > max_pull_dist):
 		return false
 	return true
 func _collision_check():

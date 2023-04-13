@@ -47,19 +47,11 @@ func state_check()->void:
 			
 func _do_jump():
 	player.anim.play("Jump")
-<<<<<<< Updated upstream
-	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterJumpFix.mp3"), true)
-=======
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3"), true)
->>>>>>> Stashed changes
 	is_jumping = true
 	is_falling = false
 	
 func _land():
-<<<<<<< Updated upstream
-	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterLandFix.mp3"), true)
-=======
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterLandFix.mp3"), true, -24)
->>>>>>> Stashed changes
 
 
