@@ -1,77 +1,73 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Art Assets/Interactable Objects/Medium Energy Cube.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Scripts/Interactables/SmallMovableBlock.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art Assets/Interactable Objects/Large Energy Cube.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scripts/Interactables/LargeMovableBlock.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 7 )
 
-[node name="SmallMovableBlock" type="KinematicBody2D"]
+[node name="LargeMovableBlock" type="KinematicBody2D"]
 z_index = 1
 script = ExtResource( 2 )
-debugging = false
-left_rays = [ NodePath("RayCast2D_LT"), NodePath("RayCast2D_LB") ]
-right_rays = [ NodePath("RayCast2D_RT"), NodePath("RayCast2D_RB") ]
-top_rays = [ NodePath("RayCast2D_TL"), NodePath("RayCast2D_TR") ]
-bottom_rays = [ NodePath("RayCast2D_BL"), NodePath("RayCast2D_BR") ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 3
 vframes = 4
 
 [node name="RayCast2D_TL" type="RayCast2D" parent="."]
-position = Vector2( -11.65, -12 )
+position = Vector2( -20.5, -21 )
 rotation = 3.14159
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_TR" type="RayCast2D" parent="."]
-position = Vector2( 11.65, -12 )
+position = Vector2( 20.5, -21 )
 rotation = 3.14159
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_BL" type="RayCast2D" parent="."]
-position = Vector2( -11.65, 12 )
+position = Vector2( -20.5, 21 )
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_BR" type="RayCast2D" parent="."]
-position = Vector2( 11.65, 12 )
+position = Vector2( 20.5, 21 )
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_RT" type="RayCast2D" parent="."]
-position = Vector2( 12, -11.65 )
+position = Vector2( 21, -20.5 )
 rotation = -1.72788
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_RB" type="RayCast2D" parent="."]
-position = Vector2( 12, 11.65 )
+position = Vector2( 21, 20.5 )
 rotation = -1.72788
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_LB" type="RayCast2D" parent="."]
-position = Vector2( -12, 11.65 )
+position = Vector2( -21, 20.5 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 
 [node name="RayCast2D_LT" type="RayCast2D" parent="."]
-position = Vector2( -12, -11.65 )
+position = Vector2( -21, -20.5 )
 rotation = 1.57743
 scale = Vector2( 0.5, 0.5 )
 enabled = true
