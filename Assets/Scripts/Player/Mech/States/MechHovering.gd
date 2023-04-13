@@ -15,6 +15,7 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	var sprite = player.animation_sprites.find_node("HoverSprite")
 	set_sprite(sprite)
 	player.activate = false
+	play_audio(preload("res://Assets/Audio Assets/Mech/Hover.mp3"), true, -24)
 	pass
 	
 
