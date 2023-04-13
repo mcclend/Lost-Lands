@@ -15,4 +15,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if play_next:
 			mech.active = true
 			play("MechHover")
+	elif anim_name == "MechHoldObject":
+		play("MechHoldHover")
 

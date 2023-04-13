@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Mech/Mech_Activate(1).png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Mech/Mech_Hover.png" type="Texture" id=2]
@@ -9,6 +9,14 @@
 [ext_resource path="res://Assets/Scripts/Utility/Hitbox.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Scripts/Utility/ActivationArea.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Scripts/Player/Mech/MechAnimationPlayer.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Art Assets/Mech/Mech_Push.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Scripts/Player/Mech/MechActivateArea.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 239.362, 478.723 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 419.893, 595.744 )
 
 [sub_resource type="Shader" id=7]
 code = "shader_type canvas_item;
@@ -89,27 +97,6 @@ height = 1024
 noise = SubResource( 14 )
 noise_offset = Vector2( 0, 5 )
 
-[sub_resource type="ShaderMaterial" id=18]
-shader = SubResource( 7 )
-shader_param/scroll1 = Vector2( -0.5, 0.205 )
-shader_param/scroll2 = Vector2( 0.2, 0.2 )
-shader_param/color1 = Color( 1, 0, 0, 1 )
-shader_param/color2 = Color( 3, 2.67188, 0, 1 )
-shader_param/colorMixFactor = 1.78743
-shader_param/glowFactor = 1.485
-shader_param/speed = 0.844
-shader_param/xStretch = 2.858
-shader_param/yStretch = 0.347
-shader_param/minAlpha = 0.522
-shader_param/lazerSize = 0.7
-shader_param/wobbliness = 0.419
-shader_param/NOISE_PATTERN1 = SubResource( 9 )
-shader_param/NOISE_PATTERN2 = SubResource( 11 )
-shader_param/TRANSPARENCY_VARIATION = SubResource( 15 )
-
-[sub_resource type="Curve" id=19]
-_data = [ Vector2( 0, 0.190909 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
 [sub_resource type="ShaderMaterial" id=20]
 shader = SubResource( 7 )
 shader_param/scroll1 = Vector2( -0.747, 0 )
@@ -131,15 +118,33 @@ shader_param/TRANSPARENCY_VARIATION = SubResource( 15 )
 [sub_resource type="Curve" id=21]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 239.362, 478.723 )
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 7 )
+shader_param/scroll1 = Vector2( -0.5, 0.205 )
+shader_param/scroll2 = Vector2( 0.2, 0.2 )
+shader_param/color1 = Color( 1, 0, 0, 1 )
+shader_param/color2 = Color( 3, 2.67188, 0, 1 )
+shader_param/colorMixFactor = 1.742
+shader_param/glowFactor = 1.485
+shader_param/speed = 0.844
+shader_param/xStretch = 2.858
+shader_param/yStretch = 0.347
+shader_param/minAlpha = 0.522
+shader_param/lazerSize = 0.7
+shader_param/wobbliness = 0.419
+shader_param/NOISE_PATTERN1 = SubResource( 9 )
+shader_param/NOISE_PATTERN2 = SubResource( 11 )
+shader_param/TRANSPARENCY_VARIATION = SubResource( 15 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0.190909 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MechActivate"
 length = 1.05
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/ActivationSprite:frame")
+tracks/0/path = NodePath("Body/Animations/ActivationSprite:frame")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -151,7 +156,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 6, 5, 7, 8, 9, 11 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/ActivationSprite:position")
+tracks/1/path = NodePath("Body/Animations/ActivationSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -210,29 +215,98 @@ tracks/5/keys = {
 "update": 1,
 "values": [ PoolVector2Array( 88, 30.1025, 59.4415, 44.1489, -0.398936, 42.8192, -75.7979, -0.265957 ), PoolVector2Array( 88, 30.1025, 59.4415, 44.1489, -0.398936, 42.8192, -70, -1.03802 ), PoolVector2Array( 88, 30.1025, 63, 50.8629, 0, 54.9202, -70, -1.03802 ) ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Body/ActivationSprite:visible")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.14, 0.15, 0.94, 0.95, 1.03, 1.04 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ true, false, true, true, false, true, false ]
+
+[sub_resource type="Animation" id=24]
+resource_name = "MechHoldHover"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionPolygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 98.5996, -20.7833, 101.587, -5.54222, 103.081, 19.3978, 47.8059, 48.4945, -8.9636, 51.2656, -91.1299, -2.77111, -91.1299, -16.6267, -71.7088, -31.8678, -65, -59, -55.2755, -69.2778, -37.3483, -76.2056, 7.46967, -80.3622, 40.3362, -67.8922 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Body/HoverSprite:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 1.03, 1.04 ),
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Animations/MoveObjectSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( -63.8298, 63.8298 ), Vector2( -31.9149, 85.1064 ), Vector2( 0, 63.8298 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/HoverFlames:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 86.4361, 15.9574, 65.1596, 38.5638, 14.6277, 49.2021, -66.4893, -10.6383 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "MechHoldObject"
+length = 0.555
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Animations/MoveObjectSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, false, true ]
+"values": [ PoolVector2Array( 85.1542, -22.1689, 103.081, -4.15667, 103.081, 24.94, 82.1663, 41.5667, 49.2998, 52.6511, -1.49393, 51.2656, -17.9272, 44.3378, -35, 63, -65, 70, -84, 49, -80, 35, -74, 27, -74, 14, -90, 5, -90, -7, -70, -28, -65, -59, -50, -66, -36, -69, 2, -69, 31.3726, -62.35 ), PoolVector2Array( 98.5996, -20.7833, 101.587, -5.54222, 103.081, 19.3978, 80.6724, 34.6389, 47.8059, 48.4945, -1.49393, 48.4945, -16.4333, 38.7956, -35.8544, 44.3378, -56.7695, 40.1811, -73.2027, 12.47, -88.1421, 2.77111, -91.1299, -16.6267, -71.7088, -31.8678, -65, -59, -55.2755, -69.2778, -37.3483, -76.2056, 7.46967, -80.3622, 40.3362, -67.8922 ), PoolVector2Array( 98.5996, -20.7833, 101.587, -5.54222, 103.081, 19.3978, 47.8059, 48.4945, -8.9636, 51.2656, -91.1299, -2.77111, -91.1299, -16.6267, -71.7088, -31.8678, -65, -59, -55.2755, -69.2778, -37.3483, -76.2056, 7.46967, -80.3622, 40.3362, -67.8922 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/HoverFlames:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 88, 30.1025, 63, 50.8629, 0, 54.9202, -70, -1.03802 ), PoolVector2Array( 87.7659, 27.9255, 62.5, 47.8723, 6.64893, 58.5106, -69.1489, -2.65957 ), PoolVector2Array( 89.0957, 21.2766, 61.1702, 42.5532, 5.31915, 47.8723, -67.8191, -9.30851 ), PoolVector2Array( 89.0957, 15.9574, 58.5106, 38.5638, 5.31915, 42.5532, -66.4893, -11.9681 ), PoolVector2Array( 90.4255, 19.9468, 59.8404, 42.5532, 3.98936, 49.2021, -69.1489, -9.30851 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -240,7 +314,7 @@ resource_name = "MechHover"
 length = 0.44
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/HoverSprite:frame")
+tracks/0/path = NodePath("Body/Animations/HoverSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -276,7 +350,7 @@ tracks/2/keys = {
 "values": [ 1.742, 1.946, 2.165, 1.901 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Body/HoverSprite:visible")
+tracks/3/path = NodePath("Body/HoverFlames:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -284,11 +358,11 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Body/HoverFlames:position")
+tracks/4/path = NodePath("Body/HoverFlames:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -297,10 +371,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Body/HoverFlames:modulate")
+tracks/5/path = NodePath("Body/HoverFlames:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -308,26 +382,26 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"update": 1,
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Body/HoverFlames:visible")
+tracks/6/path = NodePath("CollisionPolygon2D:polygon")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ PoolVector2Array( 97.1057, -6.92778, 98.5996, 30.4822, 47.8059, 56.8078, -2.98787, 56.8078, -59.7573, 83.1334, -89.636, 56.8078, -79.1785, 27.7111, -94.1178, 5.54222, -91.1299, -8.31334, -71.7088, -31.8678, -59.7573, -59.5789, -28.3847, -70.6633, 0, -69.2778, 29.8787, -59.5789 ), PoolVector2Array( 92.6239, -9.69889, 95.6117, 24.94, 47.8059, 55.4222, -26.8908, 52.6511, -59.7573, 76.2056, -95.6117, 54.0367, -82.1663, 15.2411, -98.5996, 4.15667, -97.1057, -8.31334, -76.1906, -33.2533, -65.7331, -60.9645, -28.3847, -70.6633, 0, -69.2778, 29.8787, -59.5789 ), PoolVector2Array( 98.5996, -15.2411, 98.5996, 26.3256, 47.8059, 51.2656, -19.4211, 47.1089, -55.2755, 72.0489, -89.636, 45.7233, -77.6845, 11.0844, -94.1178, 4.15667, -97.1057, -8.31334, -76.1906, -33.2533, -65.7331, -60.9645, -35.8544, -73.4345, 0, -74.82, 31.3726, -65.1211 ), PoolVector2Array( 104.575, -9.69889, 103.081, 26.3256, 56.7695, 52.6511, -17.9272, 51.2656, -49.2998, 76.2056, -85.1542, 49.88, -73.2027, 16.6267, -91.1299, 6.92778, -92.6239, -8.31334, -70.2149, -29.0967, -65.7331, -58.1933, -35.8544, -73.4345, 0, -74.82, 31.3726, -65.1211 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/ActivationSprite:visible")
+tracks/0/path = NodePath("Body/Animations/ActivationSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -338,33 +412,70 @@ tracks/0/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Animations/MoveObjectSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 85.1542, -22.1689, 103.081, -4.15667, 103.081, 24.94, 82.1663, 41.5667, 49.2998, 52.6511, -1.49393, 51.2656, -17.9272, 44.3378, -35, 63, -65, 70, -84, 49, -80, 35, -74, 27, -74, 14, -90, 5, -90, -7, -70, -28, -65, -59, -50, -66, -36, -69, 2, -69, 31.3726, -62.35 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/HoverFlames:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 87.7659, 27.9255, 62.5, 47.8723, 6.64893, 58.5106, -69.1489, -2.65957 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [node name="Mech" type="KinematicBody2D"]
 scale = Vector2( 0.094, 0.094 )
 z_index = -1
+z_as_relative = false
 collision_layer = 4
 script = ExtResource( 3 )
-speed = 80.0
+speed = 100.0
 acceleration = 1000.0
 air_acceleration = 1000.0
 
 [node name="Body" type="Node2D" parent="."]
-
-[node name="ActivationSprite" type="Sprite" parent="Body"]
-visible = false
-z_index = 1
-texture = ExtResource( 1 )
-hframes = 3
-vframes = 4
-region_rect = Rect2( 0, 0, 40, 64 )
-
-[node name="HoverSprite" type="Sprite" parent="Body"]
-z_index = 1
-texture = ExtResource( 2 )
-hframes = 2
-vframes = 3
-frame = 4
-region_rect = Rect2( 0, 0, 40, 64 )
+position = Vector2( -31.9149, 85.1064 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Hitbox" type="Area2D" parent="Body"]
 script = ExtResource( 7 )
@@ -380,17 +491,79 @@ polygon = PoolVector2Array( 53, -33, 67, -23, 79, -15, 84, 0, 85, 26, 77, 36, 47
 enabled = true
 cast_to = Vector2( 10, 600 )
 
-[node name="HoverFlames" type="Line2D" parent="Body"]
-show_behind_parent = true
-material = SubResource( 18 )
-scale = Vector2( 8, 8 )
+[node name="ActivationArea" type="Area2D" parent="Body"]
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivationArea"]
+position = Vector2( 271.277, -10.6382 )
+shape = SubResource( 22 )
+
+[node name="Positions" type="Node2D" parent="Body"]
+
+[node name="PlayerSpawnPosition" type="Position2D" parent="Body/Positions"]
+position = Vector2( 42.5532, 95.7446 )
+scale = Vector2( 1, 1 )
+
+[node name="InteractObjectPosition_1" type="Position2D" parent="Body/Positions"]
+position = Vector2( 829.787, -63.8298 )
+scale = Vector2( 10.638, 10.638 )
+
+[node name="InteractObjectPosition_2" type="Position2D" parent="Body/Positions"]
+position = Vector2( 255.319, 297.872 )
+scale = Vector2( 10.638, 10.638 )
+
+[node name="InteractObjectPosition_3" type="Position2D" parent="Body/Positions"]
+position = Vector2( 553.192, 53.1915 )
+scale = Vector2( 10.638, 10.638 )
+
+[node name="bounds" type="Node2D" parent="Body/Positions"]
+scale = Vector2( 1, 1 )
+
+[node name="PositionTop" type="Position2D" parent="Body/Positions/bounds"]
+
+[node name="PositionBottom" type="Position2D" parent="Body/Positions/bounds"]
+
+[node name="PositionLeft" type="Position2D" parent="Body/Positions/bounds"]
+
+[node name="PositionRight" type="Position2D" parent="Body/Positions/bounds"]
+
+[node name="Animations" type="Node2D" parent="Body"]
+
+[node name="ActivationSprite" type="Sprite" parent="Body/Animations"]
+scale = Vector2( 1, 1 )
 z_index = 1
-points = PoolVector2Array( 88, 30.1025, 63, 50.8629, 7, 62.281, -70, -1.03802 )
-width = 70.0
-width_curve = SubResource( 19 )
-default_color = Color( 1, 1, 1, 0 )
-texture_mode = 2
-round_precision = 32
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 4
+region_rect = Rect2( 0, 0, 40, 64 )
+
+[node name="MoveObjectSprite" type="Sprite" parent="Body/Animations"]
+visible = false
+position = Vector2( 30, -60 )
+scale = Vector2( 32, 32 )
+z_index = 1
+texture = ExtResource( 10 )
+hframes = 2
+vframes = 3
+region_rect = Rect2( 0, 0, 40, 64 )
+
+[node name="HoverSprite" type="Sprite" parent="Body/Animations"]
+visible = false
+position = Vector2( 0, -63.8298 )
+scale = Vector2( 1, 1 )
+z_index = 1
+texture = ExtResource( 2 )
+hframes = 2
+vframes = 3
+region_rect = Rect2( 0, 0, 40, 64 )
+
+[node name="ActivateArea" type="Area2D" parent="Body"]
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivateArea"]
+position = Vector2( 409.894, 42.5531 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 25 )
 
 [node name="RunFlames" type="Line2D" parent="Body"]
 visible = false
@@ -406,37 +579,24 @@ texture_mode = 2
 end_cap_mode = 2
 round_precision = 3
 
-[node name="HoverArea" type="Area2D" parent="Body"]
+[node name="HoverFlames" type="Line2D" parent="Body"]
+show_behind_parent = true
+material = SubResource( 18 )
 scale = Vector2( 8, 8 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body/HoverArea"]
-visible = false
-polygon = PoolVector2Array( -86, 6, -87, 30, -87, 55, -88, 76, -63, 77, 96, 80, 95, 61, 92, 42, 87, 28, 76, 41, 58, 51, 38, 58, 2, 58, -28, 43, -73, 21 )
-
-[node name="ActivationArea" type="Area2D" parent="Body"]
-script = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivationArea"]
-position = Vector2( 271.277, -10.6382 )
-shape = SubResource( 22 )
-
-[node name="PlayerSpawnPosition" type="Position2D" parent="Body"]
-position = Vector2( 42.5532, 95.7446 )
-
-[node name="bounds" type="Node2D" parent="Body"]
-
-[node name="PositionTop" type="Position2D" parent="Body/bounds"]
-
-[node name="PositionBottom" type="Position2D" parent="Body/bounds"]
-
-[node name="PositionLeft" type="Position2D" parent="Body/bounds"]
-
-[node name="PositionRight" type="Position2D" parent="Body/bounds"]
+z_index = 1
+points = PoolVector2Array( 88, 30.1025, 63, 50.8629, 0, 54.9202, -70, -1.03802 )
+width = 70.0
+width_curve = SubResource( 19 )
+default_color = Color( 1, 1, 1, 0 )
+texture_mode = 2
+round_precision = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 playback_process_mode = 0
 anims/MechActivate = SubResource( 1 )
+anims/MechHoldHover = SubResource( 24 )
+anims/MechHoldObject = SubResource( 23 )
 anims/MechHover = SubResource( 3 )
 anims/RESET = SubResource( 2 )
 script = ExtResource( 9 )
@@ -446,7 +606,8 @@ script = ExtResource( 9 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 scale = Vector2( 7.121, 7.678 )
-polygon = PoolVector2Array( 85.1542, -22.1689, 103.081, -4.15667, 103.081, 24.94, 82.1663, 41.5667, 49.2998, 52.6511, -1.49393, 51.2656, -17.9272, 44.3378, -35, 63, -65, 70, -84, 49, -80, 35, -74, 27, -74, 14, -90, 5, -90, -7, -70, -28, -65, -59, -50, -66, -36, -69, 2, -69, 31.3726, -62.35 )
+z_index = 1
+polygon = PoolVector2Array( 97.1057, -6.92778, 98.5996, 30.4822, 47.8059, 56.8078, -2.98787, 56.8078, -59.7573, 83.1334, -89.636, 56.8078, -79.1785, 27.7111, -94.1178, 5.54222, -91.1299, -8.31334, -71.7088, -31.8678, -59.7573, -59.5789, -28.3847, -70.6633, 0, -69.2778, 29.8787, -59.5789 )
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -463,6 +624,19 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.45
+drag_margin_top = 0.45
+drag_margin_right = 0.45
+drag_margin_bottom = 0.45
+editor_draw_drag_margin = true
+
+[connection signal="area_entered" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_area_entered"]
+[connection signal="area_exited" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_area_exited"]
+[connection signal="body_entered" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_body_entered"]
+[connection signal="body_exited" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timers/RunTimer" to="." method="_on_RunTimer_timeout"]
 [connection signal="timeout" from="Timers/RunCooldown" to="." method="_on_RunCooldown_timeout"]

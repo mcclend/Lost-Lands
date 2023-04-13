@@ -8,6 +8,7 @@ onready var animation_sprites = $Body/AnimationSprites
 onready var launch_point = $Body/launchPoint
 onready var push_pull_position = $Body/PushPullPosition
 onready var grapple = $Grapple
+onready var camera = $Camera2D
 var landed := false
 var velocity_previous: = Vector2.ZERO
 var is_pulling = false
@@ -23,6 +24,7 @@ var interact_object = null
 var mech = null
 var debugging = true
 var can_jump = true
+
 
 func _ready():	
 	jump_buffer = $JumpBuffer
@@ -50,13 +52,14 @@ func unhandled_input(event):
 		is_pulling = false
 		if debugging:
 			print("not_pulling")
-	elif event.is_action_pressed("interact"):
+	elif event.is_action_pressed("w_interact"):
 		if can_activate_mech:
 			mech.activate = true
 			can_activate_mech = false
 			#remove human from scene
 			queue_free()
-		elif is_push_pull_state:
+	elif event.is_action_pressed("interact"):
+		if is_push_pull_state:
 			if debugging:
 				print("RELEASE BLOCK")
 			is_push_pull_state = false

@@ -24,7 +24,6 @@ func area_exited(area):
 func _on_InteractArea_body_entered(body):
 	if body is SmallMovableBlock:
 		if !root_node.interact_object:
-			print("FOUND BLOCK")
 			root_node.interact_object = body
 			root_node.can_activate_small_block = true
 
