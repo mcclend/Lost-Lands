@@ -14,6 +14,7 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterDeath.mp3"))
 	yield(player.anim, "animation_finished")
 	Global.emit_signal("player_died")
+	player.queue_free()
 
 func exit()->void:
 	pass

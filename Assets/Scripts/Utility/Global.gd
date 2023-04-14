@@ -28,6 +28,8 @@ var can_load := false
 var current_scene = null
 var root = null
 var file = File.new()
+var hud
+
 
 func _ready():
 	get_tree().paused = true

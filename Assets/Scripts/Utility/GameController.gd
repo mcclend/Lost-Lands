@@ -14,6 +14,7 @@ var levelInstance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.hud = hud
 	#check if there is a game to continue
 	if Global.can_load:$Menu/CanvasLayer/MainMenu/VBoxContainer/Continue.disabled = false
 	Global.main_scene = self

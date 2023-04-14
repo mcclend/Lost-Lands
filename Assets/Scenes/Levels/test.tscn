@@ -97,4 +97,4 @@ position = Vector2( 1831, 224 )
 rotation = -3.14159
 
 [node name="Turret" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1905, 204 )
+position = Vector2( 1909, 181 )

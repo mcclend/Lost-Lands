@@ -14,7 +14,7 @@ func _physics_process(delta):
 		if get_collider() is Human:
 			Global.current_health -= humanDamage
 		elif get_collider() is Mech:
-			Global.current_scene -= mechDamage
+			Global.current_charge -= mechDamage
 		castPoint.x -= 5
 	$Line2D.points[1] = castPoint
 	castPoint.length() * 0.5
