@@ -20,6 +20,7 @@ var is_grounded:	= false
 const SNAP: 		= Vector2.DOWN * 1
 var snap:           = Vector2.ZERO
 
+
 var max_jump:int	= 1
 var jump_count:int	= 0
 
@@ -86,7 +87,7 @@ func air_gravity_logic(delta:float)->void:
 	velocity.y = max(velocity.y, jump_impulse)
 
 func collision_logic()->void:
-	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP, true)
+	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP, false)
 
 func ground_update_logic()->void:
 	floor_raycast.force_raycast_update()
@@ -135,7 +136,7 @@ func jump_impulse()->void:
 	snap = Vector2.ZERO
 	jumping()
 
-func damage()->void:
+func damage(value)->void:
 	pass
 
 func jumping()->void:

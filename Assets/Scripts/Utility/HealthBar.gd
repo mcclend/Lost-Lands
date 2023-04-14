@@ -1,8 +1,8 @@
 extends Control
-onready var healthBar = $HealthBar
+onready var health_bar = $HealthBar
 
-func UpdateHealth(health):
-	healthBar.value = health
+func update_health(health):
+	health_bar.value = health
 
-func UpdateMaxHealth(health):
-	healthBar.max_value = health
+func update_max_health(health):
+	health_bar.max_value = health

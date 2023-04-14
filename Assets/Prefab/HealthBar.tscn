@@ -18,8 +18,8 @@ __meta__ = {
 [node name="HealthBar" type="TextureProgress" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 180.0
-margin_bottom = -130.0
+margin_right = 3.26401
+margin_bottom = -2.2
 size_flags_horizontal = 5
 size_flags_vertical = 5
 value = 50.0

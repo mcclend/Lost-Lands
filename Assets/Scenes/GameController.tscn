@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Prefab/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scripts/Utility/Pause.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Scripts/Utility/GameController.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Scripts/Utility/Camera2D.gd" type="Script" id=4]
 
 [node name="GameController" type="Control"]
 anchor_right = 1.0
@@ -90,7 +89,6 @@ align = 1
 uppercase = true
 
 [node name="MainMenu" type="Control" parent="Menu/CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -107,6 +105,7 @@ margin_bottom = 20.0
 [node name="Continue" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
 margin_right = 82.0
 margin_bottom = 20.0
+disabled = true
 text = "Continue"
 
 [node name="NewGame" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
@@ -135,23 +134,6 @@ text = "Quit"
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Camera" type="Node2D" parent="."]
-
-[node name="Camera2d" type="Camera2D" parent="Camera"]
-script = ExtResource( 4 )
-targetPath = NodePath("../PositionCenter")
-
-[node name="PositionTop" type="Position2D" parent="Camera"]
-position = Vector2( 512, 0 )
-
-[node name="PositionBottom" type="Position2D" parent="Camera"]
-position = Vector2( 512, 600 )
-
-[node name="PositionLeft" type="Position2D" parent="Camera"]
-position = Vector2( 0, 300 )
-
-[node name="PositionRight" type="Position2D" parent="Camera"]
-position = Vector2( 1024, 300 )
-
-[node name="PositionCenter" type="Position2D" parent="Camera"]
-position = Vector2( 512, 300 )
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]

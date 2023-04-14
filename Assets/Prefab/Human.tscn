@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_walk.png" type="Texture" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_Wall_Jump(1).png" type="Texture" id=18]
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_hurt.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Scripts/Player/Human/States/PlayerGrappleLaunch.gd" type="Script" id=20]
+[ext_resource path="res://Assets/Scripts/Utility/Camera2D.gd" type="Script" id=21]
+[ext_resource path="res://Assets/Scripts/Player/Human/States/PlayerDeath.gd" type="Script" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.5, 20 )
@@ -398,12 +400,15 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 12, 21.5 )
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 2.5, 10 )
 
 [node name="Human" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 513
+collision_mask = 529
 script = ExtResource( 3 )
 speed = 200.0
 acceleration = 750.0
@@ -431,7 +436,7 @@ anims/jump = SubResource( 7 )
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 4 )
-state_scripts = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 20 ) ]
+state_scripts = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 20 ), ExtResource( 22 ) ]
 debugging = true
 start_state = "Idle"
 
@@ -510,13 +515,12 @@ hframes = 3
 vframes = 3
 
 [node name="hitbox" type="Area2D" parent="Body"]
-visible = false
 collision_layer = 2
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/hitbox"]
-position = Vector2( -1.5, 0 )
-shape = SubResource( 1 )
+position = Vector2( -1, -0.5 )
+shape = SubResource( 15 )
 
 [node name="launchPoint" type="Position2D" parent="Body"]
 position = Vector2( 6, -21 )
@@ -565,8 +569,15 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.5, 1.5 )
+script = ExtResource( 21 )
+targetPath = NodePath("..")
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Body/hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Body/InteractArea" to="Body/InteractArea" method="area_entered"]
 [connection signal="area_exited" from="Body/InteractArea" to="Body/InteractArea" method="area_exited"]
 [connection signal="body_entered" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_entered"]
 [connection signal="body_exited" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_exited"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

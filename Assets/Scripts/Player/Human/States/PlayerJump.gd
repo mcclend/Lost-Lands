@@ -30,6 +30,8 @@ func process(delta:float)->void:
 	state_check()
 
 func state_check()->void:
+	if Global.current_health <= 0:
+		sm.transition_to("Die")
 	if player.velocity.y < 0 && !is_jumping:
 		_do_jump()
 	elif player.velocity.y >= 0 && !is_falling:

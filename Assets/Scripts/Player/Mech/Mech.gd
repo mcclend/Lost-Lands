@@ -18,6 +18,7 @@ onready var interact_object_position_2 = $Body/Positions/InteractObjectPosition_
 onready var interact_object_position_3 = $Body/Positions/InteractObjectPosition_3
 onready var place_object_position = $Body/Positions/PlaceObjectPosition
 onready var camera = $Camera2D
+onready var charge_drain_timer = $Timers/ChargeDrainTimer
 
 
 var active := false
@@ -108,4 +109,9 @@ func _on_RunTimer_timeout():
 
 func _on_RunCooldown_timeout():
 	can_run = true
+	
+func damage(amount):
+	Global.current_charge -= amount
 
+func _on_ChargeDrainTimer_timeout():
+	Global.current_charge -= Global.charge_depletion_rate

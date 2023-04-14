@@ -6,7 +6,7 @@ const GRAVITY = 300
 signal update_health(current_health)
 signal update_max_health(max_health)
 signal update_charge(current_charge)
-signal update_max_harge(current_charge)
+signal update_max_charge(current_charge)
 signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
 signal load_save()
@@ -26,7 +26,6 @@ var can_load := false
 var current_scene = null
 var root = null
 var file = File.new()
-var current_camera = null
 
 func _ready():
 	get_tree().paused = true
@@ -42,12 +41,12 @@ func _physics_process(delta):
 
 func update_values():
 	current_health = clamp(current_health,0.0, max_health)
-	current_health = clamp(current_charge,0.0, max_charge)
+	current_charge = clamp(current_charge,0.0, max_charge)
 	charge_depletion_rate = clamp(charge_depletion_rate, 0.0, 100.0)
 	emit_signal("update_max_health", max_health)
 	emit_signal("update_max_charge", max_charge)
-	emit_signal("update_current_health", current_health)
-	emit_signal("update_current_charge", current_charge)
+	emit_signal("update_health", current_health)
+	emit_signal("update_charge", current_charge)
 	emit_signal("update_charge_depletion_rate", charge_depletion_rate)
 
 func saveData(path : String):

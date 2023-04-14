@@ -55,8 +55,9 @@ margin_top = 63.0
 margin_right = 27.0
 margin_bottom = 63.0
 
-[node name="Node2D" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="Cursor" parent="CanvasLayer" instance=ExtResource( 3 )]
 position = Vector2( 13, 8 )
+z_index = 101
 
 [node name="HoverTimerImage" parent="CanvasLayer" instance=ExtResource( 4 )]
 margin_left = 936.0

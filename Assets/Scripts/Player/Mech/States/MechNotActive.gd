@@ -9,6 +9,7 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 	activation_sprite = player.activation_sprite
 	hover_sprite = player.hover_sprite
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
+	player.charge_drain_timer.stop()
 	var sprite = player.animation_sprites.find_node("ActivationSprite")
 	set_sprite(sprite)
 	player.velocity.x = 0
@@ -27,6 +28,7 @@ func exit()->void:
 	play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOn.mp3"), true)
 	player.anim.activate()
 	player.camera.current = true
+	player.charge_drain_timer.start()
 
 
 func unhandled_input(event:InputEvent)->void:
