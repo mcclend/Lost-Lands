@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 [node name="CanvasLayer" type="CanvasLayer" parent="Menu"]
 
 [node name="Pause" type="Control" parent="Menu/CanvasLayer"]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

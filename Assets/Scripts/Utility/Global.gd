@@ -11,6 +11,7 @@ signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
 signal returnToMainMenu()
 signal load_save()
+signal next_level(scene)
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
@@ -56,8 +57,8 @@ func saveData(path : String):
 		"current_health" : current_health,
 		"max_charge" : max_charge,
 		"current_charge" : current_charge,
-		"hasGrapple" : has_grapple,
-		"currentScene" : current_scene,
+		"has_grapple" : has_grapple,
+		"current_scene" : current_scene,
 		"charge_depletion_rate" : charge_depletion_rate
 	}
 	var file

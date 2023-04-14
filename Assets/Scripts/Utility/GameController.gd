@@ -25,6 +25,7 @@ func _ready():
 	Global.connect("load_save", self, "loadScene")
 	Global.connect("player_died", self, "deathScreen")
 	Global.connect("returnToMainMenu", self, "returnToMainMenu")
+	Global.connect("next_level", self, "loadLevel")
 	hide_hud()
 	
 func hide_hud():
@@ -70,7 +71,7 @@ func loadLevel(level_name : String):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
 		
-func loadScene(scene = Global.currentScene):
+func loadScene(scene = Global.current_scene):
 	loadLevel(scene)
 	show_hud()
 	menu.hide()
