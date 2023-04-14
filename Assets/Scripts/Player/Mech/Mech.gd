@@ -58,6 +58,7 @@ func unhandled_input(event):
 			running = true
 			speed *= 10;
 			gravity = 0
+			Global.hud.mech_boost_animation_player.play("MechBoostTimer", -1, 2.935/1.5)
 			run_timer.start()
 	elif event.is_action_released("run"):
 		if not run_timer.is_stopped():
@@ -106,6 +107,7 @@ func _on_RunTimer_timeout():
 		can_run = false
 		running = false
 		run_cooldown.start()
+		Global.hud.mech_boost_animation_player.play("MechBoostCooldown",-1, (2.935/3))
 
 func _on_RunCooldown_timeout():
 	can_run = true

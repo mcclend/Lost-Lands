@@ -187,6 +187,7 @@ text = "Quit"
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
+z_index = 101
 
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="Menu/CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]

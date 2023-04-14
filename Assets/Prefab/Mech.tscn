@@ -582,7 +582,6 @@ texture_mode = 2
 round_precision = 32
 
 [node name="bounds" type="Node2D" parent="Body"]
-scale = Vector2( 1, 1 )
 
 [node name="PositionTop" type="Position2D" parent="Body/bounds"]
 
@@ -624,6 +623,8 @@ wait_time = 1.5
 one_shot = true
 
 [node name="RunCooldown" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
 
 [node name="ChargeDrainTimer" type="Timer" parent="Timers"]
 

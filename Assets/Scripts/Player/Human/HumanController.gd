@@ -20,6 +20,7 @@ var pull_velocity := Vector2.ZERO
 var can_activate_mech := false
 var can_activate_small_block := false
 var can_toggle_switch := false
+var can_open_door := false
 var is_push_pull_state := false
 var interact_object = null
 var mech = null
@@ -56,6 +57,8 @@ func unhandled_input(event):
 		if debugging:
 			print("not_pulling")
 	elif event.is_action_pressed("w_interact"):
+		if can_open_door:
+			interact_object.activate()
 		if can_activate_mech && Global.current_charge > 0:
 			mech.activate = true
 			can_activate_mech = false

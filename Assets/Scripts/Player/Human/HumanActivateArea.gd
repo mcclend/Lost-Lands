@@ -9,6 +9,9 @@ func area_entered(area):
 		elif area.entity is ToggleSwitch:
 			root_node.can_toggle_switch = true
 			root_node.interact_object = area.entity
+	if area is Door:
+		root_node.can_open_door = true
+		root_node.interact_object = area.entity
 		
 
 #override
