@@ -103,37 +103,93 @@ margin_right = 20.0
 margin_bottom = 20.0
 
 [node name="Continue" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+visible = false
 margin_right = 82.0
 margin_bottom = 20.0
 disabled = true
 text = "Continue"
 
 [node name="NewGame" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 24.0
 margin_right = 82.0
-margin_bottom = 44.0
+margin_bottom = 20.0
 text = "New Game"
 
 [node name="Settings" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+visible = false
 margin_top = 48.0
 margin_right = 82.0
 margin_bottom = 68.0
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+visible = false
 margin_top = 72.0
 margin_right = 82.0
 margin_bottom = 92.0
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 96.0
+margin_top = 24.0
 margin_right = 82.0
-margin_bottom = 116.0
+margin_bottom = 44.0
+text = "Quit"
+
+[node name="GameOver" type="Control" parent="Menu/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/GameOver"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Menu/CanvasLayer/GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -53.0
+margin_top = 56.0
+margin_right = 20.0
+margin_bottom = 70.0
+rect_rotation = 0.680908
+rect_scale = Vector2( 2.36482, 2.11203 )
+text = "Game Over"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/CanvasLayer/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -67.0
+margin_right = 110.0
+margin_bottom = 73.0
+
+[node name="PlayAgain" type="Button" parent="Menu/CanvasLayer/GameOver/VBoxContainer"]
+margin_right = 147.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -82, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="Menu/CanvasLayer/GameOver/VBoxContainer"]
+margin_top = 72.0
+margin_right = 147.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( -82, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Quit"
 
 [node name="Level" type="Node2D" parent="."]
 
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="Menu/CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/MainMenu" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Quit" to="Menu/CanvasLayer/Pause" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Quit" to="." method="quit"]
+[connection signal="pressed" from="Menu/CanvasLayer/GameOver/VBoxContainer/PlayAgain" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="Menu/CanvasLayer/GameOver/VBoxContainer/Quit" to="." method="quit"]

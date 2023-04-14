@@ -9,6 +9,7 @@ signal update_charge(current_charge)
 signal update_max_charge(current_charge)
 signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
+signal returnToMainMenu()
 signal load_save()
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
