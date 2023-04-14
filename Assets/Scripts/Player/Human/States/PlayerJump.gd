@@ -48,7 +48,7 @@ func state_check()->void:
 			sm.transition_to("Idle")
 			
 func _do_jump():
-	player.anim.play("Jump")
+	player.anim.play("jump")
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3"), true)
 	is_jumping = true
 	is_falling = false

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Prefab/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Prefab/ChargeBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Prefab/mouseCursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Prefab/CircleProgressBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scripts/Utility/HUD.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art Assets/HUD/GrappleButton.png" type="Texture" id=6]
@@ -54,10 +53,6 @@ margin_left = 27.0
 margin_top = 63.0
 margin_right = 27.0
 margin_bottom = 63.0
-
-[node name="Cursor" parent="CanvasLayer" instance=ExtResource( 3 )]
-position = Vector2( 13, 8 )
-z_index = 101
 
 [node name="HoverTimerImage" parent="CanvasLayer" instance=ExtResource( 4 )]
 margin_left = 936.0
