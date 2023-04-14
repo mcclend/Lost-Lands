@@ -22,6 +22,9 @@ func area_exited(area):
 		elif area.entity is ToggleSwitch:
 			root_node.can_toggle_switch = false
 			root_node.interact_object = null
+	if area is Door:
+		root_node.can_open_door = false
+		root_node.interact_object = null
 
 
 func _on_InteractArea_body_entered(body):

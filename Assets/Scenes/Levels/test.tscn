@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Prefab/LargeMovableBlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Prefab/SmallMovableBlock.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/Scripts/Utility/StaticCanGrapple.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Prefab/Turret.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Prefab/Human.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Prefab/PlantEnemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Prefab/ToggleSwitch.tscn" type="PackedScene" id=14]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 9, -1 )
@@ -27,13 +29,13 @@ tile_data = PoolIntArray( -131072, 0, 0, -131071, 0, 1, -131070, 0, 1, -131069, 
 script = ExtResource( 10 )
 
 [node name="Mech" parent="." instance=ExtResource( 5 )]
-position = Vector2( 174, 130 )
+position = Vector2( 154, 119 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 203, 101 )
+position = Vector2( 183, 90 )
 
 [node name="LargeMovableBlock" parent="." instance=ExtResource( 1 )]
-position = Vector2( 533, 143 )
+position = Vector2( 281, 145 )
 
 [node name="SmallMovableBlock" parent="." instance=ExtResource( 2 )]
 position = Vector2( 461, 174 )
@@ -100,5 +102,13 @@ rotation = -3.14159
 [node name="Turret" parent="." instance=ExtResource( 11 )]
 position = Vector2( 992, 230 )
 
+[node name="PlantEnemy" parent="Turret" instance=ExtResource( 13 )]
+position = Vector2( 412, -67 )
+
 [node name="Human" parent="." instance=ExtResource( 12 )]
-position = Vector2( 301, 155 )
+position = Vector2( 515, 166 )
+
+[node name="ToggleSwitch" parent="." instance=ExtResource( 14 )]
+position = Vector2( 582, 169 )
+active = true
+connected_entity_path = NodePath("../Turret")
