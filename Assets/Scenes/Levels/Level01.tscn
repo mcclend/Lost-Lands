@@ -56,3 +56,32 @@ position = Vector2( 39, 123 )
 [node name="BlueDoor2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 49, 608 )
 next_level = "Level HUB"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.282353, 1, 0.223529, 1 )
+margin_left = 853.0
+margin_top = 11.0
+margin_right = 915.0
+margin_bottom = 42.0
+text = "Left Click,
+Tab"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0.282353, 1, 0.223529, 1 )
+margin_left = 1066.0
+margin_top = 260.0
+margin_right = 1128.0
+margin_bottom = 278.0
+text = "E"
+align = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color( 0.223529, 1, 0.92549, 1 )
+margin_left = 141.0
+margin_top = 475.0
+margin_right = 203.0
+margin_bottom = 493.0
+text = "Don't forget to Look Around
+[Middle Mouse]"
+align = 1

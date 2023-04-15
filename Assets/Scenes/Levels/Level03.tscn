@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Prefab/Human.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Prefab/LazerBeam.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Prefab/BlueDoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Prefab/LargeMovableBlock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Art Assets/Mech/Mech.png" type="Texture" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -55,3 +56,36 @@ position = Vector2( 1341, 773 )
 [node name="BlueDoor2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1694, 802 )
 next_level = "Level HUB"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.494118, 1, 0.262745, 1 )
+margin_left = 1170.0
+margin_top = 313.0
+margin_right = 1210.0
+margin_bottom = 327.0
+text = "W"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 1, 0.74902, 0, 1 )
+margin_left = 325.0
+margin_top = 839.0
+margin_right = 365.0
+margin_bottom = 853.0
+text = "Shift"
+align = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color( 1, 0, 0.678431, 1 )
+margin_left = 1658.0
+margin_top = 731.0
+margin_right = 1726.0
+margin_bottom = 762.0
+text = "Congrats!!!
+YOU WIN!!"
+align = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 296, 847 )
+scale = Vector2( -0.0285327, 0.0324586 )
+texture = ExtResource( 11 )

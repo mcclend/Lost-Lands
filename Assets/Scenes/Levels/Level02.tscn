@@ -66,3 +66,12 @@ position = Vector2( 965, 795 )
 [node name="BlueDoor2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112, 802 )
 next_level = "Level HUB"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.568627, 1, 0.329412, 1 )
+margin_left = 827.0
+margin_top = 829.0
+margin_right = 867.0
+margin_bottom = 843.0
+text = "E"
+align = 1

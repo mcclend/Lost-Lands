@@ -68,3 +68,20 @@ rotation = -1.34041
 texture = ExtResource( 9 )
 hframes = 3
 vframes = 4
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.580392, 1, 0.392157, 1 )
+margin_left = 170.0
+margin_top = 514.0
+margin_right = 210.0
+margin_bottom = 528.0
+text = "Space"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0.576471, 1, 0.388235, 1 )
+margin_left = 1373.0
+margin_top = 409.0
+margin_right = 1413.0
+margin_bottom = 423.0
+text = "W"
+align = 1

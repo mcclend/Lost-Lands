@@ -40,9 +40,6 @@ position = Vector2( 281, 145 )
 [node name="SmallMovableBlock" parent="." instance=ExtResource( 2 )]
 position = Vector2( 461, 174 )
 
-[node name="Battery" parent="SmallMovableBlock" instance=ExtResource( 8 )]
-position = Vector2( -92, 1 )
-
 [node name="PullablePlatform" parent="." instance=ExtResource( 4 )]
 position = Vector2( 852, 97 )
 mass = 500.0
@@ -112,3 +109,6 @@ position = Vector2( 515, 166 )
 position = Vector2( 582, 169 )
 active = true
 connected_entity_path = NodePath("../Turret")
+
+[node name="Battery" parent="." instance=ExtResource( 8 )]
+position = Vector2( 369, 175 )
