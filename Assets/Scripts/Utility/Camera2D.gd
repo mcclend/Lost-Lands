@@ -9,10 +9,10 @@ var dragging = false
 var mouseStartPos
 var screenStartPos
 var lerpSpeed = 0.01
-onready var top = $"../Body/bounds/PositionTop"
-onready var bottom = $"../Body/bounds/PositionBottom"
-onready var left = $"../Body/bounds/PositionLeft"
-onready var right = $"../Body/bounds/PositionRight"
+onready var top = $"../PositionTop"
+onready var bottom = $"../PositionBottom"
+onready var left = $"../PositionLeft"
+onready var right = $"../PositionRight"
 
 func _ready():
 	target = get_node(targetPath)

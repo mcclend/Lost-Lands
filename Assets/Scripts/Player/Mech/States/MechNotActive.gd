@@ -9,27 +9,22 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 	activation_sprite = player.activation_sprite
 	hover_sprite = player.hover_sprite
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
-	player.charge_drain_timer.stop()
 	var sprite = player.animation_sprites.find_node("ActivationSprite")
 	set_sprite(sprite)
 	player.velocity.x = 0
 	player.anim.deactivate()
-	if player.deactivate:
-		play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOff.mp3"), true)
-		var spawn_player = Global.human_prefab.instance()
-		spawn_player.global_position = player.player_spawn_position.global_position
-		print("SPAWN POSITION", spawn_player.position)
-		Global.current_scene.add_child(spawn_player)
-		player.deactivate = false
+	var spawn_player = Global.human_prefab.instance()
+	spawn_player.global_position = player.player_spawn_position.global_position
+	print("SPAWN POSITION", spawn_player.position)
+	Global.current_scene.add_child(spawn_player)
+	player.deactivate = false
 	player.active = false
 	
 	
 
 func exit()->void:
-	play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOn.mp3"), true)
 	player.anim.activate()
 	player.camera.current = true
-	player.charge_drain_timer.start()
 
 
 func unhandled_input(event:InputEvent)->void:

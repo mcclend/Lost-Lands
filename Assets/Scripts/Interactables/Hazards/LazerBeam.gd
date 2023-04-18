@@ -3,24 +3,19 @@ extends RayCast2D
 var isCasting := false setget set_is_casting
 export var humanDamage = 1.0
 export var mechDamage = 0.5
-export var active = false
-
+var damage = [humanDamage,mechDamage]
 
 func _physics_process(delta):
-	self.visible = !active # we want the turret to turn off when "activated" by a trigger
-	if !active:
-		var castPoint := cast_to
-		force_raycast_update()
-		
-		if is_colliding():
-			castPoint = to_local(get_collision_point())
-			if get_collider() is Human:
-				Global.current_health -= humanDamage
-			elif get_collider() is Mech:
-				Global.current_charge -= mechDamage
-			castPoint.x -= 5
-		$Line2D.points[1] = castPoint
-		castPoint.length() * 0.5
+	var castPoint := cast_to
+	force_raycast_update()
+	
+	if is_colliding():
+		castPoint = to_local(get_collision_point())
+		if get_collider().is_in_group("Player"):
+			get_collider().damage([1,0.5])
+		castPoint.x -= 5
+	$Line2D.points[1] = castPoint
+	castPoint.length() * 0.5
 
 func set_is_casting(cast : bool) -> void:
 	isCasting = cast

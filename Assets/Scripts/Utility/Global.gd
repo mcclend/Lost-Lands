@@ -6,14 +6,16 @@ const GRAVITY = 300
 signal update_health(current_health)
 signal update_max_health(max_health)
 signal update_charge(current_charge)
-signal update_max_charge(current_charge)
+signal update_max_harge(current_charge)
 signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
-signal returnToMainMenu()
 signal load_save()
+<<<<<<< Updated upstream
+=======
 signal next_level(scene)
 signal show_grapple_icon(value)
 signal show_mech_boost_icon(value)
+>>>>>>> Stashed changes
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
@@ -24,19 +26,23 @@ var mech = null #contains a reference to the active mech character
 var max_health := 100.0
 var current_health := 100.0
 var max_charge := 100.0
-var current_charge := 0.0
+var current_charge := 100.0
 var charge_depletion_rate := 0.5
 var main_scene = null
-var has_grapple := false
-var can_grapple := false
+var has_grapple := true
+var can_grapple := true
 var can_load := false
 var current_scene = null
 var root = null
 var file = File.new()
+<<<<<<< Updated upstream
+var current_camera = null
+=======
 var hud
 var grapple_icon_active := false
 var mech_boost_icon_active := false
 
+>>>>>>> Stashed changes
 
 func _ready():
 	get_tree().paused = true
@@ -65,12 +71,12 @@ func _physics_process(delta):
 
 func update_values():
 	current_health = clamp(current_health,0.0, max_health)
-	current_charge = clamp(current_charge,0.0, max_charge)
+	current_health = clamp(current_charge,0.0, max_charge)
 	charge_depletion_rate = clamp(charge_depletion_rate, 0.0, 100.0)
 	emit_signal("update_max_health", max_health)
 	emit_signal("update_max_charge", max_charge)
-	emit_signal("update_health", current_health)
-	emit_signal("update_charge", current_charge)
+	emit_signal("update_current_health", current_health)
+	emit_signal("update_current_charge", current_charge)
 	emit_signal("update_charge_depletion_rate", charge_depletion_rate)
 
 func saveData(path : String):
@@ -79,8 +85,8 @@ func saveData(path : String):
 		"current_health" : current_health,
 		"max_charge" : max_charge,
 		"current_charge" : current_charge,
-		"has_grapple" : has_grapple,
-		"current_scene" : current_scene,
+		"hasGrapple" : has_grapple,
+		"currentScene" : current_scene,
 		"charge_depletion_rate" : charge_depletion_rate
 	}
 	var file
@@ -102,12 +108,5 @@ func loadData(path : String):
 	current_scene = jsonData.current_scene
 	charge_depletion_rate = jsonData.charge_depletion_rate
 	emit_signal("load_save")
-
-func play_audio(audio:AudioStream, audio_player:AudioStreamPlayer2D, immediate:bool = false, volume:float = -18):
-	audio_player.volume_db = volume
-	if audio_player.playing and !immediate:
-		yield(audio_player, "finished")
-	audio_player.stream = audio
-	audio_player.play()
 	
 	

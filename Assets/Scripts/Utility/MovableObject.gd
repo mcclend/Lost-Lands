@@ -11,7 +11,6 @@ var _velocity := Vector2.ZERO
 var pull_velocity := Vector2.ZERO
 var pull := false
 
-
 export var debugging := true
 export var use_gravity := true
 export var mass := 1.0
@@ -25,8 +24,7 @@ const FRICTION = 0.9
 const MOVE_THRESHOLD = 1
 
 
-func set_velocity(velocity):
-	_velocity = velocity	
+	
 func _physics_process(_delta):
 	if use_gravity:
 		_velocity.y += 10

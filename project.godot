@@ -34,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClassResource.gd"
 }, {
-"base": "ActivationArea",
-"class": "Door",
-"language": "GDScript",
-"path": "res://Assets/Scripts/Interactables/Door.gd"
-}, {
 "base": "Area2D",
 "class": "Entity",
 "language": "GDScript",
@@ -63,11 +58,6 @@ _global_script_classes=[ {
 "class": "Human",
 "language": "GDScript",
 "path": "res://Assets/Scripts/Player/Human/HumanController.gd"
-}, {
-"base": "HumanState",
-"class": "HumanDeath",
-"language": "GDScript",
-"path": "res://Assets/Scripts/Player/Human/States/PlayerDeath.gd"
 }, {
 "base": "HumanState",
 "class": "HumanGrappling",
@@ -154,11 +144,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Assets/Scripts/Interactables/SmallMovableBlock.gd"
 }, {
-"base": "TileMap",
-"class": "SpikeyVines",
-"language": "GDScript",
-"path": "res://Assets/Scripts/Interactables/Hazards/SpikeyVine.gd"
-}, {
 "base": "Reference",
 "class": "State",
 "language": "GDScript",
@@ -190,13 +175,11 @@ _global_script_class_icons={
 "Actor": "",
 "Camera2d": "",
 "ClassResource": "",
-"Door": "",
 "Entity": "",
 "GameController": "",
 "Grapple": "",
 "Hitbox": "",
 "Human": "",
-"HumanDeath": "",
 "HumanGrappling": "",
 "HumanIdle": "",
 "HumanJump": "",
@@ -214,7 +197,6 @@ _global_script_class_icons={
 "PressurePlate": "",
 "PullablePlatform": "",
 "SmallMovableBlock": "",
-"SpikeyVines": "",
 "State": "",
 "StateMachine": "",
 "StaticCanGrapple": "",
@@ -225,21 +207,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Lost Lands"
-run/main_scene="res://Assets/Scenes/GameController.tscn"
+run/main_scene="res://Assets/Scenes/Levels/test.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Assets/Scripts/Utility/Global.gd"
-
-[display]
-
-window/size/width=512
-window/size/height=300
-window/size/test_width=1280
-window/size/test_height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [global]
 
