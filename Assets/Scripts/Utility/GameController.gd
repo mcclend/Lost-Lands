@@ -87,8 +87,8 @@ func _on_load_pressed():
 
 func _on_NewGame_pressed():
 	Global.current_health = Global.max_health
-	#Global.current_charge = Global.max_charge
-	loadScene("Level00")
+	Global.current_charge = Global.max_charge
+	loadScene("Level01")
 	main_menu.hide()
 	
 func quit():

@@ -400,7 +400,7 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 0.5
+length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Animations/ActivationSprite:visible")
 tracks/0/interp = 1
@@ -473,6 +473,7 @@ acceleration = 1000.0
 air_acceleration = 1000.0
 
 [node name="Body" type="Node2D" parent="."]
+position = Vector2( -31.9149, 85.1064 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -521,6 +522,7 @@ position = Vector2( 1478.72, 85.1064 )
 [node name="Animations" type="Node2D" parent="Body"]
 
 [node name="ActivationSprite" type="Sprite" parent="Body/Animations"]
+visible = false
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 3
@@ -534,6 +536,7 @@ z_index = 1
 texture = ExtResource( 10 )
 hframes = 2
 vframes = 3
+frame = 5
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="HoverSprite" type="Sprite" parent="Body/Animations"]
@@ -571,7 +574,7 @@ show_behind_parent = true
 material = SubResource( 18 )
 scale = Vector2( 8, 8 )
 z_index = 1
-points = PoolVector2Array( 87.7659, 27.9255, 62.5, 47.8723, 6.64893, 58.5106, -69.1489, -2.65957 )
+points = PoolVector2Array( 88, 30.1025, 63, 50.8629, 0, 54.9202, -70, -1.03802 )
 width = 70.0
 width_curve = SubResource( 19 )
 default_color = Color( 1, 1, 1, 0 )
@@ -606,7 +609,7 @@ script = ExtResource( 9 )
 visible = false
 scale = Vector2( 7.121, 7.678 )
 z_index = 1
-polygon = PoolVector2Array( 85.1542, -22.1689, 103.081, -4.15667, 103.081, 24.94, 82.1663, 41.5667, 49.2998, 52.6511, -1.49393, 51.2656, -17.9272, 44.3378, -35, 63, -65, 70, -84, 49, -80, 35, -74, 27, -74, 14, -90, 5, -90, -7, -70, -28, -65, -59, -50, -66, -36, -69, 2, -69, 31.3726, -62.35 )
+polygon = PoolVector2Array( 97.1057, -6.92778, 98.5996, 30.4822, 47.8059, 56.8078, -2.98787, 56.8078, -59.7573, 83.1334, -89.636, 56.8078, -79.1785, 27.7111, -94.1178, 5.54222, -91.1299, -8.31334, -71.7088, -31.8678, -59.7573, -59.5789, -28.3847, -70.6633, 0, -69.2778, 29.8787, -59.5789 )
 
 [node name="StateMachine" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -626,15 +629,13 @@ one_shot = true
 [node name="ChargeDrainTimer" type="Timer" parent="Timers"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2( 1.5, 1.5 )
-drag_margin_h_enabled = true
+current = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-editor_draw_limits = true
+drag_margin_left = 0.45
+drag_margin_top = 0.45
+drag_margin_right = 0.45
+drag_margin_bottom = 0.45
 editor_draw_drag_margin = true
 script = ExtResource( 12 )
 targetPath = NodePath("..")

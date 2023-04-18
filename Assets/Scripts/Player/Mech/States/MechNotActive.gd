@@ -14,13 +14,12 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	set_sprite(sprite)
 	player.velocity.x = 0
 	player.anim.deactivate()
-	if player.deactivate:
-		play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOff.mp3"), true)
-		var spawn_player = Global.human_prefab.instance()
-		spawn_player.global_position = player.player_spawn_position.global_position
-		print("SPAWN POSITION", spawn_player.position)
-		Global.current_scene.add_child(spawn_player)
-		player.deactivate = false
+	play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOff.mp3"), true)
+	var spawn_player = Global.human_prefab.instance()
+	spawn_player.global_position = player.player_spawn_position.global_position
+	print("SPAWN POSITION", spawn_player.position)
+	Global.current_scene.add_child(spawn_player)
+	player.deactivate = false
 	player.active = false
 	
 	

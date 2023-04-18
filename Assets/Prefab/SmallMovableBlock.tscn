@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Scripts/Interactables/SmallMovableBlock.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 12 )
+extents = Vector2( 7, 7 )
 
 [node name="SmallMovableBlock" type="KinematicBody2D"]
 z_index = 1
