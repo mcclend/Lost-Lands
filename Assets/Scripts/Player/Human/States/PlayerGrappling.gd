@@ -33,6 +33,8 @@ func process(delta:float)->void:
 	state_check()
 
 func state_check()->void:
+	if Global.current_health <= 0:
+		sm.transition_to("Die")
 	if !player.is_pulling:
 		if player.is_grounded:
 			if abs(player.direction.x) > 0.01:		#players movement is above treshold

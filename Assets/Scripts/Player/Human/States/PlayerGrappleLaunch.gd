@@ -34,6 +34,8 @@ func process(delta:float)->void:
 
 
 func state_check()->void:
+	if Global.current_health <= 0:
+		sm.transition_to("Die")
 	if player.anim.is_playing():
 		yield(player.anim, "animation_finished")
 	sm.transition_to("Grappling")

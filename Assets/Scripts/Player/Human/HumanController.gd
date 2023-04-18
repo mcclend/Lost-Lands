@@ -9,26 +9,26 @@ onready var launch_point = $Body/launchPoint
 onready var push_pull_position = $Body/PushPullPosition
 onready var grapple = $Grapple
 onready var camera = $Camera2D
-<<<<<<< Updated upstream
-=======
 onready var invincibility_timer = $InvincibilityTimer
 onready var grapple_cooldown_timer = $GrappleCooldownTimer
->>>>>>> Stashed changes
 var landed := false
 var velocity_previous: = Vector2.ZERO
 var is_pulling = false
-var is_linked = false
+var is_linked := false
 var launch_grapple_up := false
 var launch_grapple_side := false
 var pull_velocity := Vector2.ZERO
-var can_activate_mech = false
-var can_activate_small_block = false
-var can_toggle_switch = false
-var is_push_pull_state = false
+var can_activate_mech := false
+var can_activate_small_block := false
+var can_toggle_switch := false
+var can_open_door := false
+var is_push_pull_state := false
 var interact_object = null
 var mech = null
-var debugging = true
-var can_jump = true
+var debugging := true
+var can_jump := true
+var invincible := false
+
 
 
 func _ready():
@@ -36,7 +36,7 @@ func _ready():
 	Global.mech = null	
 	jump_buffer = $JumpBuffer
 	floor_raycast = $Body/Raycasts/FloorRaycast
-	
+
 func unhandled_input(event):
 	if event.is_action("move_right"):
 		move_right = Input.get_action_strength("move_right")
@@ -46,28 +46,10 @@ func unhandled_input(event):
 		jump = true
 	if event.is_action_released("jump"):
 		jump = false
-<<<<<<< Updated upstream
-	elif event.is_action_released("left_mouse"):
-		if Global.has_grapple && Global.can_grapple:
-			grapple.launch(get_global_mouse_position())
-	elif event.is_action_released("right_mouse"):
-		grapple.release()
-	elif event.is_action_pressed("ui_focus_next"):
-		is_pulling = true
-		if debugging:
-			print("is_pulling")
-	elif event.is_action_released("ui_focus_next"):
-		is_pulling = false
-		if debugging:
-			print("not_pulling")
-	elif event.is_action_pressed("w_interact"):
-		if can_activate_mech:
-=======
 	if event.is_action_pressed("w_interact"):
 		if can_open_door:
 			interact_object.activate()
 		if can_activate_mech && Global.current_charge > 0:
->>>>>>> Stashed changes
 			mech.activate = true
 			can_activate_mech = false
 			#remove human from scene
@@ -117,10 +99,16 @@ func visual_process(delta):
 	if abs(direction.x)>= 0.001:
 		body.scale.x = sign(direction.x)
 	velocity_previous = velocity
+	
+func damage(value)->void:
+	if !invincible:
+		invincible = true
+		invincibility_timer.start()
+		Global.current_health -= value
+		print(Global.current_health)
+		anim.play("Hurt")
 
 
-<<<<<<< Updated upstream
-=======
 func _on_InvincibilityTimer_timeout():
 	invincible = false
 
@@ -133,4 +121,3 @@ func _on_hitbox_body_entered(body):
 
 func _on_GrappleCooldownTimer_timeout():
 	Global.can_grapple = true
->>>>>>> Stashed changes

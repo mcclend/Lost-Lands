@@ -24,6 +24,7 @@ var is_falling = false
 var max_jump_impulse
 var min_jump_impulse
 
+
 var max_jump:int	= 1
 var jump_count:int	= 0
 
@@ -144,7 +145,7 @@ func jump_impulse()->void:
 	jumping()
 	
 
-func damage()->void:
+func damage(value)->void:
 	pass
 
 func jumping()->void:
