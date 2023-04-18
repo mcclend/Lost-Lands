@@ -4,9 +4,8 @@ class_name Actor
 export (float) var speed:               = 1.0 * 60.0
 export (float) var acceleration:	= 300.0
 export (float) var air_acceleration:	= 100.0
-export (float) var max_jump_height = 48*2.2
-export (float) var min_jump_height = 48*0.4
-export (float) var time_to_jump_apex = 0.5
+export (float) var jump_impulse:	= -300.0
+
 
 var floor_raycast
 var floor_velocity
@@ -14,26 +13,19 @@ var move_right:		= 0.0
 var move_left:		= 0.0
 var direction:		= Vector2.ZERO
 var velocity:		= Vector2.ZERO
+var jump_release:	= jump_impulse * 0.2
 var jump:           = false
 var is_jumping:		= false
 var is_grounded:	= false	
 const SNAP: 		= Vector2.DOWN * 1
 var snap:           = Vector2.ZERO
-var gravity 	= Global.GRAVITY
-var is_falling = false
-var max_jump_impulse
-var min_jump_impulse
 
 var max_jump:int	= 1
 var jump_count:int	= 0
 
 onready var body: = $Body						#Parent node for Sprite and RayCast2D
 onready var jump_buffer:Timer
-
-func _ready():
-	gravity = 2*max_jump_height / pow(time_to_jump_apex, 2)
-	max_jump_impulse = -sqrt(2*gravity*max_jump_height)
-	min_jump_impulse = -sqrt(2*gravity*min_jump_height)
+onready var gravity = Global.GRAVITY
 
 
 func direction_logic()->void:
@@ -58,15 +50,15 @@ func gravity_logic(delta:float)->void:
 		if is_jumping:
 			if !jump:								#released jump button mid-air
 				is_jumping = false
-				if velocity.y < min_jump_impulse:
-					velocity.y = min_jump_impulse
+				if velocity.y < jump_release:
+					velocity.y = jump_release
 		else:
 			if jump:
 				if !jump_buffer.is_stopped():
 					jump_impulse()
 				
 	velocity.y += gravity * delta
-	#velocity.y = max(velocity.y, jump_impulse)	#Limit fall speed to same as Jumping, but allow get faster to go up
+	velocity.y = max(velocity.y, jump_impulse)	#Limit fall speed to same as Jumping, but allow get faster to go up
 
 func ground_gravity_logic(delta:float)->void:
 	if is_grounded:
@@ -77,21 +69,21 @@ func ground_gravity_logic(delta:float)->void:
 		elif !is_jumping && jump:					#works also when re-pressed before ground for jump buffer (pre-landing)
 			jump_impulse()
 	velocity.y += gravity * delta
-	#velocity.y = max(velocity.y, jump_impulse)
+	velocity.y = max(velocity.y, jump_impulse)
 
 func air_gravity_logic(delta:float)->void:
 	if is_jumping:
 		if !jump:								#released jump button mid-air
 			is_jumping = false
-			if velocity.y < min_jump_impulse:
-				velocity.y = min_jump_impulse
+			if velocity.y < jump_release:
+				velocity.y = jump_release
 	elif jump && !jump_buffer.is_stopped():
 		jump_impulse()
 	elif jump_count < max_jump:
 		jump_count += 1
 		jump_impulse()
 	velocity.y += gravity * delta
-	velocity.y = max(velocity.y, max_jump_impulse)
+	velocity.y = max(velocity.y, jump_impulse)
 
 func collision_logic()->void:
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP, true)
@@ -137,12 +129,11 @@ func process(_delta:float)->void:
 
 func jump_impulse()->void:
 	jump_buffer.stop()
-	velocity.y = max_jump_impulse
+	velocity.y = jump_impulse
 	is_jumping = true
 	is_grounded = false
 	snap = Vector2.ZERO
 	jumping()
-	
 
 func damage()->void:
 	pass

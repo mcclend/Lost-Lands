@@ -7,8 +7,6 @@
 [ext_resource path="res://Assets/Art Assets/HUD/crosshair.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
-pause_mode = 2
-z_index = 101
 script = ExtResource( 3 )
 
 [node name="cursor3" type="TextureProgress" parent="."]

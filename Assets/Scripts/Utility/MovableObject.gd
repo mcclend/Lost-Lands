@@ -21,7 +21,10 @@ export (Array, NodePath) var top_rays:Array
 export (Array, NodePath) var bottom_rays:Array
 
 const FRICTION = 0.9
-const MOVE_THRESHOLD = 1
+const MOVE_THRESHOLD = 10
+
+func _ready():
+	add_to_group("CanBeGrappled")
 
 
 	

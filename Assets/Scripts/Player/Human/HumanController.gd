@@ -9,11 +9,6 @@ onready var launch_point = $Body/launchPoint
 onready var push_pull_position = $Body/PushPullPosition
 onready var grapple = $Grapple
 onready var camera = $Camera2D
-<<<<<<< Updated upstream
-=======
-onready var invincibility_timer = $InvincibilityTimer
-onready var grapple_cooldown_timer = $GrappleCooldownTimer
->>>>>>> Stashed changes
 var landed := false
 var velocity_previous: = Vector2.ZERO
 var is_pulling = false
@@ -31,22 +26,19 @@ var debugging = true
 var can_jump = true
 
 
-func _ready():
-	Global.player = self
-	Global.mech = null	
+func _ready():	
 	jump_buffer = $JumpBuffer
 	floor_raycast = $Body/Raycasts/FloorRaycast
 	
 func unhandled_input(event):
 	if event.is_action("move_right"):
 		move_right = Input.get_action_strength("move_right")
-	if event.is_action("move_left"):
+	elif event.is_action("move_left"):
 		move_left = Input.get_action_strength("move_left")
-	if event.is_action_pressed("jump") && can_jump:
+	elif event.is_action_pressed("jump") && can_jump:
 		jump = true
-	if event.is_action_released("jump"):
+	elif event.is_action_released("jump"):
 		jump = false
-<<<<<<< Updated upstream
 	elif event.is_action_released("left_mouse"):
 		if Global.has_grapple && Global.can_grapple:
 			grapple.launch(get_global_mouse_position())
@@ -62,17 +54,11 @@ func unhandled_input(event):
 			print("not_pulling")
 	elif event.is_action_pressed("w_interact"):
 		if can_activate_mech:
-=======
-	if event.is_action_pressed("w_interact"):
-		if can_open_door:
-			interact_object.activate()
-		if can_activate_mech && Global.current_charge > 0:
->>>>>>> Stashed changes
 			mech.activate = true
 			can_activate_mech = false
 			#remove human from scene
 			queue_free()
-	if event.is_action_pressed("interact"):
+	elif event.is_action_pressed("interact"):
 		if is_push_pull_state:
 			if debugging:
 				print("RELEASE BLOCK")
@@ -92,26 +78,6 @@ func unhandled_input(event):
 			can_jump = false
 		elif can_toggle_switch:
 			interact_object.toggle = true
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_action_pressed("right_mouse"):
-			is_pulling = true
-			if debugging:
-				print("is_pulling")
-		if event.is_action_released("right_mouse"):
-			is_pulling = false
-			if debugging:
-				print("not_pulling")
-		if event.is_action_released("left_mouse"):
-			if !is_linked:
-				if Global.has_grapple && Global.can_grapple:
-					grapple.launch(get_global_mouse_position())
-			else:
-				grapple.release()
-				Global.hud.grapple_cooldown_animation_player.play("GrappleCooldown",-1, (3/1)) #animation duration/ timer duration
-				Global.can_grapple = false
-				grapple_cooldown_timer.start()
 		
 func visual_process(delta):
 	if abs(direction.x)>= 0.001:
@@ -119,18 +85,3 @@ func visual_process(delta):
 	velocity_previous = velocity
 
 
-<<<<<<< Updated upstream
-=======
-func _on_InvincibilityTimer_timeout():
-	invincible = false
-
-
-func _on_hitbox_body_entered(body):
-	print(body)
-	if body is SpikeyVines:
-		self.damage(10)
-
-
-func _on_GrappleCooldownTimer_timeout():
-	Global.can_grapple = true
->>>>>>> Stashed changes

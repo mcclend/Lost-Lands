@@ -18,7 +18,6 @@ func exit()->void:
 func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)				#Player holds all global methods that is the same for most of the states
 
-
 func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
 	if player.is_push_pull_state:
