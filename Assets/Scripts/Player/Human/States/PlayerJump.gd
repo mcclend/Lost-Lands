@@ -2,7 +2,6 @@ extends HumanState
 class_name HumanJump
 
 var is_jumping := false
-var is_falling := false
 var sprite
 
 
@@ -34,8 +33,8 @@ func state_check()->void:
 		sm.transition_to("Die")
 	if player.velocity.y < 0 && !is_jumping:
 		_do_jump()
-	elif player.velocity.y >= 0 && !is_falling:
-		is_falling = true
+	elif player.velocity.y >= 0 && !player.is_falling:
+		player.is_falling = true
 		is_jumping = false
 		player.anim.play("fall")
 	if player.is_linked && player.is_pulling:
@@ -51,7 +50,7 @@ func _do_jump():
 	player.anim.play("jump")
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterJumpFix.mp3"), true)
 	is_jumping = true
-	is_falling = false
+	player.is_falling = false
 	
 func _land():
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterLandFix.mp3"), true, -24)

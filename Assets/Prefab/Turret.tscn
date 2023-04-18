@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Complex Damage/Turret/Sentry_alert.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Complex Damage/Turret/Sentry_searching.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Prefab/TurretActivate.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Prefab/LazerBeam.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -110,6 +111,7 @@ tracks/0/keys = {
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 8
 collision_mask = 0
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

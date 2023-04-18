@@ -8,7 +8,7 @@ var target
 var dragging = false
 var mouseStartPos
 var screenStartPos
-var lerpSpeed = 0.01
+var lerpSpeed = 0.05
 onready var top = $"../Body/bounds/PositionTop"
 onready var bottom = $"../Body/bounds/PositionBottom"
 onready var left = $"../Body/bounds/PositionLeft"

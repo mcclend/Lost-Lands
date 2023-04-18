@@ -3,9 +3,12 @@ extends RayCast2D
 var isCasting := false setget set_is_casting
 export var humanDamage = 1.0
 export var mechDamage = 0.5
-
+export var active := false
 
 func _physics_process(delta):
+	if active: #setting for consistency, the lazer being "active" turns it off
+		self.visible = false
+		return
 	var castPoint := cast_to
 	force_raycast_update()
 	

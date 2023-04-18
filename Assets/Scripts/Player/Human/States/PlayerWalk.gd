@@ -26,7 +26,6 @@ func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
 	if player.is_push_pull_state:
 		if player.interact_object.can_move(player.direction*100):
-			player.interact_object.add_collision_exception_with(player)
 			player.interact_object.global_position = player.push_pull_position.global_position
 func process(delta:float)->void:
 	player.visual_process(delta)

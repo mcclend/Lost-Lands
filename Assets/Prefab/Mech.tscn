@@ -629,7 +629,6 @@ one_shot = true
 [node name="ChargeDrainTimer" type="Timer" parent="Timers"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 drag_margin_left = 0.45

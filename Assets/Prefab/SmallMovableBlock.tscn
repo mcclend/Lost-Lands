@@ -4,9 +4,10 @@
 [ext_resource path="res://Assets/Scripts/Interactables/SmallMovableBlock.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 7 )
+extents = Vector2( 11.75, 11.5 )
 
 [node name="SmallMovableBlock" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
 z_index = 1
 script = ExtResource( 2 )
 debugging = false
@@ -16,6 +17,7 @@ top_rays = [ NodePath("RayCast2D_TL"), NodePath("RayCast2D_TR") ]
 bottom_rays = [ NodePath("RayCast2D_BL"), NodePath("RayCast2D_BR") ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.25, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

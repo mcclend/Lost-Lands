@@ -7,6 +7,8 @@ onready var pause_menu = $Menu/CanvasLayer/Pause
 onready var main_menu = $Menu/CanvasLayer/MainMenu
 onready var game_over = $Menu/CanvasLayer/GameOver
 onready var level = $Level
+onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
+onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
 
 var levelInstance
 
@@ -18,7 +20,7 @@ func _ready():
 	#check if there is a game to continue
 	if Global.can_load:$Menu/CanvasLayer/MainMenu/VBoxContainer/Continue.disabled = false
 	Global.main_scene = self
-	#Global.connect("returnToMainMenu", self, "returnToMainMenu")
+	Global.hud = hud
 	Global.connect("update_health", hud.health_bar, "update_health")
 	Global.connect("update_max_health", hud.health_bar, "update_max_health")
 	Global.connect("update_charge", hud.charge_bar, "update_health")
@@ -26,22 +28,26 @@ func _ready():
 	Global.connect("load_save", self, "loadScene")
 	Global.connect("player_died", self, "deathScreen")
 	Global.connect("returnToMainMenu", self, "returnToMainMenu")
-	Global.connect("next_level", self, "loadLevel")
+	Global.connect("next_level", self, "loadScene")
+	Global.connect("show_grapple_icon", self, "show_grapple_icon")
+	Global.connect("show_mech_boost_icon", self, "show_mech_boost_icon")
 	hide_hud()
 	
+
+func show_grapple_icon(value:bool):
+	hud.grapple_icon.visible = value
+
+func show_mech_boost_icon(value:bool):
+	hud.mech_boost_icon = value
+
 func hide_hud():
 	for child in hud.get_children():
 		child.hide()
-	#hud.health_bar.hide()
-	#hud.charge_bar.hide()
-	#hud.hover_timer_image.hide()	
-	
+
 func show_hud():
 	for child in hud.get_children():
 		child.show()
-	#hud.health_bar.show()
-	#hud.charge_bar.show()
-	#hud.hover_timer_image.show()	
+
 	
 func return_to_main_menu():
 	if levelInstance != null:
@@ -72,8 +78,11 @@ func loadLevel(level_name : String):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
 		
-func loadScene(scene = Global.current_scene):
+func loadScene(scene = Global.current_scene, door_number = 0):
 	loadLevel(scene)
+	var new_player = human_prefab.instance()
+	levelInstance.call_deferred("add_child",new_player)
+	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
 	if get_tree().paused:
@@ -88,7 +97,7 @@ func _on_load_pressed():
 func _on_NewGame_pressed():
 	Global.current_health = Global.max_health
 	Global.current_charge = Global.max_charge
-	loadScene("Level01")
+	loadScene("test")
 	main_menu.hide()
 	
 func quit():
