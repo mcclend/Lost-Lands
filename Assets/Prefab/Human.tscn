@@ -407,8 +407,7 @@ collision_mask = 513
 script = ExtResource( 3 )
 speed = 200.0
 acceleration = 750.0
-air_acceleration = 500.0
-jump_impulse = -250.0
+air_acceleration = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -538,7 +537,11 @@ position = Vector2( 9.5, 0 )
 shape = SubResource( 5 )
 
 [node name="PushPullPosition" type="Position2D" parent="Body"]
+<<<<<<< Updated upstream
 position = Vector2( 25, 6 )
+=======
+position = Vector2( 38, -6 )
+>>>>>>> Stashed changes
 
 [node name="bounds" type="Node2D" parent="Body"]
 visible = false
@@ -566,7 +569,21 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+<<<<<<< Updated upstream
+=======
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="GrappleCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Body/hitbox" to="." method="_on_hitbox_body_entered"]
+>>>>>>> Stashed changes
 [connection signal="area_entered" from="Body/InteractArea" to="Body/InteractArea" method="area_entered"]
 [connection signal="area_exited" from="Body/InteractArea" to="Body/InteractArea" method="area_exited"]
 [connection signal="body_entered" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_entered"]
 [connection signal="body_exited" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_exited"]
+<<<<<<< Updated upstream
+=======
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="GrappleCooldownTimer" to="." method="_on_GrappleCooldownTimer_timeout"]
+>>>>>>> Stashed changes

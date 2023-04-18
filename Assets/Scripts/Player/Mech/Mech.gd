@@ -37,6 +37,8 @@ var move_object_2 := false
 
 
 func _ready():
+	Global.mech = self
+	Global.player = null
 	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	jump_buffer = $Timers/RunTimer

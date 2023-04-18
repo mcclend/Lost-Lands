@@ -1,9 +1,8 @@
 extends HumanState
 class_name HumanJump
 
-var is_jumping := false
-var is_falling := false
 var sprite
+var is_jumping := false
 
 
 
@@ -21,6 +20,7 @@ func exit()->void:
 func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
 
+
 func physics_process(delta:float)->void:
 	player.air_physics_process(delta)
 		
@@ -32,9 +32,9 @@ func process(delta:float)->void:
 func state_check()->void:
 	if player.velocity.y < 0 && !is_jumping:
 		_do_jump()
-	elif player.velocity.y >= 0 && !is_falling:
-		is_falling = true
-		is_jumping = false
+	elif player.velocity.y >= 0 && !player.is_falling:
+		player.is_falling = true
+		player.is_jumping = false
 		player.anim.play("fall")
 	if player.is_linked && player.is_pulling:
 		sm.transition_to("Grappling")
@@ -49,7 +49,7 @@ func _do_jump():
 	player.anim.play("Jump")
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterJump.mp3"), true)
 	is_jumping = true
-	is_falling = false
+	player.is_falling = false
 	
 func _land():
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterLand.mp3"), true, -24)

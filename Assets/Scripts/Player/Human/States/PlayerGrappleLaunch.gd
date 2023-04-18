@@ -22,6 +22,7 @@ func exit()->void:
 
 func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)
+	
 
 func physics_process(delta:float)->void:
 	player.ground_update_logic()

@@ -21,10 +21,11 @@ var _cast_point := cast_to
 var link_point = null
 var _anchor
 
-const _PULL_STRENGTH = 2000
+const _PULL_STRENGTH = 2500
 
 
 func launch(target)->void:
+	print("LAUNCH")
 	_target = target
 	_parent.is_linked = false
 	_is_launching = true
@@ -65,18 +66,24 @@ func _physics_process(_delta):
 	
 	if _parent.is_linked:	
 		if _parent.is_pulling:
+<<<<<<< Updated upstream
 			if (attached_object is MovableObject) and attached_object.can_move(_pull_direction):
+=======
+			if attached_object is SmallMovableBlock or attached_object is PullablePlatform:
+				attached_object.pull = true
+			if (attached_object is SmallMovableBlock or attached_object is PullablePlatform) and attached_object.can_move(_pull_direction):
+>>>>>>> Stashed changes
 				print("can pull object")
 				attached_object.pull_velocity = -_pull_velocity
 				attached_object.pull = true
-			elif (attached_object is MovableObject):
+			elif (attached_object is SmallMovableBlock or attached_object is PullablePlatform):
 				print("can't pull object")
 				release()
 			else:
 				_parent.pull_velocity = _pull_velocity
 		else:
 			_parent.pull_velocity = Vector2.ZERO
-			if(attached_object is MovableObject):
+			if(attached_object is SmallMovableBlock or attached_object is PullablePlatform):
 				attached_object.pull_velocity = Vector2.ZERO
 				attached_object.pull = false
 func _collision_check():

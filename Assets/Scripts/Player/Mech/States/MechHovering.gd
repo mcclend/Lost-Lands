@@ -52,5 +52,10 @@ func process(delta:float)->void:
 	state_check()								#call check method if state need to be changed
 
 func state_check()->void:
+<<<<<<< Updated upstream
 	if player.deactivate == true:
+=======
+	if player.deactivate == true || Global.current_charge <= 0:
+		player.deactivate = true #in case we ran out of battery
+>>>>>>> Stashed changes
 		sm.transition_to("MechNotActive")
