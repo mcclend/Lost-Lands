@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Wires.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Vines.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Audio Assets/Misc/EletricSounds.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Scripts/Interactables/Hazards/LiveWire.gd" type="Script" id=3]
 
@@ -51,9 +51,8 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 2
-vframes = 3
-frame = 1
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
@@ -61,9 +60,7 @@ anims/RESET = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
-volume_db = -35.0
-autoplay = true
-max_distance = 200.0
+volume_db = -10.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

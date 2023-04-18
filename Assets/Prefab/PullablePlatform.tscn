@@ -11,6 +11,7 @@ extents = Vector2( 24, 4.5 )
 scale = Vector2( 2, 2 )
 z_index = -1
 script = ExtResource( 2 )
+mass = 150.0
 
 [node name="MoveTween" type="Tween" parent="."]
 
@@ -42,3 +43,9 @@ texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 8, 48 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
