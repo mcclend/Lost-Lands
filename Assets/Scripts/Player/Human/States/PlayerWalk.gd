@@ -25,14 +25,16 @@ func unhandled_input(event:InputEvent)->void:
 func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
 	if player.is_push_pull_state:
-		player.interact_object.add_collision_exception_with(player)
-		player.interact_object.global_position = player.push_pull_position.global_position
-
+		if player.interact_object.can_move(player.direction*100):
+			player.interact_object.add_collision_exception_with(player)
+			player.interact_object.global_position = player.push_pull_position.global_position
 func process(delta:float)->void:
 	player.visual_process(delta)
 	state_check()
 
 func state_check()->void:
+	if Global.current_health <= 0:
+		sm.transition_to("Die")
 	if player.is_linked && player.is_pulling:
 		sm.transition_to("Grappling")
 	elif player.is_grounded:

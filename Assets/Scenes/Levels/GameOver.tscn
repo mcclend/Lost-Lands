@@ -1,42 +1,7 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://scripts/gameOver.gd" type="Script" id=1]
-
+[gd_scene format=2]
 
 [node name="GameOver" type="Control"]
-margin_right = 320.0
-margin_bottom = 181.0
-script = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 320.0
-margin_bottom = 180.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 81.0
-margin_top = 37.0
-margin_right = 154.0
-margin_bottom = 51.0
-rect_rotation = 0.680908
-rect_scale = Vector2( 2.36482, 2.11203 )
-text = "Game Over"
-
-[node name="PlayAgain" type="Button" parent="."]
-margin_left = 48.0
-margin_top = 107.0
-margin_right = 125.0
-margin_bottom = 127.0
-rect_pivot_offset = Vector2( -82, 45 )
-text = "Play Again"
-
-[node name="Quit" type="Button" parent="."]
-margin_left = 193.0
-margin_top = 105.0
-margin_right = 270.0
-margin_bottom = 125.0
-rect_pivot_offset = Vector2( -82, 45 )
-text = "Quit"
-
-[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

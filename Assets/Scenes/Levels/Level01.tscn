@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Asset/visual assets/tileset/autotile48xMossy.tres" type="TileSet" id=1]
-[ext_resource path="res://prefab/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://prefab/Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Prefab/Human.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Prefab/Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Prefab/BlueDoor.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -93,3 +94,10 @@ margin_top = 294.0
 margin_right = 1010.0
 margin_bottom = 336.0
 text = "< Spikey Vines "
+
+[node name="BlueDoor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1305, 465 )
+next_level = "test"
+
+[node name="Human" parent="BlueDoor" instance=ExtResource( 2 )]
+position = Vector2( -146, -12 )

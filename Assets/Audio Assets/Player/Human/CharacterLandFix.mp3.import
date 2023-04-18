@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CharacterLandFix.mp3-19f9a5e04b0e1200cad6c058b36bb6e0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Player/Human/CharacterLandFix.mp3"
+dest_files=[ "res://.import/CharacterLandFix.mp3-19f9a5e04b0e1200cad6c058b36bb6e0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

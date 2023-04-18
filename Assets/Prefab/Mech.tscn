@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Mech/Mech_Activate(1).png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Mech/Mech_Hover.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Scripts/Player/Mech/MechAnimationPlayer.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Art Assets/Mech/Mech_Push.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Scripts/Player/Mech/MechActivateArea.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Scripts/Utility/Camera2D.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 239.362, 478.723 )
@@ -502,7 +503,6 @@ shape = SubResource( 22 )
 
 [node name="PlayerSpawnPosition" type="Position2D" parent="Body/Positions"]
 position = Vector2( 42.5532, 95.7446 )
-scale = Vector2( 1, 1 )
 
 [node name="InteractObjectPosition_1" type="Position2D" parent="Body/Positions"]
 position = Vector2( 829.787, -63.8298 )
@@ -516,21 +516,13 @@ scale = Vector2( 10.638, 10.638 )
 position = Vector2( 553.192, 53.1915 )
 scale = Vector2( 10.638, 10.638 )
 
-[node name="bounds" type="Node2D" parent="Body/Positions"]
-scale = Vector2( 1, 1 )
-
-[node name="PositionTop" type="Position2D" parent="Body/Positions/bounds"]
-
-[node name="PositionBottom" type="Position2D" parent="Body/Positions/bounds"]
-
-[node name="PositionLeft" type="Position2D" parent="Body/Positions/bounds"]
-
-[node name="PositionRight" type="Position2D" parent="Body/Positions/bounds"]
+[node name="PlaceObjectPosition" type="Position2D" parent="Body/Positions"]
+position = Vector2( 1478.72, 85.1064 )
 
 [node name="Animations" type="Node2D" parent="Body"]
 
 [node name="ActivationSprite" type="Sprite" parent="Body/Animations"]
-scale = Vector2( 1, 1 )
+visible = false
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 3
@@ -538,19 +530,18 @@ vframes = 4
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="MoveObjectSprite" type="Sprite" parent="Body/Animations"]
-visible = false
 position = Vector2( 30, -60 )
 scale = Vector2( 32, 32 )
 z_index = 1
 texture = ExtResource( 10 )
 hframes = 2
 vframes = 3
+frame = 5
 region_rect = Rect2( 0, 0, 40, 64 )
 
 [node name="HoverSprite" type="Sprite" parent="Body/Animations"]
 visible = false
 position = Vector2( 0, -63.8298 )
-scale = Vector2( 1, 1 )
 z_index = 1
 texture = ExtResource( 2 )
 hframes = 2
@@ -562,7 +553,6 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/ActivateArea"]
 position = Vector2( 409.894, 42.5531 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 25 )
 
 [node name="RunFlames" type="Line2D" parent="Body"]
@@ -591,6 +581,16 @@ default_color = Color( 1, 1, 1, 0 )
 texture_mode = 2
 round_precision = 32
 
+[node name="bounds" type="Node2D" parent="Body"]
+
+[node name="PositionTop" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionBottom" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionLeft" type="Position2D" parent="Body/bounds"]
+
+[node name="PositionRight" type="Position2D" parent="Body/bounds"]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 playback_process_mode = 0
@@ -602,6 +602,8 @@ anims/RESET = SubResource( 2 )
 script = ExtResource( 9 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -621,17 +623,22 @@ wait_time = 1.5
 one_shot = true
 
 [node name="RunCooldown" type="Timer" parent="Timers"]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
+
+[node name="ChargeDrainTimer" type="Timer" parent="Timers"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 drag_margin_v_enabled = true
+smoothing_enabled = true
 drag_margin_left = 0.45
 drag_margin_top = 0.45
 drag_margin_right = 0.45
 drag_margin_bottom = 0.45
 editor_draw_drag_margin = true
+script = ExtResource( 12 )
+targetPath = NodePath("..")
 
 [connection signal="area_entered" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_area_entered"]
 [connection signal="area_exited" from="Body/ActivateArea" to="Body/ActivateArea" method="_on_ActivateArea_area_exited"]
@@ -640,3 +647,4 @@ editor_draw_drag_margin = true
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timers/RunTimer" to="." method="_on_RunTimer_timeout"]
 [connection signal="timeout" from="Timers/RunCooldown" to="." method="_on_RunCooldown_timeout"]
+[connection signal="timeout" from="Timers/ChargeDrainTimer" to="." method="_on_ChargeDrainTimer_timeout"]

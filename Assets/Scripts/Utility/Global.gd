@@ -6,10 +6,12 @@ const GRAVITY = 300
 signal update_health(current_health)
 signal update_max_health(max_health)
 signal update_charge(current_charge)
-signal update_max_harge(current_charge)
+signal update_max_charge(current_charge)
 signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
+signal returnToMainMenu()
 signal load_save()
+signal next_level(scene)
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
@@ -26,7 +28,8 @@ var can_load := false
 var current_scene = null
 var root = null
 var file = File.new()
-var current_camera = null
+var hud
+
 
 func _ready():
 	get_tree().paused = true
@@ -42,12 +45,12 @@ func _physics_process(delta):
 
 func update_values():
 	current_health = clamp(current_health,0.0, max_health)
-	current_health = clamp(current_charge,0.0, max_charge)
+	current_charge = clamp(current_charge,0.0, max_charge)
 	charge_depletion_rate = clamp(charge_depletion_rate, 0.0, 100.0)
 	emit_signal("update_max_health", max_health)
 	emit_signal("update_max_charge", max_charge)
-	emit_signal("update_current_health", current_health)
-	emit_signal("update_current_charge", current_charge)
+	emit_signal("update_health", current_health)
+	emit_signal("update_charge", current_charge)
 	emit_signal("update_charge_depletion_rate", charge_depletion_rate)
 
 func saveData(path : String):
@@ -56,8 +59,8 @@ func saveData(path : String):
 		"current_health" : current_health,
 		"max_charge" : max_charge,
 		"current_charge" : current_charge,
-		"hasGrapple" : has_grapple,
-		"currentScene" : current_scene,
+		"has_grapple" : has_grapple,
+		"current_scene" : current_scene,
 		"charge_depletion_rate" : charge_depletion_rate
 	}
 	var file
@@ -79,5 +82,12 @@ func loadData(path : String):
 	current_scene = jsonData.current_scene
 	charge_depletion_rate = jsonData.charge_depletion_rate
 	emit_signal("load_save")
+
+func play_audio(audio:AudioStream, audio_player:AudioStreamPlayer2D, immediate:bool = false, volume:float = -18):
+	audio_player.volume_db = volume
+	if audio_player.playing and !immediate:
+		yield(audio_player, "finished")
+	audio_player.stream = audio
+	audio_player.play()
 	
 	

@@ -134,6 +134,9 @@ position = Vector2( -18, -7.5 )
 [node name="LazerBeam" parent="pointer" instance=ExtResource( 4 )]
 position = Vector2( -18, -7.5 )
 rotation = 3.14159
+collision_mask = 7
+humanDamage = 3.0
+mechDamage = 1.0
 
 [node name="shotTimer" type="Timer" parent="."]
 wait_time = 0.5
