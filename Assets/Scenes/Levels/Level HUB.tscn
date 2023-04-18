@@ -23,7 +23,7 @@ script = ExtResource( 4 )
 
 [node name="BlueDoor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 122, 415 )
-next_level = "Level01"
+next_level = "test"
 
 [node name="BlueDoor2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 309, 227 )

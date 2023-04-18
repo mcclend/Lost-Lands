@@ -15,7 +15,7 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	player.velocity.x = 0
 	player.anim.deactivate()
 	if player.deactivate:
-		play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOff.mp3"), true)
+		play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOff.mp3"), true, .01)
 		var spawn_player = Global.human_prefab.instance()
 		spawn_player.global_position = player.player_spawn_position.global_position
 		print("SPAWN POSITION", spawn_player.position)
@@ -26,7 +26,7 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	
 
 func exit()->void:
-	play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOn.mp3"), true)
+	play_audio(preload("res://Assets/Audio Assets/Mech/Assets_Audio Assets_Mech_MechOn.mp3"), true, .01)
 	player.anim.activate()
 	player.camera.current = true
 	player.charge_drain_timer.start()
