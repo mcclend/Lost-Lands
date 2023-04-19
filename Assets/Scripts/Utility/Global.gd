@@ -11,20 +11,25 @@ signal update_charge_depletion_rate(charge_depletion_rate)
 signal player_died()
 signal returnToMainMenu()
 signal load_save()
-signal next_level(scene)
+signal next_level(scene, door_number)
+signal show_mech_boost_icon(value)
+signal show_grapple_icon(value)
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
-
+var player
+var mech
 var max_health := 100.0
 var current_health := 100.0
 var max_charge := 100.0
-var current_charge := 0.0
+var current_charge := 100.0
 var charge_depletion_rate := 0.5
 var main_scene = null
-var has_grapple := false
-var can_grapple := false
+var has_grapple := true
+var can_grapple := true
 var can_load := false
+var grapple_icon_active := false
+var mech_boost_icon_active := false
 var current_scene = null
 var root = null
 var file = File.new()
@@ -42,6 +47,18 @@ func _ready():
 	 
 func _physics_process(delta):
 	update_values()
+	if player && has_grapple && !grapple_icon_active:
+		emit_signal("show_grapple_icon", true)
+		grapple_icon_active = true
+	elif !player || !has_grapple && grapple_icon_active:
+		emit_signal("show_grapple_icon", false)
+		grapple_icon_active = false
+	elif mech && mech_boost_icon_active:
+		emit_signal("show_mech_boost_icon", true)
+		mech_boost_icon_active = true
+	elif mech_boost_icon_active:
+		emit_signal("show_mech_boost_icon", false)
+		mech_boost_icon_active = false
 
 func update_values():
 	current_health = clamp(current_health,0.0, max_health)
