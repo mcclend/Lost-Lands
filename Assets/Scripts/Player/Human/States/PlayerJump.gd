@@ -54,6 +54,6 @@ func _do_jump():
 	is_falling = false
 	
 func _land():
-	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterLandFix.mp3"), true, -24)
-
+	play_audio(preload("res://Assets/Audio Assets/Player/Human/Assets_Audio Assets_Player_Human_CharacterLandFix.mp3"), true)
+	
 
