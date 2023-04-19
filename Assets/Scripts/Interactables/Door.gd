@@ -2,13 +2,14 @@ extends ActivationArea
 class_name Door
 
 export (String) var next_level = null
+export (String) var door_number = null
 export var active = true
 var _open = true
 
 	
 func activate():
 	if _open:
-		Global.emit_signal("next_level", next_level)
+		Global.emit_signal("next_level", next_level, door_number)
 
 func _physics_process(delta):
 	if active:

@@ -414,7 +414,6 @@ script = ExtResource( 3 )
 speed = 200.0
 acceleration = 750.0
 air_acceleration = 500.0
-jump_impulse = -250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -543,7 +542,7 @@ position = Vector2( 9.5, 0 )
 shape = SubResource( 5 )
 
 [node name="PushPullPosition" type="Position2D" parent="Body"]
-position = Vector2( 26, 7 )
+position = Vector2( 36, -4 )
 
 [node name="bounds" type="Node2D" parent="Body"]
 visible = false
@@ -576,9 +575,12 @@ targetPath = NodePath("..")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
+[node name="GrappleCooldownTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Body/hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="Body/InteractArea" to="Body/InteractArea" method="area_entered"]
 [connection signal="area_exited" from="Body/InteractArea" to="Body/InteractArea" method="area_exited"]
 [connection signal="body_entered" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_entered"]
 [connection signal="body_exited" from="Body/InteractArea" to="Body/InteractArea" method="_on_InteractArea_body_exited"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="GrappleCooldownTimer" to="." method="_on_GrappleCooldownTimer_timeout"]

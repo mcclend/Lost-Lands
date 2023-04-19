@@ -7,7 +7,8 @@ onready var pause_menu = $Menu/CanvasLayer/Pause
 onready var main_menu = $Menu/CanvasLayer/MainMenu
 onready var game_over = $Menu/CanvasLayer/GameOver
 onready var level = $Level
-
+onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
+onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
 var levelInstance
 
 
@@ -26,7 +27,7 @@ func _ready():
 	Global.connect("load_save", self, "loadScene")
 	Global.connect("player_died", self, "deathScreen")
 	Global.connect("returnToMainMenu", self, "returnToMainMenu")
-	Global.connect("next_level", self, "loadLevel")
+	Global.connect("next_level", self, "loadScene")
 	hide_hud()
 	
 func hide_hud():
@@ -72,8 +73,11 @@ func loadLevel(level_name : String):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
 		
-func loadScene(scene = Global.current_scene):
+func loadScene(scene = Global.current_scene, door_number = 0):
 	loadLevel(scene)
+	var new_player = human_prefab.instance()
+	levelInstance.call_deferred("add_child",new_player)
+	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
 	if get_tree().paused:
