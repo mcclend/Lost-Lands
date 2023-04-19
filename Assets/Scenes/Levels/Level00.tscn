@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://Assets/Art Assets/Backgrounds/forest separate/Forest_Background_Dirt1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Prefab/grassTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Prefab/SpikeyVineFix.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Prefab/PlantEnemy.tscn" type="PackedScene" id=4]
@@ -8,8 +9,83 @@
 [ext_resource path="res://Assets/Prefab/noColidetileset_overgrown_X48.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Prefab/Turret.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Art Assets/Complex Damage/Turret/Sentry_alert.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/forest separate/tile000.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/forest separate/tile002.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/forest separate/tile001.png" type="Texture" id=12]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ForestBackgroundDirt1" type="Sprite" parent="Node2D"]
+position = Vector2( -280, 745 )
+texture = ExtResource( 1 )
+
+[node name="Tile000" type="Sprite" parent="Node2D"]
+position = Vector2( -280, 297 )
+texture = ExtResource( 10 )
+
+[node name="Tile001" type="Sprite" parent="Node2D"]
+position = Vector2( -280, -151 )
+texture = ExtResource( 12 )
+
+[node name="Tile002" type="Sprite" parent="Node2D"]
+position = Vector2( -280, -599 )
+texture = ExtResource( 11 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="ForestBackgroundDirt1" type="Sprite" parent="Node2D2"]
+position = Vector2( 488, 745 )
+texture = ExtResource( 1 )
+
+[node name="Tile000" type="Sprite" parent="Node2D2"]
+position = Vector2( 488, 297 )
+texture = ExtResource( 10 )
+
+[node name="Tile001" type="Sprite" parent="Node2D2"]
+position = Vector2( 488, -151 )
+texture = ExtResource( 12 )
+
+[node name="Tile002" type="Sprite" parent="Node2D2"]
+position = Vector2( 488, -599 )
+texture = ExtResource( 11 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="ForestBackgroundDirt1" type="Sprite" parent="Node2D3"]
+position = Vector2( 1256, 745 )
+texture = ExtResource( 1 )
+
+[node name="Tile000" type="Sprite" parent="Node2D3"]
+position = Vector2( 1256, 297 )
+texture = ExtResource( 10 )
+
+[node name="Tile001" type="Sprite" parent="Node2D3"]
+position = Vector2( 1256, -151 )
+texture = ExtResource( 12 )
+
+[node name="Tile002" type="Sprite" parent="Node2D3"]
+position = Vector2( 1256, -599 )
+texture = ExtResource( 11 )
+
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="ForestBackgroundDirt1" type="Sprite" parent="Node2D4"]
+position = Vector2( 2024, 745 )
+texture = ExtResource( 1 )
+
+[node name="Tile000" type="Sprite" parent="Node2D4"]
+position = Vector2( 2024, 297 )
+texture = ExtResource( 10 )
+
+[node name="Tile001" type="Sprite" parent="Node2D4"]
+position = Vector2( 2024, -151 )
+texture = ExtResource( 12 )
+
+[node name="Tile002" type="Sprite" parent="Node2D4"]
+position = Vector2( 2024, -599 )
+texture = ExtResource( 11 )
 
 [node name="Turret" parent="." instance=ExtResource( 8 )]
 position = Vector2( 229, 609 )

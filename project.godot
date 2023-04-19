@@ -232,7 +232,9 @@ _global_script_class_icons={
 
 config/name="Lost Lands"
 run/main_scene="res://Assets/Scenes/GameController.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://GoodbyeStudios_WIP_icon more.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://GoodbyeStudios_WIP_icon.png"
 
 [autoload]
 

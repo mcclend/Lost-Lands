@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Scripts/Utility/StaticCanGrapple.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Prefab/SmallMovableBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile000_edit.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Prefab/LargeMovableBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Prefab/LazerBeam.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Prefab/BlueDoor.tscn" type="PackedScene" id=7]
@@ -10,8 +11,340 @@
 [ext_resource path="res://Assets/Prefab/PullablePlatform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Prefab/ToggleSwitch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Prefab/Mech.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001_edit.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile004_edit.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile004.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile005_edit.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile003.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile007.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile005.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006_edit.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile002_edit.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile002.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile007_edit.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile000.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile003_edit.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile004_edit2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001_edit2.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile002_edit2.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile005_edit2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile000_edit2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile003_edit2.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile007_edit2.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006_edit2.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom2.png" type="Texture" id=36]
 
 [node name="Level_HUB" type="Node2D"]
+
+[node name="MediumBackgrounds" type="Node2D" parent="."]
+
+[node name="Tile000Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -1280, -1502 )
+texture = ExtResource( 31 )
+
+[node name="Tile000Edit5" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1440, -941 )
+z_index = -1
+texture = ExtResource( 31 )
+
+[node name="Tile000Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1248, -1325 )
+texture = ExtResource( 31 )
+
+[node name="Tile001Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -1040, -1502 )
+texture = ExtResource( 28 )
+
+[node name="Tile002Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -800, -1502 )
+texture = ExtResource( 29 )
+
+[node name="Tile002Edit5" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 864, -1277 )
+texture = ExtResource( 29 )
+
+[node name="Tile002Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 288, -171 )
+texture = ExtResource( 29 )
+
+[node name="Tile003Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -560, -1502 )
+texture = ExtResource( 32 )
+
+[node name="Tile003Edit6" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1248, -941 )
+z_index = -1
+texture = ExtResource( 32 )
+
+[node name="Tile003Edit5" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 864, -518 )
+texture = ExtResource( 32 )
+
+[node name="Tile003Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 96, -171 )
+texture = ExtResource( 32 )
+
+[node name="Tile004Edit2" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -1280, -1106 )
+texture = ExtResource( 27 )
+
+[node name="Tile004Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 672, -518 )
+texture = ExtResource( 27 )
+
+[node name="Tile005Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -1040, -1106 )
+texture = ExtResource( 30 )
+
+[node name="Tile005Edit6" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1056, -1325 )
+texture = ExtResource( 30 )
+
+[node name="Tile005Edit5" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1056, -518 )
+texture = ExtResource( 30 )
+
+[node name="Tile005Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 480, -518 )
+texture = ExtResource( 30 )
+
+[node name="Tile006Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -800, -1106 )
+texture = ExtResource( 34 )
+
+[node name="Tile006Edit6" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 1056, -941 )
+z_index = -1
+texture = ExtResource( 34 )
+
+[node name="Tile006Edit5" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 672, -1011 )
+texture = ExtResource( 34 )
+
+[node name="Tile007Edit2" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( -560, -1106 )
+texture = ExtResource( 33 )
+
+[node name="Tile007Edit4" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 480, -1011 )
+texture = ExtResource( 33 )
+
+[node name="Tile007Edit3" type="Sprite" parent="MediumBackgrounds"]
+position = Vector2( 288, -518 )
+texture = ExtResource( 33 )
+
+[node name="BigBackgrounds" type="Node2D" parent="."]
+
+[node name="Tile000" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -1280, -659 )
+texture = ExtResource( 25 )
+
+[node name="Tile001" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -1040, -659 )
+texture = ExtResource( 22 )
+
+[node name="Tile002" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -800, -659 )
+texture = ExtResource( 23 )
+
+[node name="Tile003" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -560, -659 )
+texture = ExtResource( 17 )
+
+[node name="Tile004" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -1280, -149 )
+texture = ExtResource( 15 )
+
+[node name="Tile005" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -1040, -149 )
+texture = ExtResource( 19 )
+
+[node name="Tile006" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -800, -149 )
+texture = ExtResource( 13 )
+
+[node name="Tile007" type="Sprite" parent="BigBackgrounds"]
+position = Vector2( -560, -149 )
+texture = ExtResource( 18 )
+
+[node name="SmallBackgrounds" type="Node2D" parent="."]
+
+[node name="Tile000Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -1280, 250 )
+texture = ExtResource( 4 )
+
+[node name="Tile000Edit3" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 1440, 366 )
+texture = ExtResource( 4 )
+
+[node name="Tile000Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 480, -231 )
+texture = ExtResource( 4 )
+
+[node name="Tile001Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -1040, 250 )
+texture = ExtResource( 12 )
+
+[node name="Tile001Edit3" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 1056, -231 )
+texture = ExtResource( 12 )
+
+[node name="Tile001Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 864, 366 )
+texture = ExtResource( 12 )
+
+[node name="Tile002Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -800, 250 )
+texture = ExtResource( 21 )
+
+[node name="Tile002Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 1248, 366 )
+texture = ExtResource( 21 )
+
+[node name="Tile003Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -560, 250 )
+texture = ExtResource( 26 )
+
+[node name="Tile003Edit3" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 864, -231 )
+texture = ExtResource( 26 )
+
+[node name="Tile003Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 672, 366 )
+texture = ExtResource( 26 )
+
+[node name="Tile004Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -1280, 554 )
+texture = ExtResource( 14 )
+
+[node name="Tile004Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 480, 366 )
+texture = ExtResource( 14 )
+
+[node name="Tile005Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -560, 554 )
+texture = ExtResource( 16 )
+
+[node name="Tile006Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -800, 554 )
+texture = ExtResource( 20 )
+
+[node name="Tile006Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 672, -231 )
+texture = ExtResource( 20 )
+
+[node name="Tile007Edit" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( -1040, 554 )
+texture = ExtResource( 24 )
+
+[node name="Tile007Edit2" type="Sprite" parent="SmallBackgrounds"]
+position = Vector2( 1056, 366 )
+texture = ExtResource( 24 )
+
+[node name="CustomBackgrounds" type="Node2D" parent="."]
+
+[node name="TileCustom2" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( -1732, -797 )
+texture = ExtResource( 36 )
+
+[node name="TileCustom" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( -1511, -815 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom20" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, -1112 )
+z_index = -1
+texture = ExtResource( 35 )
+
+[node name="TileCustom19" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, -910 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom3" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 288, -765 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom4" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, -765 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom5" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, -765 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom21" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, -1258 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom22" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, -1258 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom23" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, -1404 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom24" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, -1404 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom6" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, -44 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom7" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, -44 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom8" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, -44 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom9" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, 102 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom10" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, 102 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom11" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, 102 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom15" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, 553 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom16" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, 553 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom17" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, 553 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom18" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 1056, 553 )
+texture = ExtResource( 35 )
+
+[node name="TileCustom12" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 480, 248 )
+z_index = -1
+texture = ExtResource( 35 )
+
+[node name="TileCustom13" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 672, 248 )
+z_index = -1
+texture = ExtResource( 35 )
+
+[node name="TileCustom14" type="Sprite" parent="CustomBackgrounds"]
+position = Vector2( 864, 248 )
+z_index = -1
+texture = ExtResource( 35 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
