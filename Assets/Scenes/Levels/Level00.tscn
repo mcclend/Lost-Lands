@@ -88,10 +88,10 @@ position = Vector2( 2024, -599 )
 texture = ExtResource( 11 )
 
 [node name="Turret" parent="." instance=ExtResource( 8 )]
-position = Vector2( 229, 609 )
+position = Vector2( 249, 609 )
 
 [node name="Turret2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 804, 609 )
+position = Vector2( 825, 609 )
 
 [node name="Turret3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 995, 610 )
@@ -124,14 +124,14 @@ position = Vector2( 702, 448 )
 position = Vector2( 491, 460 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1331, 205 )
+position = Vector2( 1331, 336 )
 rotation = -1.34041
 texture = ExtResource( 9 )
 hframes = 3
 vframes = 4
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 1331, 152 )
+position = Vector2( 1331, 283 )
 rotation = -1.34041
 texture = ExtResource( 9 )
 hframes = 3
