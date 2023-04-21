@@ -72,6 +72,7 @@ func loadLevel(level_name : String):
 	if (levelResource):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
+		Global.current_scene = level_name
 		
 func loadScene(scene = Global.current_scene, door_number = 0):
 	loadLevel(scene)

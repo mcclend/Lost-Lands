@@ -69,7 +69,7 @@ func _physics_process(_delta):
 	
 	if _parent.is_linked:	
 		if _parent.is_pulling:
-			if (attached_object is SmallMovableBlock or attached_object is PullablePlatform) and attached_object.can_move(_pull_direction):
+			if (attached_object is SmallMovableBlock or attached_object is PullablePlatform) and attached_object.can_move(-_pull_direction):
 				print("can pull object")
 				attached_object.pull_velocity = -_pull_velocity
 				attached_object.pull = true
