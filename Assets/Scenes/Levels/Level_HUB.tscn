@@ -399,11 +399,13 @@ door_number = "0"
 
 [node name="Door_2" parent="Doors" instance=ExtResource( 7 )]
 position = Vector2( 1051, -158 )
-next_level = "Level03"
+next_level = "Level02"
 door_number = "0"
 
 [node name="Door_3" parent="Doors" instance=ExtResource( 7 )]
 position = Vector2( 961, -445 )
+next_level = "Level03"
+door_number = "0"
 
 [node name="Door_4" parent="Doors" instance=ExtResource( 7 )]
 position = Vector2( 1452, -782 )

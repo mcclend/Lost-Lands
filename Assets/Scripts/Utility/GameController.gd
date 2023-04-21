@@ -80,6 +80,7 @@ func loadScene(scene = Global.current_scene, door_number = 0):
 	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
+	if Global.has_grapple: Global.can_grapple = true
 	if get_tree().paused:
 		pause_menu._on_resume_pressed()
 

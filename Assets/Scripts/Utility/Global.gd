@@ -30,13 +30,16 @@ var can_grapple := true
 var can_load := false
 var grapple_icon_active := false
 var mech_boost_icon_active := false
+var is_mouse_direction_grapplable_object := false
 var current_scene = null
 var root = null
 var file = File.new()
 var hud
+var viewport_size
 
 
 func _ready():
+	viewport_size = get_viewport().size
 	get_tree().paused = true
 	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)

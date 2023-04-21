@@ -46,6 +46,8 @@ glow_bicubic_upscale = true
 cast_to = Vector2( 1000, 0 )
 collision_mask = 3
 script = ExtResource( 1 )
+humanDamage = 1e+07
+mechDamage = 1.0
 
 [node name="Tween" type="Tween" parent="."]
 

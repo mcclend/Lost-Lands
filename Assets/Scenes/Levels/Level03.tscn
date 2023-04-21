@@ -260,6 +260,8 @@ position = Vector2( 1170, 572 )
 [node name="LazerBeam" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1031, 284 )
 rotation = -1.5708
+scale = Vector2( 1.19558, 1 )
+humanDamage = 1e+06
 
 [node name="Mech" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1170, 223 )
@@ -311,7 +313,7 @@ texture = ExtResource( 11 )
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door_0" parent="Doors" instance=ExtResource( 9 )]
-position = Vector2( 81, 801 )
+position = Vector2( 111.887, 800.074 )
 next_level = "Level_HUB"
 door_number = "3"
 active = false

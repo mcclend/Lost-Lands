@@ -17,9 +17,3 @@ func get_local_scene_root(p_node : Node) -> Node:
 func _ready():
 	root_node = get_local_scene_root(self)
 
-
-func area_entered(area):
-	pass # Replace with function body.
-
-func area_exited(area):
-	pass
