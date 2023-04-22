@@ -90,6 +90,10 @@ func _on_save_pressed():
 	Global.saveData(Global.SAVE_PATH)
 
 func _on_load_pressed():
+	main_menu.hide()
+	pause_menu.hide()
+	game_over.hide()
+	pause_menu._on_resume_pressed()
 	Global.loadData(Global.SAVE_PATH)
 
 func _on_NewGame_pressed():
@@ -100,3 +104,4 @@ func _on_NewGame_pressed():
 	
 func quit():
 	get_tree().quit()
+

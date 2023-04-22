@@ -22,11 +22,11 @@ var mech
 var max_health := 100.0
 var current_health := 100.0
 var max_charge := 100.0
-var current_charge := 100.0
+var current_charge := 0.0
 var charge_depletion_rate := 0.5
 var main_scene = null
-var has_grapple := true
-var can_grapple := true
+var has_grapple := false
+var can_grapple := false
 var can_load := false
 var grapple_icon_active := false
 var mech_boost_icon_active := false
