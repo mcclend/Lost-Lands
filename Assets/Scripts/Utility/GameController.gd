@@ -85,6 +85,7 @@ func loadScene(scene = Global.current_scene_name, door_number = 0):
 	if Global.has_grapple: Global.can_grapple = true
 	if get_tree().paused:
 		pause_menu._on_resume_pressed()
+	_on_save_pressed()
 
 func _on_save_pressed():
 	Global.saveData(Global.SAVE_PATH)
@@ -98,6 +99,9 @@ func _on_load_pressed():
 
 func _on_NewGame_pressed():
 	Global.current_health = Global.max_health
+	Global.current_charge = 0
+	Global.has_grapple = false
+	Global.can_grapple = false
 	#Global.current_charge = Global.max_charge
 	loadScene("Level00")
 	main_menu.hide()
