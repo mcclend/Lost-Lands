@@ -45,7 +45,7 @@ glow_bicubic_upscale = true
 
 [node name="LazerBeam" type="RayCast2D"]
 cast_to = Vector2( 1000, 0 )
-collision_mask = 3
+collision_mask = 7
 script = ExtResource( 1 )
 humanDamage = 1e+07
 mechDamage = 1.0

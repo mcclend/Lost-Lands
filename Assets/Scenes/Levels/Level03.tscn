@@ -254,11 +254,12 @@ script = ExtResource( 3 )
 position = Vector2( 1170, 572 )
 
 [node name="Mech" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1196, 217 )
+position = Vector2( 1200, 233 )
 z_as_relative = true
 
 [node name="PullablePlatform2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 344, 429 )
+max_pull_dist = 300.0
 
 [node name="ToggleSwitch" parent="." instance=ExtResource( 6 )]
 position = Vector2( 37, 412 )
