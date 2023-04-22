@@ -33,6 +33,8 @@ func launch(target)->void:
 	line.points[0] = _parent.launch_point.position
 	line.points[1] = _parent.launch_point.position
 func release()->void:
+	if ($AudioStreamPlayer2D2.playing):
+		$AudioStreamPlayer2D2.stop()
 	if(attached_object is MovableObject):
 		attached_object.pull_velocity = Vector2.ZERO
 		attached_object.pull = false
@@ -45,6 +47,7 @@ func release()->void:
 func _process(_delta):
 	self.enabled = _is_launching || _parent.is_linked
 	activate_area.monitoring = _is_launching || _parent.is_linked
+	activate_area.visible = _is_launching || _parent.is_linked
 	line.visible = self.enabled
 	if not self.enabled: 
 		return
@@ -69,7 +72,9 @@ func _physics_process(_delta):
 	
 	if _parent.is_linked:	
 		if _parent.is_pulling:
-			if (attached_object is SmallMovableBlock or attached_object is PullablePlatform) and attached_object.can_move(_pull_direction):
+			if (!$AudioStreamPlayer2D2.playing):
+				$AudioStreamPlayer2D2.play()
+			if (attached_object is SmallMovableBlock or attached_object is PullablePlatform) and attached_object.can_move(-_pull_direction):
 				print("can pull object")
 				attached_object.pull_velocity = -_pull_velocity
 				attached_object.pull = true
@@ -79,6 +84,8 @@ func _physics_process(_delta):
 			else:
 				_parent.pull_velocity = _pull_velocity
 		else:
+			if ($AudioStreamPlayer2D2.playing):
+				$AudioStreamPlayer2D2.stop()
 			_parent.pull_velocity = Vector2.ZERO
 			if attached_object is SmallMovableBlock or attached_object is PullablePlatform:
 				attached_object.pull_velocity = Vector2.ZERO
@@ -88,12 +95,14 @@ func _collision_check():
 		if Global.has_grapple && get_collider().is_in_group("CanBeGrappled"):
 			Global.is_mouse_direction_grapplable_object = true
 			if _is_launching and !_parent.is_linked:
+				$AudioStreamPlayer2D.play()
 				_is_launching = false
 				attached_object = get_collider()
 				if attached_object.is_in_group("CanBeGrappled"):
 					_anchor = Node2D.new()
 					attached_object.add_child(_anchor)
 					_anchor.global_position = get_collision_point()
+					$ActivateArea.rotation = (_anchor.global_position-_parent.global_position).angle()
 					if (rad2deg((_anchor.global_position-_parent.global_position).angle()) > 75) and (rad2deg((_anchor.global_position-_parent.global_position).angle()) < 105):
 						_parent.launch_grapple_up = true
 					else:

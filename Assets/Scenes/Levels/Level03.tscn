@@ -264,7 +264,7 @@ scale = Vector2( 1.19558, 1 )
 humanDamage = 1e+06
 
 [node name="Mech" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1170, 223 )
+position = Vector2( 1196, 217 )
 z_as_relative = true
 
 [node name="PullablePlatform2" parent="." instance=ExtResource( 4 )]

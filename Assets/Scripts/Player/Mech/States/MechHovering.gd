@@ -54,4 +54,5 @@ func process(delta:float)->void:
 
 func state_check()->void:
 	if player.deactivate == true || Global.current_charge <= 0:
+		if !player.deactivate: player.deactivate = true
 		sm.transition_to("MechNotActive")

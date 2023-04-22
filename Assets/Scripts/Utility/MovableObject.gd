@@ -43,6 +43,7 @@ func _physics_process(_delta):
 func can_move(dir : Vector2)->bool:
 	#Takes a direction vector and checks if this object can move in that direction
 	#The purpose of this function is to tell the grappling hook whether or not it should apply velocity to this object
+	print("DIR = ", dir)
 	var horizontal := false
 	var vertical := false
 	#if we cannot move in the x direction we are trying to, set horizontal to false
