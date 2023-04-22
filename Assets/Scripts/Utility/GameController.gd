@@ -72,9 +72,10 @@ func loadLevel(level_name : String):
 	if (levelResource):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
-		Global.current_scene = level_name
+		Global.current_scene = levelInstance
+		Global.current_scene_name = level_name
 		
-func loadScene(scene = Global.current_scene, door_number = 0):
+func loadScene(scene = Global.current_scene_name, door_number = 0):
 	loadLevel(scene)
 	var new_player = human_prefab.instance()
 	levelInstance.call_deferred("add_child",new_player)

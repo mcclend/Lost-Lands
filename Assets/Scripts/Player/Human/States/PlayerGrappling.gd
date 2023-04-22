@@ -19,7 +19,7 @@ func _init(_sm).(_sm)->void:
 func enter(_msg:Dictionary = {})->void:
 	var sprite = player.animation_sprites.find_node("GrappleFlySideways")
 	set_sprite(sprite)
-	player.anim.play("GrapplyFlySideways")
+	player.anim.play("GrappleFlySideways")
 	_grapple = player.grapple
 	_link_point = _grapple.link_point
 	_launch_position = player.launch_point.position

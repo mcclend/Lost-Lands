@@ -239,6 +239,7 @@ config/icon="res://GoodbyeStudios_WIP_icon.png"
 [autoload]
 
 Global="*res://Assets/Scripts/Utility/Global.gd"
+SoundManager="*res://Assets/Prefab/SoundManager.tscn"
 
 [display]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Scripts/Interactables/Hazards/LazerBeam.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Shaders/LazerBeam.tres" type="Material" id=2]
-[ext_resource path="res://Assets/Audio Assets/Misc/lazer_loop.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Shaders/LazerBeam.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Scripts/Interactables/Hazards/LazerBeam.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Laser Emitter.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio Assets/Misc/lazer_loop.mp3" type="AudioStream" id=4]
 
 [sub_resource type="GradientTexture" id=13]
 
@@ -46,14 +47,14 @@ glow_bicubic_upscale = true
 [node name="LazerBeam" type="RayCast2D"]
 cast_to = Vector2( 1000, 0 )
 collision_mask = 3
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 humanDamage = 1e+07
 mechDamage = 1.0
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Line2D" type="Line2D" parent="."]
-material = ExtResource( 2 )
+material = ExtResource( 1 )
 rotation = 0.00865236
 points = PoolVector2Array( 0, 0, 50, 0 )
 default_color = Color( 1, 0, 0, 0 )
@@ -71,8 +72,13 @@ texture = SubResource( 6 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 16 )
 
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+
 [node name="Laser_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -30.0
 pitch_scale = 4.0
 max_distance = 250.0

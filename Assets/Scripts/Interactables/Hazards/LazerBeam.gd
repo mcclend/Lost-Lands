@@ -9,6 +9,8 @@ export var active = false
 func _physics_process(delta):
 	self.visible = !active # we want the turret to turn off when "activated" by a trigger
 	if !active:
+		if !$Laser_sound.playing:
+			$Laser_sound.play()
 		var castPoint := cast_to
 		force_raycast_update()
 		
@@ -21,6 +23,9 @@ func _physics_process(delta):
 			castPoint.x -= 5
 		$Line2D.points[1] = castPoint
 		castPoint.length() * 0.5
+	else:
+		if $Laser_sound.playing:
+			$Laser_sound.stop()
 
 func set_is_casting(cast : bool) -> void:
 	isCasting = cast
