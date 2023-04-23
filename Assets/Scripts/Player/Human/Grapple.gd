@@ -47,7 +47,7 @@ func release()->void:
 func _process(_delta):
 	self.enabled = _is_launching || _parent.is_linked
 	activate_area.monitoring = _is_launching || _parent.is_linked
-	activate_area.visible = _is_launching || _parent.is_linked
+	activate_area.visible = _parent.is_linked
 	line.visible = self.enabled
 	if not self.enabled: 
 		return

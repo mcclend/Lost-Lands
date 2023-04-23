@@ -7,7 +7,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
-	if Global.is_mouse_direction_grapplable_object:
+	if Global.is_mouse_direction_grapplable_object && Global.can_grapple:
 		$CursorSprite.modulate = _GREEN
 	else:
 		$CursorSprite.modulate = _RED

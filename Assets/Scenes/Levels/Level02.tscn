@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006_edit2.png" type="Texture" id=2]
@@ -6,11 +6,9 @@
 [ext_resource path="res://Assets/Prefab/BlueDoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Prefab/ToggleSwitch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Prefab/SmallMovableBlock.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Prefab/Turret.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Prefab/PullablePlatform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Prefab/PressurePlate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Scripts/Utility/StaticCanGrapple.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Prefab/LazerBeam.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile000.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001_edit.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001.png" type="Texture" id=14]
@@ -35,7 +33,7 @@
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile001_edit2.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile002_edit.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom2.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Laser Emitter.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Prefab/LazerEmitter.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom.png" type="Texture" id=37]
 
 [node name="Node2D" type="Node2D"]
@@ -417,15 +415,6 @@ position = Vector2( 1264, 1020 )
 texture = ExtResource( 37 )
 offset = Vector2( -16, -131 )
 
-[node name="Turret" parent="." instance=ExtResource( 7 )]
-position = Vector2( 488, 894 )
-
-[node name="Turret2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 730, 894 )
-
-[node name="Turret3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1305, 896 )
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 48, 48 )
@@ -439,7 +428,7 @@ position = Vector2( 1484, 623 )
 [node name="PressurePlateSmall" parent="." instance=ExtResource( 9 )]
 position = Vector2( 786, 752 )
 z_index = 1
-connected_entity_path = NodePath("../Turret5")
+connected_entity_path = NodePath("../LazerBeam4")
 
 [node name="ToggleSwitch" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1623, 118 )
@@ -447,14 +436,6 @@ connected_entity_path = NodePath("../LazerBeam")
 
 [node name="SmallMovableBlock" parent="." instance=ExtResource( 6 )]
 position = Vector2( 844, 799 )
-
-[node name="Turret5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 849, 592 )
-scale = Vector2( 1, -1 )
-
-[node name="LazerBeam" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1128, 676 )
-rotation = 1.5708
 
 [node name="Battery" parent="." instance=ExtResource( 3 )]
 position = Vector2( 965, 795 )
@@ -481,22 +462,19 @@ position = Vector2( 1693, 609 )
 next_level = "Level_HUB"
 door_number = "2"
 
-[node name="LaserEmitter" type="Sprite" parent="."]
-position = Vector2( 466.777, 886.445 )
-rotation = -1.5708
-texture = ExtResource( 36 )
+[node name="LazerBeam2" parent="." instance=ExtResource( 36 )]
+position = Vector2( 345, 894 )
 
-[node name="LaserEmitter2" type="Sprite" parent="."]
-position = Vector2( 706.777, 886.445 )
-rotation = -1.5708
-texture = ExtResource( 36 )
+[node name="LazerBeam3" parent="." instance=ExtResource( 36 )]
+position = Vector2( 585, 894 )
 
-[node name="LaserEmitter3" type="Sprite" parent="."]
-position = Vector2( 1283.78, 888.445 )
-rotation = -1.5708
-texture = ExtResource( 36 )
-
-[node name="LaserEmitter4" type="Sprite" parent="."]
-position = Vector2( 1128, 681 )
+[node name="LazerBeam4" parent="." instance=ExtResource( 36 )]
+position = Vector2( 855, 593 )
 rotation = 3.14159
-texture = ExtResource( 36 )
+
+[node name="LazerBeam5" parent="." instance=ExtResource( 36 )]
+position = Vector2( 1209, 894 )
+
+[node name="LazerBeam" parent="." instance=ExtResource( 36 )]
+position = Vector2( 1124, 680 )
+rotation = 1.5708

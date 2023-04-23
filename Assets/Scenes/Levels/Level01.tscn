@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006_edit2.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/Prefab/BlueDoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Prefab/ToggleSwitch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Prefab/ActivateGrapple.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Prefab/Turret.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Scripts/Utility/StaticCanGrapple.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile000_edit.png" type="Texture" id=10]
@@ -33,11 +32,12 @@
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile004_edit2.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile007_edit2.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tileCustom2.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Laser Emitter.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Prefab/LazerEmitter.tscn" type="PackedScene" id=34]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Backgrounds" type="Node2D" parent="."]
+z_index = -2
 
 [node name="Tile000Edit3" type="Sprite" parent="Backgrounds"]
 position = Vector2( -1252, -591 )
@@ -344,17 +344,7 @@ texture = ExtResource( 9 )
 
 [node name="ToggleSwitch" parent="." instance=ExtResource( 5 )]
 position = Vector2( 67.9367, 122.692 )
-connected_entity_path = NodePath("../Turret5")
-
-[node name="Turret" parent="." instance=ExtResource( 7 )]
-position = Vector2( 488, 894 )
-script = ExtResource( 8 )
-
-[node name="Turret2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 730, 894 )
-
-[node name="Turret3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1305, 896 )
+connected_entity_path = NodePath("../LazerBeam5")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -365,7 +355,7 @@ script = ExtResource( 8 )
 
 [node name="ToggleSwitch2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1104, 365 )
-connected_entity_path = NodePath("../Turret4")
+connected_entity_path = NodePath("../LazerBeam4")
 
 [node name="LiveWire2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1184, 368 )
@@ -374,9 +364,6 @@ rotation = 3.14159
 [node name="LiveWire4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1323, 702 )
 rotation = 3.14159
-
-[node name="Turret4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1428, 512 )
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1020.25, 143.025 )
@@ -410,6 +397,23 @@ text = "Don't forget to Look Around
 [Middle Mouse]"
 align = 1
 
+[node name="LazerBeam" parent="." instance=ExtResource( 34 )]
+position = Vector2( 345, 895 )
+
+[node name="LazerBeam2" parent="." instance=ExtResource( 34 )]
+position = Vector2( 586, 894 )
+
+[node name="LazerBeam3" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1209, 894 )
+
+[node name="LazerBeam4" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1431, 506 )
+rotation = 3.14159
+
+[node name="LazerBeam5" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1001, 58 )
+rotation = 1.5708
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door_0" parent="Doors" instance=ExtResource( 4 )]
@@ -422,32 +426,3 @@ active = false
 position = Vector2( 1688, 609 )
 next_level = "Level_HUB"
 door_number = "1"
-
-[node name="Turret5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1013.22, 39.3798 )
-rotation = -1.5708
-z_index = -1
-active = true
-
-[node name="Turret6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1395.86, 1148.8 )
-
-[node name="LaserEmitter" type="Sprite" parent="."]
-position = Vector2( 466.777, 886.445 )
-rotation = -1.5708
-texture = ExtResource( 34 )
-
-[node name="LaserEmitter2" type="Sprite" parent="."]
-position = Vector2( 706.429, 886.223 )
-rotation = -1.5708
-texture = ExtResource( 34 )
-
-[node name="LaserEmitter4" type="Sprite" parent="."]
-position = Vector2( 1005.65, 59.5932 )
-rotation = 3.14159
-texture = ExtResource( 34 )
-
-[node name="LaserEmitter3" type="Sprite" parent="."]
-position = Vector2( 1282.98, 888.506 )
-rotation = -1.5708
-texture = ExtResource( 34 )

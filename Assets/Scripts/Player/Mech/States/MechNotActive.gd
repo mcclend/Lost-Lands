@@ -36,8 +36,9 @@ func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)				#Player holds all global methods that is the same for most of the states
 
 func physics_process(_delta:float)->void:
-	player.velocity.y += Global.GRAVITY	 
-	player.collision_logic()
+	#player.velocity.y += Global.GRAVITY	 
+	#player.collision_logic()
+	pass
 
 func process(delta:float)->void:
 	player.visual_process(delta)				#Handle player turning + stretch and squash

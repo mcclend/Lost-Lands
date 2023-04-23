@@ -13,7 +13,7 @@ func _init(_sm).(_sm)->void:					#inheriting script needs to call .(argument) fr
 func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transition_to("State")
 	yield(player.anim, "animation_finished")
 	var sprite = player.animation_sprites.find_node("HoverSprite")
-	play_audio(preload("res://Assets/Audio Assets/Mech/Hover.mp3"), true, -20)
+	play_audio(preload("res://Assets/Audio Assets/Mech/Hover.mp3"), true, -30)
 	set_sprite(sprite)
 	player.activate = false
 	pass
