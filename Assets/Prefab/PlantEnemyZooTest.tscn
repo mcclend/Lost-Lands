@@ -1,0 +1,428 @@
+[gd_scene load_steps=79 format=2]
+
+[ext_resource path="res://Assets/Art Assets/Complex Damage/Plant/plant_idle.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scripts/Plant/GasArea.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art Assets/Complex Damage/Plant/poisoncloud.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13, 22 )
+
+[sub_resource type="AtlasTexture" id=5]
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=14]
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=15]
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=16]
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=17]
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=18]
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=20]
+region = Rect2( 192, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=21]
+region = Rect2( 0, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=22]
+region = Rect2( 64, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=23]
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=28]
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=29]
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=30]
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=34]
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=80]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=81]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=82]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=43]
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=44]
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=45]
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=46]
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=47]
+region = Rect2( 256, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=48]
+region = Rect2( 320, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=49]
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=50]
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=51]
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=52]
+region = Rect2( 192, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=53]
+region = Rect2( 256, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=54]
+region = Rect2( 320, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=55]
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=56]
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=57]
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=58]
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=59]
+region = Rect2( 256, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=60]
+region = Rect2( 320, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=61]
+region = Rect2( 0, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=62]
+region = Rect2( 64, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=63]
+region = Rect2( 128, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=64]
+region = Rect2( 192, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=65]
+region = Rect2( 256, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=66]
+region = Rect2( 320, 192, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=67]
+region = Rect2( 0, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=68]
+region = Rect2( 64, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=69]
+region = Rect2( 128, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=70]
+region = Rect2( 192, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=71]
+region = Rect2( 256, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=72]
+region = Rect2( 320, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=73]
+region = Rect2( 0, 320, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=74]
+region = Rect2( 64, 320, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=75]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "attack",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": false,
+"name": "die",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ) ],
+"loop": true,
+"name": "spray gas",
+"speed": 8.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 44.1022
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 145.0
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Timer
+
+
+
+func _on_PlantEnemy_startTimer():
+	start()
+
+
+func _on_PlantEnemy_stopTimer():
+	stop()
+"
+
+[node name="PlantEnemy" type="Node2D"]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 8
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 75 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+visible = false
+
+[node name="MeleeArea" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/MeleeArea"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="GasArea" type="Area2D" parent="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/GasArea"]
+visible = false
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="KinematicBody2D/GasArea"]
+polygon = PoolVector2Array( -142, 25, -145, 0, -140, -39, -125, -74, -104, -102, -72, -125, -36, -141, -1, -145, 36, -141, 72, -126, 103, -103, 127, -71, 141, -37, 146, 0, 143, 20 )
+
+[node name="Timer" type="Timer" parent="KinematicBody2D/GasArea"]
+wait_time = 3.0
+one_shot = true
+script = SubResource( 4 )
+
+[node name="GasClouds" type="Node2D" parent="."]
+visible = false
+
+[node name="GasCloud" type="Sprite" parent="GasClouds"]
+position = Vector2( -68, -38 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud2" type="Sprite" parent="GasClouds"]
+position = Vector2( -38, -67 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud3" type="Sprite" parent="GasClouds"]
+position = Vector2( 23, -73 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud4" type="Sprite" parent="GasClouds"]
+position = Vector2( 95, -30 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud5" type="Sprite" parent="GasClouds"]
+position = Vector2( 82, -81 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud6" type="Sprite" parent="GasClouds"]
+position = Vector2( 132, -22 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud7" type="Sprite" parent="GasClouds"]
+position = Vector2( -131, -16 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud8" type="Sprite" parent="GasClouds"]
+position = Vector2( -112, -64 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud9" type="Sprite" parent="GasClouds"]
+position = Vector2( -59, -92 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud10" type="Sprite" parent="GasClouds"]
+position = Vector2( 36, -40 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud11" type="Sprite" parent="GasClouds"]
+position = Vector2( 6, -110 )
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud15" type="Sprite" parent="GasClouds"]
+position = Vector2( -86, 18 )
+rotation = -3.14159
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud17" type="Sprite" parent="GasClouds"]
+position = Vector2( -132, 22 )
+rotation = -3.14159
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="GasCloud18" type="Sprite" parent="GasClouds"]
+position = Vector2( 131, 16 )
+rotation = -3.14159
+texture = ExtResource( 3 )
+offset = Vector2( -7, 0 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[connection signal="animation_finished" from="KinematicBody2D/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="area_entered" from="KinematicBody2D/MeleeArea" to="KinematicBody2D/MeleeArea" method="_on_DamageArea_area_entered"]
+[connection signal="area_entered" from="KinematicBody2D/GasArea" to="KinematicBody2D/GasArea" method="_on_GasArea_area_entered"]
+[connection signal="area_exited" from="KinematicBody2D/GasArea" to="KinematicBody2D/GasArea" method="_on_GasArea_area_exited"]
+[connection signal="timeout" from="KinematicBody2D/GasArea/Timer" to="KinematicBody2D/GasArea" method="_apply_damage"]

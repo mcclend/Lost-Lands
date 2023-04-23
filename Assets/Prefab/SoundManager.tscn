@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Audio Assets/Mech/Mechheal.mp3" type="AudioStream" id=6]
 
 [node name="GlobalSoundManager" type="Node2D"]
+position = Vector2( 0, -2 )
 script = ExtResource( 5 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]

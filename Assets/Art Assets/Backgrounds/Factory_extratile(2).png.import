@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Credits and GAME OVER Screens(1).jpg-30a123fed2f7d8a0bfa16b08b29aeb05.stex"
+path="res://.import/Factory_extratile(2).png-07deca92d3b7fdff0e98b5a68244f553.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art Assets/Backgrounds/Credits and GAME OVER Screens(1).jpg"
-dest_files=[ "res://.import/Credits and GAME OVER Screens(1).jpg-30a123fed2f7d8a0bfa16b08b29aeb05.stex" ]
+source_file="res://Assets/Art Assets/Backgrounds/Factory_extratile(2).png"
+dest_files=[ "res://.import/Factory_extratile(2).png-07deca92d3b7fdff0e98b5a68244f553.stex" ]
 
 [params]
 
