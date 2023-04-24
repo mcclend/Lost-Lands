@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Prefab/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scripts/Utility/Pause.gd" type="Script" id=2]
@@ -6,6 +6,19 @@
 [ext_resource path="res://Assets/Prefab/mouseCursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scripts/Utility/LocalSoundManager.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Prefab/SoundManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/load_active.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/MainMenuBackground.jpg" type="Texture" id=8]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/load_inactive.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art Assets/UI/Paused Screen Top.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/controls_inactive.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/controls_active.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/credits_active.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/credits_inactive.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/new_inactive.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/new_active.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/quit_inactive.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/quit_active.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art Assets/UI/Controls Popup.png" type="Texture" id=19]
 
 [node name="GameController" type="Control"]
 anchor_right = 1.0
@@ -74,47 +87,75 @@ text = "Quit"
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="MainMenuBackground" type="Sprite" parent="Menu/CanvasLayer/MainMenu"]
+position = Vector2( 256.427, 149.75 )
+scale = Vector2( 0.667778, 0.667778 )
+texture = ExtResource( 8 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/CanvasLayer/MainMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -48.0
+margin_top = -87.5
+margin_right = 48.0
+margin_bottom = 87.5
 
-[node name="Continue" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_right = 82.0
-margin_bottom = 20.0
+[node name="Continue" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 31.0
 disabled = true
-text = "Continue"
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 7 )
 
-[node name="NewGame" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 24.0
-margin_right = 82.0
-margin_bottom = 44.0
-text = "New Game"
+[node name="NewGame" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 35.0
+margin_right = 96.0
+margin_bottom = 66.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 16 )
 
-[node name="Settings" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-visible = false
-margin_top = 48.0
-margin_right = 82.0
-margin_bottom = 68.0
-text = "Settings"
+[node name="Controls" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 70.0
+margin_right = 96.0
+margin_bottom = 101.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 12 )
 
-[node name="Credits" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-visible = false
-margin_top = 72.0
-margin_right = 82.0
-margin_bottom = 92.0
-text = "Credits"
+[node name="Credits" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 105.0
+margin_right = 96.0
+margin_bottom = 136.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 14 )
+texture_focused = ExtResource( 13 )
 
-[node name="Quit" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 48.0
-margin_right = 82.0
-margin_bottom = 68.0
-text = "Quit"
+[node name="Quit" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 140.0
+margin_right = 96.0
+margin_bottom = 171.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 17 )
+texture_focused = ExtResource( 18 )
+
+[node name="TextureButton" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 175.0
+margin_right = 96.0
+margin_bottom = 175.0
 
 [node name="Cursor" parent="Menu/CanvasLayer" instance=ExtResource( 4 )]
 
@@ -142,21 +183,21 @@ margin_bottom = 86.0
 
 [node name="Resume" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
 margin_right = 110.0
-margin_bottom = 40.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Resume"
 
 [node name="Save" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 35.0
+margin_top = 29.0
 margin_right = 110.0
-margin_bottom = 66.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Save"
 
 [node name="Load" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 44.0
+margin_top = 58.0
 margin_right = 110.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
@@ -164,9 +205,9 @@ size_flags_vertical = 3
 text = "Load"
 
 [node name="Controls" type="MenuButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 44.0
+margin_top = 88.0
 margin_right = 110.0
-margin_bottom = 84.0
+margin_bottom = 113.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Controls"
@@ -174,31 +215,50 @@ flat = false
 items = [ "Walk Left:  A", null, 0, false, false, 0, 0, null, "", false, "Walk Right: D", null, 0, false, false, 1, 0, null, "", false, "Jump: space", null, 0, false, false, 2, 0, null, "", false, "Shoot Grapple: Left Mouse", null, 0, false, false, 5, 0, null, "", false, "Pull Grapple: Tab", null, 0, false, false, 6, 0, null, "", false, "Release Grapple: Right Mouse", null, 0, false, false, 7, 0, null, "", false, "Mech Boost: Shift", null, 0, false, false, 8, 0, null, "", false, "Activate Object: E", null, 0, false, false, 3, 0, null, "", false, "Enter Door: W", null, 0, false, false, 4, 0, null, "", false, "Enter/Exit Mech: W", null, 0, false, false, 9, 0, null, "", false, "Middle Mouse: Pan Camera", null, 0, false, false, 10, 0, null, "", false ]
 
 [node name="MainMenu" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 88.0
+margin_top = 117.0
 margin_right = 110.0
-margin_bottom = 128.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 132.0
+margin_top = 146.0
 margin_right = 110.0
 margin_bottom = 172.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Quit"
 
-[node name="Label" type="Label" parent="Menu/CanvasLayer/Pause"]
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/Pause"]
+position = Vector2( 255, 28 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="ControlsMenu" type="Control" parent="Menu/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/ControlsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CanvasLayer/ControlsMenu"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -44.0
-margin_top = 20.0
-margin_right = 45.0
-margin_bottom = 38.0
-text = "Paused"
-align = 1
-uppercase = true
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/ControlsMenu/CenterContainer"]
+position = Vector2( 20, 21 )
+scale = Vector2( 0.779085, 0.724444 )
+texture = ExtResource( 19 )
 
 [node name="SoundManager" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 5 )
@@ -215,8 +275,8 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="SoundManager" method="button_select"]
-[connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Settings" to="SoundManager" method="button_focus"]
-[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Settings" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Controls" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Controls" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Credits" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Credits" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Quit" to="SoundManager" method="button_focus"]
