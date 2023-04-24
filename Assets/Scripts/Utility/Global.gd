@@ -22,21 +22,25 @@ var mech
 var max_health := 100.0
 var current_health := 100.0
 var max_charge := 100.0
-var current_charge := 100.0
+var current_charge := 0.0
 var charge_depletion_rate := 0.5
 var main_scene = null
-var has_grapple := true
-var can_grapple := true
+var has_grapple := false
+var can_grapple := false
 var can_load := false
 var grapple_icon_active := false
 var mech_boost_icon_active := false
+var is_mouse_direction_grapplable_object := false
 var current_scene = null
+var current_scene_name = null
 var root = null
 var file = File.new()
 var hud
+var viewport_size
 
 
 func _ready():
+	viewport_size = get_viewport().size
 	get_tree().paused = true
 	root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -77,7 +81,7 @@ func saveData(path : String):
 		"max_charge" : max_charge,
 		"current_charge" : current_charge,
 		"has_grapple" : has_grapple,
-		"current_scene" : current_scene,
+		"current_scene_name" : current_scene_name,
 		"charge_depletion_rate" : charge_depletion_rate
 	}
 	var file
@@ -96,7 +100,7 @@ func loadData(path : String):
 	max_charge = jsonData.max_charge
 	current_charge = jsonData.current_charge
 	has_grapple = jsonData.has_grapple
-	current_scene = jsonData.current_scene
+	current_scene_name = jsonData.current_scene_name
 	charge_depletion_rate = jsonData.charge_depletion_rate
 	emit_signal("load_save")
 

@@ -1,16 +1,5 @@
 extends ActivateArea
 
-
-
-
-func _on_ActivateArea_area_entered(area):
-	pass # Replace with function body.
-
-
-func _on_ActivateArea_area_exited(area):
-	pass # Replace with function body.
-
-
 func _on_ActivateArea_body_entered(body):
 	if body is SmallMovableBlock:
 		if !root_node.interact_object_1 && body != root_node.interact_object_2:

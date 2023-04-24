@@ -32,6 +32,7 @@ var invincible := false
 
 
 func _ready():	
+	if Global.has_grapple: Global.can_grapple = true
 	Global.player = self
 	Global.mech = null	
 	jump_buffer = $JumpBuffer

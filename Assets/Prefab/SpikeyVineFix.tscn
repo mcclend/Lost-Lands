@@ -40,10 +40,11 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[node name="LiveWire" type="Node2D"]
+[node name="SpikeyVine" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, -2.5 )

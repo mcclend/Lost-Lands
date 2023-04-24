@@ -72,28 +72,40 @@ func loadLevel(level_name : String):
 	if (levelResource):
 		levelInstance = levelResource.instance()
 		level.add_child(levelInstance)
+		Global.current_scene = levelInstance
+		Global.current_scene_name = level_name
 		
-func loadScene(scene = Global.current_scene, door_number = 0):
+func loadScene(scene = Global.current_scene_name, door_number = 0):
 	loadLevel(scene)
 	var new_player = human_prefab.instance()
 	levelInstance.call_deferred("add_child",new_player)
 	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
+	if Global.has_grapple: Global.can_grapple = true
 	if get_tree().paused:
 		pause_menu._on_resume_pressed()
+	_on_save_pressed()
 
 func _on_save_pressed():
 	Global.saveData(Global.SAVE_PATH)
 
 func _on_load_pressed():
+	main_menu.hide()
+	pause_menu.hide()
+	game_over.hide()
+	pause_menu._on_resume_pressed()
 	Global.loadData(Global.SAVE_PATH)
 
 func _on_NewGame_pressed():
 	Global.current_health = Global.max_health
+	Global.current_charge = 0
+	Global.has_grapple = false
+	Global.can_grapple = false
 	#Global.current_charge = Global.max_charge
 	loadScene("Level00")
 	main_menu.hide()
 	
 func quit():
 	get_tree().quit()
+

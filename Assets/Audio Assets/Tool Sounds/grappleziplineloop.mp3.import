@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/grappleziplineloop.mp3-a4ed10e3b67ebfe34f9fd1029e697660.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Tool Sounds/grappleziplineloop.mp3"
+dest_files=[ "res://.import/grappleziplineloop.mp3-a4ed10e3b67ebfe34f9fd1029e697660.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

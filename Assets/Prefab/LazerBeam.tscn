@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scripts/Interactables/Hazards/LazerBeam.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Shaders/LazerBeam.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Audio Assets/Misc/lazer_loop.mp3" type="AudioStream" id=3]
 
 [sub_resource type="GradientTexture" id=13]
 
@@ -44,8 +45,10 @@ glow_bicubic_upscale = true
 
 [node name="LazerBeam" type="RayCast2D"]
 cast_to = Vector2( 1000, 0 )
-collision_mask = 3
+collision_mask = 7
 script = ExtResource( 1 )
+humanDamage = 1e+07
+mechDamage = 1.0
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -67,3 +70,10 @@ texture = SubResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 16 )
+
+[node name="Laser_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.0
+pitch_scale = 4.0
+max_distance = 250.0
+bus = "FX"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Audio Assets/Misc/MenuMovement.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Audio Assets/Misc/MenuSelect.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/background6.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio Assets/Misc/gateopening.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Scripts/Utility/SoundManager.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Audio Assets/Mech/Mechheal.mp3" type="AudioStream" id=6]
+
+[node name="GlobalSoundManager" type="Node2D"]
+position = Vector2( 0, -2 )
+script = ExtResource( 5 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
+bus = "Music"
+
+[node name="ButtonFocus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -20.0
+bus = "UIFX"
+
+[node name="ButtonSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "UIFX"
+
+[node name="DoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.63
+pitch_scale = 3.0
+bus = "FX"
+
+[node name="BatteryPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -18.0
+bus = "FX"

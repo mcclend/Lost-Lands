@@ -9,6 +9,7 @@ var _open = true
 	
 func activate():
 	if _open:
+		SoundManager.open_door()
 		Global.emit_signal("next_level", next_level, door_number)
 
 func _physics_process(delta):

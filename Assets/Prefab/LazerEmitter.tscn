@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Shaders/LazerBeam.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Scripts/Interactables/Hazards/LazerBeam.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art Assets/EnvironmentalDamage/Laser Emitter.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Audio Assets/Misc/lazer_loop.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Scripts/Interactables/Hazards/TurretActivation.gd" type="Script" id=5]
+
+[sub_resource type="GradientTexture" id=13]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.0129032, 0.709677, 0.987097 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.533708, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0147727 ), 0.728911, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 0.3
+emission_shape = 4
+emission_point_count = 1
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 120.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="ViewportTexture" id=6]
+
+[sub_resource type="Environment" id=16]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 7.73
+glow_strength = 0.53
+glow_hdr_threshold = 0.0
+glow_hdr_luminance_cap = 18.06
+glow_hdr_scale = 0.36
+glow_bicubic_upscale = true
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 5 )
+active = false
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+polygon = PoolVector2Array( 5, -14.7, 5, -12.5, 9.2, -4, 13.3, -4, 21, -1.4, 21, 0.299999, 24, 3.9, 24, 15, -24, 15, -24, 5.5, -22.5, 0, -20.3, 0, -10, -3.4, -10, -4.6, -5, -12.6, -5, -14.7, -1.6, -15.2, 0, -9.6, 1.6, -15.2 )
+
+[node name="pointer" type="Node2D" parent="."]
+
+[node name="LazerBeam" type="RayCast2D" parent="pointer"]
+cast_to = Vector2( 1000, 0 )
+collision_mask = 7
+script = ExtResource( 2 )
+humanDamage = 1e+07
+mechDamage = 1.0
+
+[node name="Tween" type="Tween" parent="pointer/LazerBeam"]
+
+[node name="Line2D" type="Line2D" parent="pointer/LazerBeam"]
+material = ExtResource( 1 )
+rotation = 0.00865236
+points = PoolVector2Array( 0, 0, 50, 0 )
+default_color = Color( 1, 0, 0, 0 )
+texture = SubResource( 13 )
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 7
+
+[node name="Particles2D" type="Particles2D" parent="pointer/LazerBeam"]
+process_material = SubResource( 5 )
+texture = SubResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="pointer/LazerBeam"]
+environment = SubResource( 16 )
+
+[node name="Laser_sound" type="AudioStreamPlayer2D" parent="pointer/LazerBeam"]
+stream = ExtResource( 4 )
+volume_db = -30.0
+pitch_scale = 4.0
+max_distance = 500.0
+bus = "FX"
