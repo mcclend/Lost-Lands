@@ -50,3 +50,4 @@ script = ExtResource( 2 )
 position = Vector2( 256.2, 151 )
 scale = Vector2( 0.671111, 0.671111 )
 frames = SubResource( 9 )
+frame = 1

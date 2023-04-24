@@ -266,7 +266,7 @@ position = Vector2( 37, 412 )
 connected_entity_path = NodePath("../LazerBeam2")
 
 [node name="LargeMovableBlock" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1341, 773 )
+position = Vector2( 1341, 772 )
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 0.494118, 1, 0.262745, 1 )
