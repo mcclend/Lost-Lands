@@ -542,7 +542,7 @@ position = Vector2( 9.5, 0 )
 shape = SubResource( 5 )
 
 [node name="PushPullPosition" type="Position2D" parent="Body"]
-position = Vector2( 36, -4 )
+position = Vector2( 38, -4 )
 
 [node name="bounds" type="Node2D" parent="Body"]
 visible = false

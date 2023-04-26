@@ -29,6 +29,7 @@ func _ready():
 	Global.connect("returnToMainMenu", self, "returnToMainMenu")
 	Global.connect("next_level", self, "loadScene")
 	hide_hud()
+	$Menu/CanvasLayer/MainMenu/AnimatedSprite.play("loop")
 	
 func hide_hud():
 	for child in hud.get_children():
