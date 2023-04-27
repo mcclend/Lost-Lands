@@ -8,9 +8,6 @@ func _init(_sm).(_sm)->void:
 	name = "Walk"
 
 func enter(_msg:Dictionary = {})->void:
-	sprite = player.animation_sprites.find_node("Walk")
-	set_sprite(sprite)
-	player.anim.play("Walk")
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/walking.mp3"), true)
 	
 	
@@ -26,7 +23,15 @@ func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
 	if player.is_push_pull_state:
 		if player.interact_object.can_move(player.direction*100):
+			if player.anim.current_animation != "WalkPush":
+				sprite = player.animation_sprites.find_node("WalkPush")
+				set_sprite(sprite)
+				player.anim.play("WalkPush")
 			player.interact_object.global_position = player.push_pull_position.global_position
+	elif player.anim.current_animation != "walk":
+		sprite = player.animation_sprites.find_node("Walk")
+		set_sprite(sprite)
+		player.anim.play("Walk")
 func process(delta:float)->void:
 	player.visual_process(delta)
 	state_check()

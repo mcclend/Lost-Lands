@@ -489,7 +489,7 @@ polygon = PoolVector2Array( 53, -33, 67, -23, 79, -15, 84, 0, 85, 26, 77, 36, 47
 
 [node name="FloorRaycast" type="RayCast2D" parent="Body/Raycasts"]
 enabled = true
-cast_to = Vector2( 10, 600 )
+cast_to = Vector2( 0, 700 )
 
 [node name="ActivationArea" type="Area2D" parent="Body"]
 script = ExtResource( 8 )

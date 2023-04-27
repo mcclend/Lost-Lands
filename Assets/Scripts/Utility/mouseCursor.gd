@@ -12,4 +12,3 @@ func _process(delta):
 	else:
 		$CursorSprite.modulate = _RED
 	global_position = get_global_mouse_position()
-	pass

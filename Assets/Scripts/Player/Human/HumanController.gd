@@ -45,6 +45,9 @@ func unhandled_input(event):
 		move_left = Input.get_action_strength("move_left")
 	if event.is_action_pressed("jump") && can_jump:
 		jump = true
+	elif event.is_action_pressed("jump") && is_linked && !is_grounded:
+		jump = true
+		jump_impulse()
 	if event.is_action_released("jump"):
 		jump = false
 	if event.is_action_pressed("ui_focus_next"):
@@ -74,11 +77,10 @@ func unhandled_input(event):
 			interact_object.pull = false
 			if Global.has_grapple:
 				Global.can_grapple = true
-		elif can_activate_small_block:
+		elif can_activate_small_block && !is_push_pull_state:
 			if debugging:
 				print("GRAB BLOCK", interact_object)
 			is_push_pull_state = true
-			can_activate_small_block = false
 			Global.can_grapple = false
 			can_jump = false
 		elif can_toggle_switch:

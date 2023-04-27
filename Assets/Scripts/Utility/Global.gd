@@ -37,6 +37,7 @@ var root = null
 var file = File.new()
 var hud
 var viewport_size
+var load_door = 0
 
 
 func _ready():
@@ -82,7 +83,8 @@ func saveData(path : String):
 		"current_charge" : current_charge,
 		"has_grapple" : has_grapple,
 		"current_scene_name" : current_scene_name,
-		"charge_depletion_rate" : charge_depletion_rate
+		"charge_depletion_rate" : charge_depletion_rate,
+		"load_door" : load_door
 	}
 	var file
 	file = File.new()
@@ -102,6 +104,7 @@ func loadData(path : String):
 	has_grapple = jsonData.has_grapple
 	current_scene_name = jsonData.current_scene_name
 	charge_depletion_rate = jsonData.charge_depletion_rate
+	load_door = jsonData.load_door
 	emit_signal("load_save")
 
 func play_audio(audio:AudioStream, audio_player:AudioStreamPlayer2D, immediate:bool = false, volume:float = -18):

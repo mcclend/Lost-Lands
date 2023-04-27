@@ -30,15 +30,17 @@ func exit()->void:
 	player.anim.activate()
 	player.camera.current = true
 	player.charge_drain_timer.start()
+	player.velocity = Vector2.ZERO
 
 
 func unhandled_input(event:InputEvent)->void:
 	player.unhandled_input(event)				#Player holds all global methods that is the same for most of the states
 
 func physics_process(_delta:float)->void:
-	#player.velocity.y += Global.GRAVITY	 
-	#player.collision_logic()
-	pass
+	player.velocity.x = 0.0
+	player.velocity.y += Global.GRAVITY	 
+	player.collision_logic()
+	
 
 func process(delta:float)->void:
 	player.visual_process(delta)				#Handle player turning + stretch and squash

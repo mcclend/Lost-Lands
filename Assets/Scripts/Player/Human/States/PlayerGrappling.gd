@@ -60,5 +60,8 @@ func state_check()->void:
 				sm.transition_to("Idle")
 		else:
 			sm.transition_to("Jump")
+	if player.jump:
+		_grapple.release()
+		sm.transition_to("Jump")
 
 

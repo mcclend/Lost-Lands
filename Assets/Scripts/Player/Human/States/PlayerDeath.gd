@@ -13,7 +13,9 @@ func enter(_msg:Dictionary = {})->void:			#Called by StateMachine when transitio
 	player.anim.play("Die")					#call AnimationPlayer to play Idle animation
 	play_audio(preload("res://Assets/Audio Assets/Player/Human/CharacterDeath.mp3"))
 	yield(player.anim, "animation_finished")
-	Global.emit_signal("player_died")
+	#Global.emit_signal("player_died")
+	Global.emit_signal("load_save")
+	Global.current_health = Global.max_health
 	player.queue_free()
 
 func exit()->void:
