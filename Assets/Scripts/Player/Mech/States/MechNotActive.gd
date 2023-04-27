@@ -30,7 +30,6 @@ func exit()->void:
 	player.anim.activate()
 	player.camera.current = true
 	player.charge_drain_timer.start()
-	player.velocity = Vector2.ZERO
 
 
 func unhandled_input(event:InputEvent)->void:
@@ -38,7 +37,7 @@ func unhandled_input(event:InputEvent)->void:
 
 func physics_process(_delta:float)->void:
 	player.velocity.x = 0.0
-	player.velocity.y += Global.GRAVITY	 
+	player.velocity.y += Global.GRAVITY * _delta 
 	player.collision_logic()
 	
 

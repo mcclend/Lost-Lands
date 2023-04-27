@@ -43,6 +43,7 @@ tracks/0/keys = {
 [node name="LiveWire" type="Node2D"]
 z_index = 1
 script = ExtResource( 3 )
+damage = 50.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0

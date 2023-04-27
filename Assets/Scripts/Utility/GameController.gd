@@ -9,6 +9,7 @@ onready var game_over = $Menu/CanvasLayer/GameOver
 onready var level = $Level
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
+onready var controls_menu = $Menu/CanvasLayer/ControlsMenu
 var levelInstance
 
 
@@ -54,6 +55,7 @@ func return_to_main_menu():
 	pause_menu.hide()
 	game_over.hide()
 	pause_menu._on_resume_pressed()
+	pause_menu.active = false
 	
 func deathScreen():
 	game_over.show()
@@ -83,6 +85,7 @@ func loadScene(scene = Global.current_scene_name, door_number = Global.load_door
 	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
+	pause_menu.active = true
 	if Global.has_grapple: Global.can_grapple = true
 	if get_tree().paused:
 		pause_menu._on_resume_pressed()
@@ -99,6 +102,12 @@ func _on_load_pressed():
 	Global.loadData(Global.SAVE_PATH)
 
 func _on_NewGame_pressed():
+	main_menu.hide()
+	$"Menu/CanvasLayer/Story Screen".show()
+	$"Menu/CanvasLayer/Story Screen".active = true
+	
+func load_new_game():
+	$"Menu/CanvasLayer/Story Screen".hide()
 	Global.current_health = Global.max_health
 	Global.current_charge = 0
 	Global.has_grapple = false
@@ -110,3 +119,11 @@ func _on_NewGame_pressed():
 func quit():
 	get_tree().quit()
 
+
+
+func _on_Controls_pressed():
+	main_menu.hide()
+	pause_menu.hide()
+	pause_menu.active = false
+	controls_menu.active = true
+	controls_menu.show()

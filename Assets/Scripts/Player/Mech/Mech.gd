@@ -47,6 +47,8 @@ func _ready():
 	
 func unhandled_input(event):
 	if active == false:
+		move_right = 0
+		move_left = 0
 		return
 	if event.is_action("move_right"):
 		move_right = Input.get_action_strength("move_right")

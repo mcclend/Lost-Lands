@@ -115,6 +115,7 @@ shape = SubResource( 1 )
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.733333, 0, 1, 1 )
 scale = Vector2( 0.063, 0.125 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -124,6 +125,7 @@ anims/Press = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 60 )
 shape = SubResource( 2 )
 
