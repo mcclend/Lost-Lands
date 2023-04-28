@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/easteregg.mp3-a949337de8d9c133186f4cda3c4b9cc0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Music 2.0/Music vol 1/easteregg.mp3"
+dest_files=[ "res://.import/easteregg.mp3-a949337de8d9c133186f4cda3c4b9cc0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

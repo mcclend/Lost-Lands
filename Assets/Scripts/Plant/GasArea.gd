@@ -26,3 +26,5 @@ func _on_GasArea_area_exited(area):
 		if area.entity == target:
 			$"../../GasClouds".visible = false
 			_do_damage = false
+
+

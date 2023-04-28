@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Art Assets/Interactable Objects/RepeatingVine.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 4.5 )
+extents = Vector2( 23.5, 4.5 )
 
 [node name="PullablePlatform" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )

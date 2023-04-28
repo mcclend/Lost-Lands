@@ -474,6 +474,7 @@ start_state = "Idle"
 [node name="Body" type="Node2D" parent="."]
 
 [node name="AnimationSprites" type="Node2D" parent="Body"]
+position = Vector2( 0, 1 )
 
 [node name="Idle" type="Sprite" parent="Body/AnimationSprites"]
 visible = false

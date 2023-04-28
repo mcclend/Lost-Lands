@@ -37,6 +37,7 @@ func _ready():
 	Global.connect("victory", self, "victory")
 	hide_hud()
 	$Menu/CanvasLayer/MainMenu/AnimatedSprite.play("loop")
+
 	
 func hide_hud():
 	for child in hud.get_children():
@@ -144,3 +145,4 @@ func victory():
 	pause_menu.active = false
 	victory_screen.show()
 	
+
