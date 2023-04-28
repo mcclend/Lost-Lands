@@ -14,6 +14,8 @@ signal load_save()
 signal next_level(scene, door_number)
 signal show_mech_boost_icon(value)
 signal show_grapple_icon(value)
+signal final_timer_timeout()
+signal victory()
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
@@ -38,6 +40,7 @@ var file = File.new()
 var hud
 var viewport_size
 var load_door = 0
+var final_level_timer = null
 
 
 func _ready():

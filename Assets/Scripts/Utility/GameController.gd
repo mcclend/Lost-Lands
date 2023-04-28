@@ -10,6 +10,9 @@ onready var level = $Level
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
 onready var controls_menu = $Menu/CanvasLayer/ControlsMenu
+onready var final_level_timer = $Menu/CanvasLayer/TimerDisplay
+onready var lose_screen = $Menu/CanvasLayer/LoseScreen
+onready var victory_screen = $Menu/CanvasLayer/VictoryScreen
 var levelInstance
 
 
@@ -17,6 +20,7 @@ var levelInstance
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.hud = hud
+	Global.final_level_timer = final_level_timer
 	#check if there is a game to continue
 	if Global.can_load:$Menu/CanvasLayer/MainMenu/VBoxContainer/Continue.disabled = false
 	Global.main_scene = self
@@ -29,6 +33,8 @@ func _ready():
 	Global.connect("player_died", self, "deathScreen")
 	Global.connect("returnToMainMenu", self, "returnToMainMenu")
 	Global.connect("next_level", self, "loadScene")
+	Global.connect("final_timer_timeout", self, "final_timer_timeout")
+	Global.connect("victory", self, "victory")
 	hide_hud()
 	$Menu/CanvasLayer/MainMenu/AnimatedSprite.play("loop")
 	
@@ -85,6 +91,7 @@ func loadScene(scene = Global.current_scene_name, door_number = Global.load_door
 	new_player.global_position = levelInstance.get_node("Doors/Door_%s/SpawnPosition" % door_number).global_position
 	show_hud()
 	menu.hide()
+	lose_screen.hide()
 	pause_menu.active = true
 	if Global.has_grapple: Global.can_grapple = true
 	if get_tree().paused:
@@ -113,7 +120,7 @@ func load_new_game():
 	Global.has_grapple = false
 	Global.can_grapple = false
 	#Global.current_charge = Global.max_charge
-	loadScene("Level00")
+	loadScene("Level04")
 	main_menu.hide()
 	
 func quit():
@@ -127,3 +134,13 @@ func _on_Controls_pressed():
 	pause_menu.active = false
 	controls_menu.active = true
 	controls_menu.show()
+	
+func final_timer_timeout():
+	unloadLevel()
+	lose_screen.show()
+	pause_menu.active = false
+func victory():
+	unloadLevel()
+	pause_menu.active = false
+	victory_screen.show()
+	
