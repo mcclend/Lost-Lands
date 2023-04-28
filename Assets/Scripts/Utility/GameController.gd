@@ -60,7 +60,8 @@ func return_to_main_menu():
 	hide_hud()
 	main_menu.show()
 	pause_menu.hide()
-	game_over.hide()
+	victory_screen.hide()
+	lose_screen.hide()
 	pause_menu._on_resume_pressed()
 	pause_menu.active = false
 	
@@ -100,6 +101,8 @@ func loadScene(scene = Global.current_scene_name, door_number = Global.load_door
 	_on_save_pressed()
 
 func _on_save_pressed():
+	$Menu/CanvasLayer/autosave.visible = true
+	$Menu/CanvasLayer/autosave/Timer.start()
 	Global.saveData(Global.SAVE_PATH)
 
 func _on_load_pressed():
@@ -146,3 +149,11 @@ func victory():
 	victory_screen.show()
 	
 
+
+
+func _on_AutosaveTimer_timeout():
+	$Menu/CanvasLayer/autosave.visible = false
+
+
+func _on_victory_pressed():
+	Global.emit_signal("victory")

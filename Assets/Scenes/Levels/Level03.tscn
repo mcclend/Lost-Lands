@@ -310,6 +310,7 @@ scale = Vector2( 2.01951, 3.5315 )
 
 [node name="EnterMechTutorial(2)" type="Sprite" parent="."]
 position = Vector2( 1057, 202 )
+z_index = -2
 texture = ExtResource( 40 )
 region_enabled = true
 region_rect = Rect2( 0, 50, 100, 50 )

@@ -148,6 +148,7 @@ __meta__ = {
 
 [node name="Factorybottomtileset5" type="Sprite" parent="."]
 position = Vector2( 523, 1122 )
+z_index = -1
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
@@ -216,6 +217,8 @@ autostart = true
 
 [node name="Door_0" parent="Doors" instance=ExtResource( 2 )]
 position = Vector2( 215, 1282 )
+next_level = "Level_HUB"
+door_number = "5"
 
 [node name="SmallMovableBlock" parent="." instance=ExtResource( 3 )]
 position = Vector2( 398, 1270 )
@@ -229,13 +232,13 @@ playing = true
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 933, 1284 )
 frames = SubResource( 15 )
-frame = 3
+frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 1017, 976 )
 frames = SubResource( 22 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="Otto" type="Sprite" parent="."]

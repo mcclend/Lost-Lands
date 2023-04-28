@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Assets/Prefab/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scripts/Utility/Pause.gd" type="Script" id=2]
@@ -31,11 +31,14 @@
 [ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/resume (1).png" type="Texture" id=29]
 [ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/resume (2).png" type="Texture" id=30]
 [ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/controls (2).png" type="Texture" id=31]
+[ext_resource path="res://Assets/Art Assets/UI/Credits.jpg" type="Texture" id=32]
 [ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/controls (1).png" type="Texture" id=33]
+[ext_resource path="res://Assets/Scenes/VictoryScreen.gd" type="Script" id=34]
 [ext_resource path="res://Assets/Art Assets/Story Piece/Intro Story Slides(1)(1)(1).png" type="Texture" id=35]
 [ext_resource path="res://Assets/Art Assets/Story Piece/Ending1.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Art Assets/UI/Main Menu Button split/main menu (2).png" type="Texture" id=37]
 [ext_resource path="res://Assets/Art Assets/UI/Main Menu Button split/main menu (1).png" type="Texture" id=38]
+[ext_resource path="res://Assets/Scenes/CreditScreen.gd" type="Script" id=39]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 20 )
@@ -406,13 +409,41 @@ expand = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 34 )
 
 [node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/VictoryScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0352941, 0.337255, 0, 1 )
 
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/VictoryScreen"]
+position = Vector2( 255.598, 150.172 )
+scale = Vector2( 0.670298, 0.670298 )
+texture = ExtResource( 35 )
+
 [node name="Label" type="Label" parent="Menu/CanvasLayer/VictoryScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = 132.0
+margin_right = 244.0
+margin_bottom = 146.0
+text = "Press any key to continue"
+
+[node name="CreditScreen" type="Control" parent="Menu/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 39 )
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/CreditScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0352941, 0.337255, 0, 1 )
+
+[node name="Label" type="Label" parent="Menu/CanvasLayer/CreditScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -423,45 +454,10 @@ margin_right = 32.0
 margin_bottom = 7.0
 text = "YOU WIN"
 
-[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/VictoryScreen"]
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/CreditScreen"]
 position = Vector2( 255.598, 150.172 )
 scale = Vector2( 0.670298, 0.670298 )
-texture = ExtResource( 35 )
-
-[node name="Quit" type="TextureButton" parent="Menu/CanvasLayer/VictoryScreen"]
-anchor_left = 0.75
-anchor_top = 0.826
-anchor_right = 0.75
-anchor_bottom = 0.826
-margin_left = -48.0
-margin_top = -15.0
-margin_right = 48.0
-margin_bottom = 15.0
-size_flags_vertical = 3
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 25 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 26 )
-texture_focused = ExtResource( 25 )
-expand = true
-
-[node name="MainMenu" type="TextureButton" parent="Menu/CanvasLayer/VictoryScreen"]
-anchor_left = 0.25
-anchor_top = 0.826
-anchor_right = 0.25
-anchor_bottom = 0.826
-margin_left = -48.0
-margin_top = -15.0
-margin_right = 48.0
-margin_bottom = 15.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 38 )
-texture_pressed = ExtResource( 37 )
-texture_hover = ExtResource( 37 )
-texture_disabled = ExtResource( 38 )
-texture_focused = ExtResource( 37 )
-expand = true
+texture = ExtResource( 32 )
 
 [node name="Cursor" parent="Menu/CanvasLayer" instance=ExtResource( 4 )]
 
@@ -555,6 +551,12 @@ margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="victory" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+text = "victory"
+
 [node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/Pause"]
 position = Vector2( 256, 55 )
 texture = ExtResource( 10 )
@@ -577,6 +579,18 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 259, 143 )
 scale = Vector2( 0.791, 0.665 )
 texture = ExtResource( 19 )
+
+[node name="autosave" type="Label" parent="Menu/CanvasLayer"]
+visible = false
+margin_left = 5.0
+margin_top = 282.0
+margin_right = 64.0
+margin_bottom = 296.0
+text = "Autosave"
+
+[node name="Timer" type="Timer" parent="Menu/CanvasLayer/autosave"]
+wait_time = 0.5
+one_shot = true
 
 [node name="SoundManager" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 5 )
@@ -608,12 +622,6 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="Menu/CanvasLayer/LoseScreen/Load" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Load" to="SoundManager" method="button_select"]
-[connection signal="mouse_entered" from="Menu/CanvasLayer/VictoryScreen/Quit" to="SoundManager" method="button_focus"]
-[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/Quit" to="." method="quit"]
-[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/Quit" to="SoundManager" method="button_select"]
-[connection signal="mouse_entered" from="Menu/CanvasLayer/VictoryScreen/MainMenu" to="SoundManager" method="button_focus"]
-[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/MainMenu" to="." method="return_to_main_menu"]
-[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/MainMenu" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="Menu/CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="SoundManager" method="button_select"]
@@ -632,3 +640,5 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_select"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/victory" to="." method="_on_victory_pressed"]
+[connection signal="timeout" from="Menu/CanvasLayer/autosave/Timer" to="." method="_on_AutosaveTimer_timeout"]

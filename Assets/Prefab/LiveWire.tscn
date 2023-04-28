@@ -43,7 +43,6 @@ tracks/0/keys = {
 [node name="LiveWire" type="Node2D"]
 z_index = 1
 script = ExtResource( 3 )
-damage = 50.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0
@@ -76,4 +75,10 @@ bus = "FX"
 position = Vector2( 0, -2.5 )
 shape = SubResource( 1 )
 
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_apply_damage"]

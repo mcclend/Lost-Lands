@@ -8,7 +8,7 @@ func _ready():
 	yield(get_node("AnimatedSprite"), "animation_finished")
 	$AnimatedSprite.play("loop")
 func _input(event):
-	if event is InputEventKey and event.pressed and active:
+	if (event is InputEventKey || event is InputEventMouseButton) && !event.pressed and active:
 		self.visible = false
 		active = false
 		$"../MainMenu".show()
