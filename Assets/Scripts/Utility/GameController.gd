@@ -120,7 +120,7 @@ func load_new_game():
 	Global.has_grapple = false
 	Global.can_grapple = false
 	#Global.current_charge = Global.max_charge
-	loadScene("Level04")
+	loadScene("Level00")
 	main_menu.hide()
 	
 func quit():
