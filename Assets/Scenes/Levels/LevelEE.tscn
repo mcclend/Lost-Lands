@@ -236,14 +236,14 @@ position = Vector2( 458, 1119 )
 position = Vector2( 984, 1290 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
 position = Vector2( 818, 1288 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 
@@ -251,33 +251,32 @@ flip_h = true
 position = Vector2( 904, 515 )
 scale = Vector2( 4.07813, 4.07813 )
 frames = SubResource( 6 )
-frame = 1
 playing = true
 flip_h = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 933, 1284 )
 frames = SubResource( 15 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
 position = Vector2( 870, 1283 )
 frames = SubResource( 15 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
 position = Vector2( 1453, 442 )
 scale = Vector2( 9.26563, 9.26563 )
 frames = SubResource( 15 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 163, 1223 )
 frames = SubResource( 22 )
-frame = 5
+playing = true
 
 [node name="Otto" type="Sprite" parent="."]
 position = Vector2( 550, 1267 )
