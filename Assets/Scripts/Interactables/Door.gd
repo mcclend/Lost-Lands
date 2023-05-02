@@ -1,8 +1,10 @@
 extends ActivationArea
 class_name Door
 
+
 export (String) var next_level = null
 export (String) var door_number = null
+export var final_level = false
 export var active = true
 var _open = true
 
@@ -12,7 +14,8 @@ func activate():
 		SoundManager.open_door()
 		Global.load_door = door_number
 		Global.emit_signal("next_level", next_level, door_number)
-		
+	if final_level:
+		Global.emit_signal("victory")
 
 func _physics_process(delta):
 	if active:

@@ -330,6 +330,7 @@ active = false
 position = Vector2( 1669, 1282 )
 next_level = "Level_HUB"
 door_number = "4"
+final_level = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 298, 313 )

@@ -13,6 +13,7 @@ onready var controls_menu = $Menu/CanvasLayer/ControlsMenu
 onready var final_level_timer = $Menu/CanvasLayer/TimerDisplay
 onready var lose_screen = $Menu/CanvasLayer/LoseScreen
 onready var victory_screen = $Menu/CanvasLayer/VictoryScreen
+onready var credits_screen = $Menu/CanvasLayer/CreditScreen
 var levelInstance
 
 
@@ -111,6 +112,8 @@ func _on_load_pressed():
 	game_over.hide()
 	pause_menu._on_resume_pressed()
 	Global.loadData(Global.SAVE_PATH)
+	
+	
 
 func _on_NewGame_pressed():
 	main_menu.hide()
@@ -157,3 +160,11 @@ func _on_AutosaveTimer_timeout():
 
 func _on_victory_pressed():
 	Global.emit_signal("victory")
+
+
+func _on_Credits_pressed():
+	main_menu.hide()
+	pause_menu.hide()
+	pause_menu.active = false
+	controls_menu.hide()
+	credits_screen.show()	 # Replace with function body.

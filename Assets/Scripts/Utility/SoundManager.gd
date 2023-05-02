@@ -6,7 +6,7 @@ onready var bg_03 = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/bac
 onready var bg_04 = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/Time trial.mp3")
 onready var bg_HUB = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/background4.mp3")
 onready var bg_Main_Menu = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/background4.mp3")
-onready var bg_EE = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/background6.mp3")
+onready var bg_EE = preload("res://Assets/Audio Assets/Music 2.0/Music vol 1/eastereggfix.mp3")
 onready var bg_player = $BackgroundMusic
 
 func button_focus():
@@ -47,7 +47,7 @@ func _process(delta):
 				bg_player.stop()
 				bg_player.stream = bg_HUB
 				bg_player.play()
-		"Level_EE":
+		"LevelEE":
 			if !bg_player.playing or !bg_player.stream == bg_EE:
 				bg_player.stop()
 				bg_player.stream = bg_EE

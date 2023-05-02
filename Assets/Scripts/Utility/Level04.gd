@@ -16,9 +16,10 @@ func _process(delta):
 		
 		#All 4 switches have been activated
 		timer.stop()
-		Global.emit_signal("victory")
+		#Global.emit_signal("victory")
 
 
 
 func _on_LevelTimer_timeout():
 	Global.emit_signal("final_timer_timeout")
+

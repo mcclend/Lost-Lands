@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Assets/Prefab/tileset_overgrown_X48.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/overgrown background separate/tile006_edit2.png" type="Texture" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://Assets/Art Assets/Backgrounds/clean background separate/tile007.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Art Assets/Tutorial Labels/Enter Mech Tutorial(2).png" type="Texture" id=40]
 [ext_resource path="res://Assets/Art Assets/Tutorial Labels/e.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Prefab/Battery.tscn" type="PackedScene" id=42]
 
 [node name="Node2D" type="Node2D"]
 
@@ -329,3 +330,6 @@ texture = ExtResource( 41 )
 position = Vector2( 1692, 757 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 11 )
+
+[node name="Battery" parent="." instance=ExtResource( 42 )]
+position = Vector2( 1245, 509 )
