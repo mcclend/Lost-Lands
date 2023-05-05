@@ -921,4 +921,4 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 2/shape_one_way = false
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
-2/z_index = 0
+2/z_index = 10
