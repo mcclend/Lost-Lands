@@ -14,6 +14,8 @@ signal load_save()
 signal next_level(scene, door_number)
 signal show_mech_boost_icon(value)
 signal show_grapple_icon(value)
+signal final_timer_timeout()
+signal victory()
 
 onready var mech_prefab = preload("res://Assets/Prefab/Mech.tscn")
 onready var human_prefab = preload("res://Assets/Prefab/Human.tscn")
@@ -37,6 +39,8 @@ var root = null
 var file = File.new()
 var hud
 var viewport_size
+var load_door = 0
+var final_level_timer = null
 
 
 func _ready():
@@ -82,7 +86,8 @@ func saveData(path : String):
 		"current_charge" : current_charge,
 		"has_grapple" : has_grapple,
 		"current_scene_name" : current_scene_name,
-		"charge_depletion_rate" : charge_depletion_rate
+		"charge_depletion_rate" : charge_depletion_rate,
+		"load_door" : load_door
 	}
 	var file
 	file = File.new()
@@ -102,6 +107,7 @@ func loadData(path : String):
 	has_grapple = jsonData.has_grapple
 	current_scene_name = jsonData.current_scene_name
 	charge_depletion_rate = jsonData.charge_depletion_rate
+	load_door = jsonData.load_door
 	emit_signal("load_save")
 
 func play_audio(audio:AudioStream, audio_player:AudioStreamPlayer2D, immediate:bool = false, volume:float = -18):

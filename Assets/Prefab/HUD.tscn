@@ -114,6 +114,8 @@ script = ExtResource( 5 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 1 )]
+anchor_right = 0.488281
+anchor_bottom = 0.213333
 margin_left = 13.0
 margin_top = 5.0
 margin_right = 13.0
@@ -121,9 +123,9 @@ margin_bottom = 5.0
 
 [node name="ChargeBar" parent="CanvasLayer" instance=ExtResource( 2 )]
 margin_left = 13.0
-margin_top = 20.0
-margin_right = 13.0
-margin_bottom = 20.0
+margin_top = 37.0
+margin_right = 12.632
+margin_bottom = 82.1
 
 [node name="GrappleCooldown" type="Node2D" parent="CanvasLayer"]
 

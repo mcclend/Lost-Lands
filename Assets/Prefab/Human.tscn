@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/Human/Pilot_walk.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Assets/Scripts/Player/Human/States/PlayerGrappleLaunch.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Scripts/Utility/Camera2D.gd" type="Script" id=21]
 [ext_resource path="res://Assets/Scripts/Player/Human/States/PlayerDeath.gd" type="Script" id=22]
+[ext_resource path="res://Assets/Art Assets/Human/Pilot_push_walk.png" type="Texture" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.5, 20 )
@@ -334,6 +335,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Color( 0.584314, 0, 0, 1 ) ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/AnimationSprites/WalkPush:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Walk"
@@ -341,6 +354,23 @@ length = 0.34
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/AnimationSprites/Walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "WalkPush"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/AnimationSprites/WalkPush:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -430,6 +460,7 @@ anims/LaunchGrapple = SubResource( 8 )
 anims/LaunchGrappleUp = SubResource( 9 )
 anims/RESET = SubResource( 3 )
 anims/Walk = SubResource( 4 )
+anims/WalkPush = SubResource( 16 )
 anims/WallJump = SubResource( 13 )
 anims/fall = SubResource( 6 )
 anims/jump = SubResource( 7 )
@@ -443,6 +474,7 @@ start_state = "Idle"
 [node name="Body" type="Node2D" parent="."]
 
 [node name="AnimationSprites" type="Node2D" parent="Body"]
+position = Vector2( 0, 1 )
 
 [node name="Idle" type="Sprite" parent="Body/AnimationSprites"]
 visible = false
@@ -466,6 +498,7 @@ hframes = 4
 vframes = 4
 
 [node name="LaunchGrapple" type="Sprite" parent="Body/AnimationSprites"]
+visible = false
 scale = Vector2( 0.031, 0.031 )
 texture = ExtResource( 13 )
 hframes = 2
@@ -514,6 +547,11 @@ texture = ExtResource( 19 )
 hframes = 3
 vframes = 3
 
+[node name="WalkPush" type="Sprite" parent="Body/AnimationSprites"]
+texture = ExtResource( 23 )
+hframes = 2
+vframes = 2
+
 [node name="hitbox" type="Area2D" parent="Body"]
 collision_layer = 2
 script = ExtResource( 10 )
@@ -542,7 +580,7 @@ position = Vector2( 9.5, 0 )
 shape = SubResource( 5 )
 
 [node name="PushPullPosition" type="Position2D" parent="Body"]
-position = Vector2( 36, -4 )
+position = Vector2( 38, -4 )
 
 [node name="bounds" type="Node2D" parent="Body"]
 visible = false

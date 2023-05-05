@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Art Assets/Interactable Objects/RepeatingVine.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 4.5 )
+extents = Vector2( 23.5, 4.5 )
 
 [node name="PullablePlatform" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -45,7 +45,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 8, 48 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 3.5
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

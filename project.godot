@@ -234,7 +234,9 @@ config/name="Lost Lands"
 run/main_scene="res://Assets/Scenes/GameController.tscn"
 boot_splash/image="res://GoodbyeStudios_WIP_icon more.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://GoodbyeStudios_WIP_icon.png"
+config/icon="res://LLIcon.png"
+config/macos_native_icon="res://LLIconsmaller.icns"
+config/windows_native_icon="res://LLIcon.ico"
 
 [autoload]
 
@@ -249,6 +251,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot_icon/plugin.cfg" )
 
 [global]
 

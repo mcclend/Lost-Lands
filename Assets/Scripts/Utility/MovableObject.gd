@@ -6,7 +6,7 @@ var _can_move_left := true
 var _can_move_up := true
 var _can_move_down := true
 var _is_linked := false
-var _velocity := Vector2.ZERO
+onready var _velocity := Vector2.ZERO
 
 var pull_velocity := Vector2.ZERO
 var pull := false

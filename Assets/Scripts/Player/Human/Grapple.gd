@@ -54,7 +54,7 @@ func _process(_delta):
 	
 func _physics_process(_delta):
 	
-	if !_is_launching && !_parent.is_linked:
+	if !_is_launching:
 		cast_to = to_local(get_global_mouse_position()).normalized() * _max_distance
 	
 	force_raycast_update()
@@ -62,11 +62,12 @@ func _physics_process(_delta):
 	
 	line.points[0] = _parent.launch_point.position
 	if _parent.is_linked:
+		Global.is_mouse_direction_grapplable_object = false
 		link_point = to_local(_anchor.global_position) #update link point
-		_cast_point = link_point
+		#_cast_point = link_point
 		line.points[1] = link_point #update line
 		activate_area.position = link_point
-		cast_to = _cast_point
+		#cast_to = _cast_point
 	_pull_direction = line.points[1]-line.points[0]
 	_pull_velocity = _pull_direction.normalized() * _PULL_STRENGTH
 	
@@ -90,6 +91,7 @@ func _physics_process(_delta):
 			if attached_object is SmallMovableBlock or attached_object is PullablePlatform:
 				attached_object.pull_velocity = Vector2.ZERO
 				attached_object.pull = false
+	_is_launching = false
 func _collision_check():
 	if is_colliding():
 		if Global.has_grapple && get_collider().is_in_group("CanBeGrappled"):
@@ -109,5 +111,7 @@ func _collision_check():
 						_parent.launch_grapple_side = true
 					link_point = to_local(_anchor.global_position)
 					_parent.is_linked = true	
+		else:
+			Global.is_mouse_direction_grapplable_object = false
 	else:
 		Global.is_mouse_direction_grapplable_object = false

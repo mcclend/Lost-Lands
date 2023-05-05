@@ -93,7 +93,7 @@ environment = SubResource( 16 )
 
 [node name="Laser_sound" type="AudioStreamPlayer2D" parent="pointer/LazerBeam"]
 stream = ExtResource( 4 )
-volume_db = -30.0
 pitch_scale = 4.0
 max_distance = 500.0
+attenuation = 3.73214
 bus = "FX"

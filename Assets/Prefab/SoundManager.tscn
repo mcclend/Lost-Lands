@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Audio Assets/Misc/MenuMovement.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Audio Assets/Misc/MenuSelect.mp3" type="AudioStream" id=2]
@@ -6,14 +6,23 @@
 [ext_resource path="res://Assets/Audio Assets/Misc/gateopening.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Scripts/Utility/SoundManager.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Audio Assets/Mech/Mechheal.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/background8.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/easteregg.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/Time trial.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/Outro1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/background4.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/background3.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Audio Assets/Music 2.0/Music vol 1/background1.mp3" type="AudioStream" id=14]
 
 [node name="GlobalSoundManager" type="Node2D"]
+pause_mode = 2
 position = Vector2( 0, -2 )
 script = ExtResource( 5 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -15.0
+mix_target = 1
 bus = "Music"
 
 [node name="ButtonFocus" type="AudioStreamPlayer" parent="."]
@@ -35,3 +44,39 @@ bus = "FX"
 stream = ExtResource( 6 )
 volume_db = -18.0
 bus = "FX"
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -15.0
+bus = "Music"
+
+[node name="HUB" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Music"
+
+[node name="Level01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+bus = "Music"
+
+[node name="Level02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "Music"
+
+[node name="Level03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Music"
+
+[node name="Level04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+bus = "Music"
+
+[node name="LevelEE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -25.249
+bus = "Music"
+
+[node name="EndGameCredits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.439
+bus = "Music"

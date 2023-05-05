@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Art Assets/UI/lostlandslogo Loop Animation.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art Assets/UI/lostlandslogo Animation 1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Scenes/Main Menu.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Scripts/Utility/Main Menu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Art Assets/Backgrounds/MainMenuBackground.jpg" type="Texture" id=4]
 [ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/controls.png" type="Texture" id=5]
 [ext_resource path="res://GoodbyeStudios_WIP_icon.png" type="Texture" id=6]

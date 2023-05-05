@@ -20,8 +20,15 @@ func unhandled_input(event:InputEvent)->void:
 
 func physics_process(delta:float)->void:
 	player.ground_physics_process(delta)
-	if player.is_push_pull_state:
-		#player.interact_object.global_position = player.push_pull_position.global_position
+	if player.is_push_pull_state && player.anim.is_playing():
+		player.anim.stop()
+		sprite = player.animation_sprites.find_node("WalkPush")
+		set_sprite(sprite)
+	elif !player.is_push_pull_state && !player.anim.is_playing():
+		sprite = player.animation_sprites.find_node("Idle")
+		set_sprite(sprite)
+		player.anim.play("Idle")
+		
 		pass
 func process(delta:float)->void:
 	player.visual_process(delta)				#Handle player turning + stretch and squash

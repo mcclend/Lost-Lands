@@ -283,7 +283,7 @@ collision_layer = 8
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
 frames = SubResource( 75 )
 animation = "idle"
-frame = 3
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
@@ -303,6 +303,7 @@ shape = SubResource( 3 )
 
 [node name="GasArea" type="Area2D" parent="KinematicBody2D"]
 script = ExtResource( 2 )
+damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/GasArea"]
 visible = false
@@ -313,7 +314,7 @@ disabled = true
 polygon = PoolVector2Array( -142, 25, -145, 0, -140, -39, -125, -74, -104, -102, -72, -125, -36, -141, -1, -145, 36, -141, 72, -126, 103, -103, 127, -71, 141, -37, 146, 0, 143, 20 )
 
 [node name="Timer" type="Timer" parent="KinematicBody2D/GasArea"]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 script = SubResource( 4 )
 

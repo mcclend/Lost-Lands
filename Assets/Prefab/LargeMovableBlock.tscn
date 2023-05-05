@@ -9,6 +9,10 @@ extents = Vector2( 41.5, 41.5 )
 [node name="LargeMovableBlock" type="KinematicBody2D"]
 z_index = 1
 script = ExtResource( 2 )
+left_rays = [ NodePath("left") ]
+right_rays = [ NodePath("right") ]
+top_rays = [ NodePath("up") ]
+bottom_rays = [ NodePath("down") ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.5, 0.5 )
@@ -20,56 +24,21 @@ texture = ExtResource( 1 )
 hframes = 3
 vframes = 4
 
-[node name="RayCast2D_TL" type="RayCast2D" parent="."]
-position = Vector2( -20.5, -21 )
+[node name="down" type="RayCast2D" parent="."]
+scale = Vector2( 14, 1 )
+cast_to = Vector2( 0, 48 )
+
+[node name="up" type="RayCast2D" parent="."]
 rotation = 3.14159
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
+scale = Vector2( 14, 1 )
+cast_to = Vector2( 0, 48 )
 
-[node name="RayCast2D_TR" type="RayCast2D" parent="."]
-position = Vector2( 20.5, -21 )
-rotation = 3.14159
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
-
-[node name="RayCast2D_BL" type="RayCast2D" parent="."]
-position = Vector2( -20.5, 21 )
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
-
-[node name="RayCast2D_BR" type="RayCast2D" parent="."]
-position = Vector2( 20.5, 21 )
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
-
-[node name="RayCast2D_RT" type="RayCast2D" parent="."]
-position = Vector2( 21, -20.5 )
-rotation = -1.72788
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
-
-[node name="RayCast2D_RB" type="RayCast2D" parent="."]
-position = Vector2( 21, 20.5 )
-rotation = -1.72788
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
-
-[node name="RayCast2D_LB" type="RayCast2D" parent="."]
-position = Vector2( -21, 20.5 )
+[node name="left" type="RayCast2D" parent="."]
 rotation = 1.5708
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
+scale = Vector2( 14, 1 )
+cast_to = Vector2( 0, 48 )
 
-[node name="RayCast2D_LT" type="RayCast2D" parent="."]
-position = Vector2( -21, -20.5 )
-rotation = 1.57743
-scale = Vector2( 0.5, 0.5 )
-enabled = true
-cast_to = Vector2( 0, 3 )
+[node name="right" type="RayCast2D" parent="."]
+rotation = -1.5708
+scale = Vector2( 14, 1 )
+cast_to = Vector2( 0, 48 )

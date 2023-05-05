@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Assets/Prefab/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scripts/Utility/Pause.gd" type="Script" id=2]
@@ -6,11 +6,197 @@
 [ext_resource path="res://Assets/Prefab/mouseCursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scripts/Utility/LocalSoundManager.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Prefab/SoundManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/load_active.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Art Assets/Backgrounds/MainMenuBackground.jpg" type="Texture" id=8]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/load_inactive.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art Assets/UI/Paused Screen Top.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/controls_inactive.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/controls_active.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/credits_active.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/credits_inactive.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/new_inactive.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/new_active.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/quit_inactive.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art Assets/UI/UI Buttons(2) split/quit_active.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art Assets/UI/Controls Popup.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art Assets/UI/lostlandslogo Animation 1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Art Assets/UI/lostlandslogo Loop Animation.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Scenes/Title Screen.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Scenes/Levels/Story Intro.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Scenes/ControlsMenu.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/quit (2).png" type="Texture" id=25]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/quit (1).png" type="Texture" id=26]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/load (2).png" type="Texture" id=27]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/load (1).png" type="Texture" id=28]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/resume (1).png" type="Texture" id=29]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/resume (2).png" type="Texture" id=30]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/controls (2).png" type="Texture" id=31]
+[ext_resource path="res://Assets/Art Assets/UI/Credits.jpg" type="Texture" id=32]
+[ext_resource path="res://Assets/Art Assets/UI/Pause Buttons split/controls (1).png" type="Texture" id=33]
+[ext_resource path="res://Assets/Scenes/VictoryScreen.gd" type="Script" id=34]
+[ext_resource path="res://Assets/Art Assets/Story Piece/Intro Story Slides(1)(1)(1).png" type="Texture" id=35]
+[ext_resource path="res://Assets/Art Assets/Story Piece/Ending1.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Art Assets/UI/Main Menu Button split/main menu (2).png" type="Texture" id=37]
+[ext_resource path="res://Assets/Art Assets/UI/Main Menu Button split/main menu (1).png" type="Texture" id=38]
+[ext_resource path="res://Assets/Scenes/CreditScreen.gd" type="Script" id=39]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 20 )
+region = Rect2( 160, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 20 )
+region = Rect2( 160, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 20 )
+region = Rect2( 160, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 20 )
+region = Rect2( 160, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 192, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 20 )
+region = Rect2( 80, 192, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 48, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 96, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 144, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 192, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 192, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 192, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 240, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 240, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 21 )
+region = Rect2( 160, 240, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 288, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 21 )
+region = Rect2( 80, 288, 80, 48 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": false,
+"name": "intro",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "loop",
+"speed": 8.0
+} ]
 
 [node name="GameController" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 263.0, 233.0 ],
+"_edit_vertical_guides_": [ 336.0, 80.0, 176.0, 432.0 ]
+}
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 
@@ -70,51 +256,235 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Quit"
 
+[node name="Story Screen" parent="Menu/CanvasLayer" instance=ExtResource( 23 )]
+visible = false
+
 [node name="MainMenu" type="Control" parent="Menu/CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="MainMenuBackground" type="Sprite" parent="Menu/CanvasLayer/MainMenu"]
+position = Vector2( 256.427, 149.75 )
+scale = Vector2( 0.667778, 0.667778 )
+texture = ExtResource( 8 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/CanvasLayer/MainMenu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -171.0
+margin_right = 48.0
+
+[node name="Continue" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 31.0
+size_flags_vertical = 3
+disabled = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 7 )
+expand = true
+
+[node name="NewGame" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 35.0
+margin_right = 96.0
+margin_bottom = 66.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 16 )
+expand = true
+
+[node name="Controls" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 70.0
+margin_right = 96.0
+margin_bottom = 101.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 12 )
+expand = true
+
+[node name="Credits" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 105.0
+margin_right = 96.0
+margin_bottom = 136.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 14 )
+texture_focused = ExtResource( 13 )
+expand = true
+
+[node name="Quit" type="TextureButton" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+margin_top = 140.0
+margin_right = 96.0
+margin_bottom = 171.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 17 )
+texture_focused = ExtResource( 18 )
+expand = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu/CanvasLayer/MainMenu"]
+position = Vector2( 256, 64 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 35 )
+animation = "loop"
+frame = 8
+
+[node name="TimerDisplay" type="Label" parent="Menu/CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -28.5
+margin_right = 28.5
+margin_bottom = 28.0
+
+[node name="LoseScreen" type="Control" parent="Menu/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/LoseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Menu/CanvasLayer/LoseScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+margin_left = -32.0
+margin_top = -7.0
+margin_right = 32.0
+margin_bottom = 7.0
+text = "YOU LOSE"
 
-[node name="Continue" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_right = 82.0
-margin_bottom = 20.0
-disabled = true
-text = "Continue"
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/LoseScreen"]
+position = Vector2( 256.2, 151 )
+scale = Vector2( 0.671111, 0.671111 )
+texture = ExtResource( 36 )
 
-[node name="NewGame" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 24.0
-margin_right = 82.0
-margin_bottom = 44.0
-text = "New Game"
+[node name="Quit" type="TextureButton" parent="Menu/CanvasLayer/LoseScreen"]
+margin_left = 336.0
+margin_top = 233.0
+margin_right = 432.0
+margin_bottom = 263.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 26 )
+texture_focused = ExtResource( 25 )
+expand = true
 
-[node name="Settings" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+[node name="Load" type="TextureButton" parent="Menu/CanvasLayer/LoseScreen"]
+margin_left = 80.0
+margin_top = 233.0
+margin_right = 176.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+texture_focused = ExtResource( 27 )
+expand = true
+
+[node name="VictoryScreen" type="Control" parent="Menu/CanvasLayer"]
 visible = false
-margin_top = 48.0
-margin_right = 82.0
-margin_bottom = 68.0
-text = "Settings"
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 34 )
 
-[node name="Credits" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/VictoryScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0352941, 0.337255, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/VictoryScreen"]
+position = Vector2( 255.598, 150.172 )
+scale = Vector2( 0.670298, 0.670298 )
+texture = ExtResource( 35 )
+
+[node name="Label" type="Label" parent="Menu/CanvasLayer/VictoryScreen"]
 visible = false
-margin_top = 72.0
-margin_right = 82.0
-margin_bottom = 92.0
-text = "Credits"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = 132.0
+margin_right = 244.0
+margin_bottom = 146.0
+text = "Press any key to continue"
 
-[node name="Quit" type="Button" parent="Menu/CanvasLayer/MainMenu/VBoxContainer"]
-margin_top = 48.0
-margin_right = 82.0
-margin_bottom = 68.0
-text = "Quit"
+[node name="Credits" type="TextureButton" parent="Menu/CanvasLayer/VictoryScreen"]
+margin_left = 206.0
+margin_top = 233.0
+margin_right = 302.0
+margin_bottom = 264.0
+size_flags_vertical = 3
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 14 )
+texture_focused = ExtResource( 13 )
+expand = true
+
+[node name="CreditScreen" type="Control" parent="Menu/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 39 )
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/CreditScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0352941, 0.337255, 0, 1 )
+
+[node name="Label" type="Label" parent="Menu/CanvasLayer/CreditScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -7.0
+margin_right = 32.0
+margin_bottom = 7.0
+text = "YOU WIN"
+
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/CreditScreen"]
+position = Vector2( 255.598, 150.172 )
+scale = Vector2( 0.670298, 0.670298 )
+texture = ExtResource( 32 )
+
+[node name="MainMenu" type="TextureButton" parent="Menu/CanvasLayer/CreditScreen"]
+margin_left = 210.0
+margin_top = 248.0
+margin_right = 306.0
+margin_bottom = 279.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 38 )
+texture_pressed = ExtResource( 37 )
+texture_hover = ExtResource( 37 )
+texture_disabled = ExtResource( 38 )
+texture_focused = ExtResource( 37 )
 
 [node name="Cursor" parent="Menu/CanvasLayer" instance=ExtResource( 4 )]
 
@@ -135,70 +505,119 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -55.0
-margin_top = -86.0
-margin_right = 55.0
-margin_bottom = 86.0
+margin_left = -48.0
+margin_top = -56.5
+margin_right = 48.0
+margin_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Resume" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_right = 110.0
-margin_bottom = 40.0
+[node name="Resume" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Resume"
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 30 )
+texture_hover = ExtResource( 30 )
+texture_disabled = ExtResource( 29 )
+texture_focused = ExtResource( 30 )
 
-[node name="Save" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+[node name="Load" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
 margin_top = 35.0
-margin_right = 110.0
+margin_right = 96.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Save"
+texture_normal = ExtResource( 28 )
+texture_pressed = ExtResource( 27 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 28 )
+texture_focused = ExtResource( 27 )
 
-[node name="Load" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 44.0
-margin_right = 110.0
-margin_bottom = 84.0
+[node name="Controls" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+margin_top = 70.0
+margin_right = 96.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Load"
+texture_normal = ExtResource( 33 )
+texture_pressed = ExtResource( 31 )
+texture_hover = ExtResource( 31 )
+texture_disabled = ExtResource( 33 )
+texture_focused = ExtResource( 31 )
 
-[node name="Controls" type="MenuButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 44.0
-margin_right = 110.0
-margin_bottom = 84.0
+[node name="MainMenu" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+margin_top = 105.0
+margin_right = 96.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Controls"
-flat = false
-items = [ "Walk Left:  A", null, 0, false, false, 0, 0, null, "", false, "Walk Right: D", null, 0, false, false, 1, 0, null, "", false, "Jump: space", null, 0, false, false, 2, 0, null, "", false, "Shoot Grapple: Left Mouse", null, 0, false, false, 5, 0, null, "", false, "Pull Grapple: Tab", null, 0, false, false, 6, 0, null, "", false, "Release Grapple: Right Mouse", null, 0, false, false, 7, 0, null, "", false, "Mech Boost: Shift", null, 0, false, false, 8, 0, null, "", false, "Activate Object: E", null, 0, false, false, 3, 0, null, "", false, "Enter Door: W", null, 0, false, false, 4, 0, null, "", false, "Enter/Exit Mech: W", null, 0, false, false, 9, 0, null, "", false, "Middle Mouse: Pan Camera", null, 0, false, false, 10, 0, null, "", false ]
+texture_normal = ExtResource( 38 )
+texture_pressed = ExtResource( 37 )
+texture_hover = ExtResource( 37 )
+texture_disabled = ExtResource( 38 )
+texture_focused = ExtResource( 37 )
 
-[node name="MainMenu" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 88.0
-margin_right = 110.0
-margin_bottom = 128.0
+[node name="Quit" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+margin_top = 140.0
+margin_right = 96.0
+margin_bottom = 171.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Main Menu"
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 25 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 26 )
+texture_focused = ExtResource( 25 )
 
-[node name="Quit" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
-margin_top = 132.0
-margin_right = 110.0
-margin_bottom = 172.0
+[node name="Save" type="TextureButton" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+margin_top = 175.0
+margin_right = 96.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Quit"
 
-[node name="Label" type="Label" parent="Menu/CanvasLayer/Pause"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -44.0
-margin_top = 20.0
-margin_right = 45.0
-margin_bottom = 38.0
-text = "Paused"
-align = 1
-uppercase = true
+[node name="victory" type="Button" parent="Menu/CanvasLayer/Pause/VBoxContainer"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+text = "victory"
+
+[node name="Sprite" type="Sprite" parent="Menu/CanvasLayer/Pause"]
+position = Vector2( 256, 55 )
+texture = ExtResource( 10 )
+
+[node name="TitleScreen" parent="Menu/CanvasLayer" instance=ExtResource( 22 )]
+
+[node name="ControlsMenu" type="Control" parent="Menu/CanvasLayer"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 24 )
+
+[node name="ColorRect" type="ColorRect" parent="Menu/CanvasLayer/ControlsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ControlsPopup" type="Sprite" parent="Menu/CanvasLayer/ControlsMenu"]
+position = Vector2( 259, 143 )
+scale = Vector2( 0.791, 0.665 )
+texture = ExtResource( 19 )
+
+[node name="autosave" type="Label" parent="Menu/CanvasLayer"]
+visible = false
+margin_left = 5.0
+margin_top = 282.0
+margin_right = 64.0
+margin_bottom = 296.0
+text = "Autosave"
+
+[node name="Timer" type="Timer" parent="Menu/CanvasLayer/autosave"]
+wait_time = 0.5
+one_shot = true
 
 [node name="SoundManager" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 5 )
@@ -209,29 +628,42 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="Menu/CanvasLayer/GameOver/VBoxContainer/Quit" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/GameOver/VBoxContainer/Quit" to="." method="quit"]
 [connection signal="pressed" from="Menu/CanvasLayer/GameOver/VBoxContainer/Quit" to="SoundManager" method="button_select"]
+[connection signal="new_game" from="Menu/CanvasLayer/Story Screen" to="." method="load_new_game"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Continue" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Continue" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Continue" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/NewGame" to="SoundManager" method="button_select"]
-[connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Settings" to="SoundManager" method="button_focus"]
-[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Settings" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Controls" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Controls" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Credits" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Credits" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Quit" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Quit" to="." method="quit"]
 [connection signal="pressed" from="Menu/CanvasLayer/MainMenu/VBoxContainer/Quit" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/LoseScreen/Quit" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Quit" to="." method="quit"]
+[connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Quit" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/LoseScreen/Load" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/LoseScreen/Load" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/VictoryScreen/Credits" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/VictoryScreen/Credits" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/CreditScreen/MainMenu" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/CreditScreen/MainMenu" to="." method="return_to_main_menu"]
+[connection signal="pressed" from="Menu/CanvasLayer/CreditScreen/MainMenu" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="Menu/CanvasLayer/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Resume" to="SoundManager" method="button_select"]
-[connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_focus"]
-[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Load" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Load" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Controls" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Controls" to="." method="_on_Controls_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Controls" to="SoundManager" method="button_select"]
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/MainMenu" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/MainMenu" to="." method="return_to_main_menu"]
@@ -239,3 +671,8 @@ script = ExtResource( 5 )
 [connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Quit" to="SoundManager" method="button_focus"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Quit" to="Menu/CanvasLayer/Pause" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Quit" to="SoundManager" method="button_select"]
+[connection signal="mouse_entered" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_focus"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/Save" to="SoundManager" method="button_select"]
+[connection signal="pressed" from="Menu/CanvasLayer/Pause/VBoxContainer/victory" to="." method="_on_victory_pressed"]
+[connection signal="timeout" from="Menu/CanvasLayer/autosave/Timer" to="." method="_on_AutosaveTimer_timeout"]

@@ -42,6 +42,7 @@ tracks/0/keys = {
 
 [node name="SpikeyVine" type="Node2D"]
 script = ExtResource( 3 )
+damage = 15.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0
@@ -69,4 +70,7 @@ volume_db = -10.0
 position = Vector2( 0, -2.5 )
 shape = SubResource( 1 )
 
+[node name="DamageTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_apply_damage"]

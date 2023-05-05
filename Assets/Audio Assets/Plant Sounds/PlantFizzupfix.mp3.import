@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlantFizzupfix.mp3-23eca1d8d91d5c9f15baa2f83bb23346.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio Assets/Plant Sounds/PlantFizzupfix.mp3"
+dest_files=[ "res://.import/PlantFizzupfix.mp3-23eca1d8d91d5c9f15baa2f83bb23346.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
